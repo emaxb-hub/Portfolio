@@ -143,34 +143,34 @@ a {
   align-self: start;
 }
 
-.intro-section {
-  min-height: 120vh;
+.hero-intro {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  width: min(860px, calc(100vw - 2rem));
+  height: 100%;
   display: flex;
-  align-items: center;
-  padding: clamp(6rem, 12vw, 12rem) clamp(1.25rem, 8vw, 9rem);
-  background: #000;
-}
-
-.intro-copy {
-  width: min(1040px, 100%);
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1rem, 2vw, 1.6rem);
   margin: 0 auto;
+  padding-top: clamp(3rem, 7vh, 5rem);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(24px);
 }
 
-.intro-block {
+.hero-intro-block {
   margin: 0;
   color: rgba(248, 250, 252, 0.9);
-  font-size: clamp(1.55rem, 4vw, 4.4rem);
+  font-size: clamp(0.96rem, 1.55vw, 1.35rem);
   font-weight: 500;
-  line-height: 1.16;
+  line-height: 1.65;
   letter-spacing: 0;
   will-change: transform, opacity, filter;
 }
 
-.intro-block + .intro-block {
-  margin-top: clamp(2.3rem, 7vw, 5.8rem);
-}
-
-.intro-block span {
+.hero-intro-block span {
   color: var(--accent);
 }
 
@@ -186,13 +186,14 @@ a {
   display: flex;
   width: max-content;
   white-space: nowrap;
-  gap: 4vw;
-  padding-left: 100vw;
+  gap: 8vw;
+  padding-left: 0;
   color: var(--accent);
+  will-change: transform;
 }
 
 .heading-xl {
-  font-size: clamp(2rem, 10vw, 12rem);
+  font-size: clamp(2rem, 8vw, 9rem);
   font-weight: 600;
   line-height: 1.1;
 }
@@ -508,6 +509,16 @@ a {
 
   .hero-name {
     font-size: clamp(4.5rem, 24vw, 8rem);
+  }
+
+  .hero-intro {
+    width: min(88vw, 540px);
+    padding-top: 4.8rem;
+  }
+
+  .hero-intro-block {
+    font-size: clamp(0.9rem, 4vw, 1.05rem);
+    line-height: 1.55;
   }
 
   .gallery-wrap {

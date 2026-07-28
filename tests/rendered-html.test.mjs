@@ -56,12 +56,12 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(page, /<PortfolioHome \/>/);
   assert.match(portfolio, /gsap\.registerPlugin\(ScrollTrigger, Flip, SplitText\)/);
   assert.match(portfolio, /SplitText\.create\("\.Horizontal__text"/);
-  assert.match(portfolio, /className="intro-section"/);
-  assert.match(portfolio, /\.intro-block/);
+  assert.match(portfolio, /className="hero-intro"/);
+  assert.match(portfolio, /\.hero-intro-block/);
   assert.match(portfolio, /id="gallery-8"/);
   assert.match(portfolio, /className="Horizontal"/);
-  assert.match(css, /\.intro-section/);
-  assert.match(css, /\.intro-block span/);
+  assert.match(css, /\.hero-intro/);
+  assert.match(css, /\.hero-intro-block span/);
   assert.match(css, /background:\s*#000/i);
   assert.match(css, /--accent:\s*#06b6d4/i);
   assert.match(css, /--font-signature/);

@@ -192,23 +192,19 @@ export default function PortfolioHome() {
             { xPercent: 102, duration: 1.25, ease: "expo.inOut" },
             "<",
           )
-          .from(".intro-section", { opacity: 0, duration: 0.8 }, "-=0.35");
-
-        gsap.utils.toArray<HTMLElement>(".intro-block").forEach((item) => {
-          gsap.from(item, {
-            y: 56,
-            opacity: 0,
-            filter: "blur(10px)",
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: item,
-              start: "top 78%",
-              end: "top 45%",
-              scrub: 1,
+          .to(".hero-intro", { autoAlpha: 1, y: 0, duration: 0.8 }, "-=0.25")
+          .from(
+            ".hero-intro-block",
+            {
+              y: 22,
+              opacity: 0,
+              filter: "blur(8px)",
+              duration: 0.7,
+              stagger: 0.13,
+              ease: "power3.out",
             },
-          });
-        });
+            "-=0.25",
+          );
 
         const wrapper = root.querySelector<HTMLElement>(".Horizontal");
         const text = root.querySelector<HTMLElement>(".Horizontal__text");
@@ -218,14 +214,16 @@ export default function PortfolioHome() {
             type: "chars, words",
           });
 
-          const scrollTween = gsap.to(text, {
-            xPercent: -100,
+          gsap.to(text, {
+            xPercent: -50,
+            duration: 16,
             ease: "none",
+            repeat: -1,
             scrollTrigger: {
               trigger: wrapper,
-              pin: true,
-              end: "+=5000px",
-              scrub: true,
+              start: "top bottom",
+              end: "bottom top",
+              toggleActions: "play pause resume pause",
             },
           });
 
@@ -235,11 +233,9 @@ export default function PortfolioHome() {
               rotation: "random(-20, 20)",
               ease: "back.out(1.2)",
               scrollTrigger: {
-                trigger: char,
-                containerAnimation: scrollTween,
-                start: "left 100%",
-                end: "left 30%",
-                scrub: 1,
+                trigger: wrapper,
+                start: "top 70%",
+                toggleActions: "play none none reverse",
               },
             });
           });
@@ -328,12 +324,9 @@ export default function PortfolioHome() {
           {profile.role} / {profile.location}
         </p>
 
-      </section>
-
-      <section className="intro-section" aria-label="Introduction">
-        <div className="intro-copy">
+        <div className="hero-intro" aria-label="Introduction">
           {introBlocks.map((block, index) => (
-            <p className="intro-block" key={index}>
+            <p className="hero-intro-block" key={index}>
               {block.text}
             </p>
           ))}
@@ -341,7 +334,12 @@ export default function PortfolioHome() {
       </section>
 
       <section className="Horizontal" aria-label="Portfolio quote">
-        <div className="Horizontal__text heading-xl">{quote}</div>
+        <div className="Horizontal__text heading-xl">
+          <span>{quote}</span>
+          <span aria-hidden="true">{quote}</span>
+          <span aria-hidden="true">{quote}</span>
+          <span aria-hidden="true">{quote}</span>
+        </div>
       </section>
 
       <section className="gallery-section" id="projects" aria-label="Scrubbed bento project gallery">
