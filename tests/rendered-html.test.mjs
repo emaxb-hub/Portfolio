@@ -36,6 +36,9 @@ test("server-renders Emaan Bilal's portfolio shell", async () => {
     html,
     /I imagine, learn, and build\./,
   );
+  assert.match(html, /Hi, <span>Emaan<\/span> here\./);
+  assert.match(html, /FAST-NUCES/);
+  assert.match(html, /computer vision/);
   assert.match(html, /Scrubbed bento project gallery/);
   assert.match(html, /Kaam Compiler/);
   assert.match(html, /Tech Avenue Private Limited/);
@@ -53,8 +56,12 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(page, /<PortfolioHome \/>/);
   assert.match(portfolio, /gsap\.registerPlugin\(ScrollTrigger, Flip, SplitText\)/);
   assert.match(portfolio, /SplitText\.create\("\.Horizontal__text"/);
+  assert.match(portfolio, /className="intro-section"/);
+  assert.match(portfolio, /\.intro-block/);
   assert.match(portfolio, /id="gallery-8"/);
   assert.match(portfolio, /className="Horizontal"/);
+  assert.match(css, /\.intro-section/);
+  assert.match(css, /\.intro-block span/);
   assert.match(css, /background:\s*#000/i);
   assert.match(css, /--accent:\s*#06b6d4/i);
   assert.match(css, /--font-signature/);

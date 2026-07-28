@@ -143,6 +143,37 @@ a {
   align-self: start;
 }
 
+.intro-section {
+  min-height: 120vh;
+  display: flex;
+  align-items: center;
+  padding: clamp(6rem, 12vw, 12rem) clamp(1.25rem, 8vw, 9rem);
+  background: #000;
+}
+
+.intro-copy {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+}
+
+.intro-block {
+  margin: 0;
+  color: rgba(248, 250, 252, 0.9);
+  font-size: clamp(1.55rem, 4vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: 0;
+  will-change: transform, opacity, filter;
+}
+
+.intro-block + .intro-block {
+  margin-top: clamp(2.3rem, 7vw, 5.8rem);
+}
+
+.intro-block span {
+  color: var(--accent);
+}
+
 .Horizontal {
   overflow: hidden;
   height: 100vh;

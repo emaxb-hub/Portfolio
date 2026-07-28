@@ -110,6 +110,40 @@ const leadership = [
 const quote =
   "I imagine, learn, and build.";
 
+const introBlocks = [
+  {
+    text: <>Hi, <span>Emaan</span> here.</>,
+  },
+  {
+    text: (
+      <>
+        I am an undergraduate Computer Science student at <span>FAST-NUCES</span>.
+        Art has been part of who I am since childhood, from painting to creating
+        things visually.
+      </>
+    ),
+  },
+  {
+    text: (
+      <>
+        Computer science gave that creativity a new direction. <span>Front-end
+        development</span>, <span>interactive interfaces</span>, and <span>game
+        development</span> became spaces where I could transform ideas into
+        experiences.
+      </>
+    ),
+  },
+  {
+    text: (
+      <>
+        I am also learning <span>back-end development</span>, <span>artificial
+        intelligence</span>, and <span>database design</span>, while exploring
+        <span> computer vision</span> with growing curiosity.
+      </>
+    ),
+  },
+];
+
 export default function PortfolioHome() {
   const rootRef = useRef<HTMLElement | null>(null);
 
@@ -158,7 +192,23 @@ export default function PortfolioHome() {
             { xPercent: 102, duration: 1.25, ease: "expo.inOut" },
             "<",
           )
-          .from(".Horizontal", { opacity: 0, duration: 0.8 }, "-=0.35");
+          .from(".intro-section", { opacity: 0, duration: 0.8 }, "-=0.35");
+
+        gsap.utils.toArray<HTMLElement>(".intro-block").forEach((item) => {
+          gsap.from(item, {
+            y: 56,
+            opacity: 0,
+            filter: "blur(10px)",
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 78%",
+              end: "top 45%",
+              scrub: 1,
+            },
+          });
+        });
 
         const wrapper = root.querySelector<HTMLElement>(".Horizontal");
         const text = root.querySelector<HTMLElement>(".Horizontal__text");
@@ -278,6 +328,16 @@ export default function PortfolioHome() {
           {profile.role} / {profile.location}
         </p>
 
+      </section>
+
+      <section className="intro-section" aria-label="Introduction">
+        <div className="intro-copy">
+          {introBlocks.map((block, index) => (
+            <p className="intro-block" key={index}>
+              {block.text}
+            </p>
+          ))}
+        </div>
       </section>
 
       <section className="Horizontal" aria-label="Portfolio quote">
