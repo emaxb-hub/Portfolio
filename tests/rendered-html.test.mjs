@@ -34,7 +34,7 @@ test("server-renders Emaan Bilal's portfolio shell", async () => {
   assert.match(html, /Bilal/);
   assert.match(
     html,
-    /Curious enough to explore, creative enough to imagine, and determined enough to build\./,
+    /I imagine, learn, and build\./,
   );
   assert.match(html, /Scrubbed bento project gallery/);
   assert.match(html, /Kaam Compiler/);

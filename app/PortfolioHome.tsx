@@ -108,7 +108,7 @@ const leadership = [
 ];
 
 const quote =
-  "Curious enough to explore, creative enough to imagine, and determined enough to build.";
+  "I imagine, learn, and build.";
 
 export default function PortfolioHome() {
   const rootRef = useRef<HTMLElement | null>(null);
