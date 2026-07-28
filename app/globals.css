@@ -1,16 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #080a06;
-  --surface: #151a10;
-  --surface-strong: #1d2516;
+  --background: #000000;
   --primary: #a3e635;
   --accent: #06b6d4;
   --warm: #f59e0b;
   --rose: #fb7185;
   --text: #f8fafc;
-  --muted: #a6b49b;
-  --line: rgba(248, 250, 252, 0.14);
+  --muted: #8f9a9f;
 }
 
 @theme inline {
@@ -26,18 +23,13 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--background);
+  background: #000;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  background:
-    linear-gradient(90deg, rgba(163, 230, 53, 0.045) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(6, 182, 212, 0.035) 1px, transparent 1px),
-    radial-gradient(circle at 50% 0%, rgba(163, 230, 53, 0.12), transparent 34rem),
-    var(--background);
-  background-size: 56px 56px, 56px 56px, auto, auto;
+  background: #000;
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -49,6 +41,7 @@ a {
 
 .portfolio {
   overflow: clip;
+  background: #000;
 }
 
 .hero {
@@ -58,15 +51,7 @@ a {
   place-items: center;
   padding: 2rem clamp(1rem, 4vw, 5rem);
   isolation: isolate;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: auto 8vw 3rem;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
-  opacity: 0.65;
+  background: #000;
 }
 
 .split-panel {
@@ -74,22 +59,15 @@ a {
   inset-block: 0;
   width: 50%;
   z-index: -1;
-  background:
-    linear-gradient(135deg, rgba(163, 230, 53, 0.08), transparent 44%),
-    var(--surface);
+  background: #000;
 }
 
 .split-panel-left {
   left: 0;
-  border-right: 1px solid rgba(163, 230, 53, 0.18);
 }
 
 .split-panel-right {
   right: 0;
-  border-left: 1px solid rgba(6, 182, 212, 0.18);
-  background:
-    linear-gradient(225deg, rgba(6, 182, 212, 0.09), transparent 42%),
-    #0c1108;
 }
 
 .nav {
@@ -100,17 +78,15 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.45rem;
-  width: min(92vw, 620px);
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  width: min(92vw, 680px);
   padding: 0.45rem;
-  border: 1px solid var(--line);
-  background: rgba(8, 10, 6, 0.78);
-  backdrop-filter: blur(16px);
+  background: transparent;
   transform: translateX(-50%);
 }
 
 .nav a {
-  padding: 0.6rem 0.8rem;
+  padding: 0.35rem 0;
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 800;
@@ -119,7 +95,7 @@ a {
 }
 
 .nav a:hover {
-  color: var(--primary);
+  color: var(--accent);
 }
 
 .hero-kicker,
@@ -140,119 +116,61 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.7rem, 2.5vw, 2rem);
+  gap: clamp(0.65rem, 2.3vw, 1.8rem);
   width: 100%;
   margin: 0;
-  overflow: hidden;
-  font-size: clamp(3.4rem, 14vw, 12rem);
-  font-weight: 950;
+  overflow: visible;
+  font-family: var(--font-signature), cursive;
+  font-size: clamp(5.2rem, 16vw, 14rem);
+  font-weight: 400;
   letter-spacing: 0;
-  line-height: 0.86;
+  line-height: 0.9;
   text-align: center;
 }
 
 .name-word {
   display: inline-block;
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
-.name-left {
-  color: var(--primary);
-  text-shadow: 0 0 34px rgba(163, 230, 53, 0.34);
-}
-
+.name-left,
 .name-right {
-  color: var(--text);
-  text-shadow: 0 0 34px rgba(6, 182, 212, 0.24);
+  color: #f8fafc;
+  text-shadow: 0 0 34px rgba(6, 182, 212, 0.18);
 }
 
 .hero-meta {
   align-self: start;
 }
 
-.hello-panel {
-  position: absolute;
-  inset: 50% auto auto 50%;
-  z-index: 5;
-  width: min(760px, calc(100vw - 2rem));
-  min-height: 360px;
-  display: grid;
-  place-items: center;
-  padding: clamp(1.4rem, 4vw, 3rem);
-  border: 1px solid rgba(163, 230, 53, 0.32);
-  background:
-    linear-gradient(120deg, rgba(163, 230, 53, 0.16), transparent 34%),
-    linear-gradient(300deg, rgba(6, 182, 212, 0.13), transparent 42%),
-    rgba(8, 10, 6, 0.93);
-  box-shadow: 0 24px 100px rgba(0, 0, 0, 0.48);
-  transform: translate(-50%, -50%);
-  transform-origin: 50% 50%;
-}
-
-.hello-content {
-  max-width: 620px;
-  text-align: center;
-}
-
-.hello-tag {
-  display: inline-flex;
-  margin-bottom: 1rem;
-  color: var(--accent);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: clamp(1.4rem, 4vw, 3.1rem);
-  font-weight: 900;
-  text-transform: lowercase;
-}
-
-.hello-content h2,
-.section-heading h2,
-.contact-panel h2 {
-  margin: 0;
-  font-size: clamp(2rem, 5vw, 4.8rem);
-  font-weight: 900;
-  line-height: 0.98;
-  letter-spacing: 0;
-}
-
-.hello-content p {
-  margin: 1.15rem auto 0;
-  color: #dce8d8;
-  font-size: clamp(0.95rem, 1.8vw, 1.12rem);
-  line-height: 1.72;
-}
-
-.hero-actions,
-.contact-links {
+.Horizontal {
+  overflow: hidden;
+  height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-top: 1.5rem;
-}
-
-.hero-actions a,
-.contact-links a {
-  min-height: 44px;
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 0.78rem 1rem;
-  border: 1px solid rgba(163, 230, 53, 0.38);
-  background: var(--primary);
-  color: #11170b;
-  font-weight: 900;
+  background: #000;
 }
 
-.hero-actions a:last-child,
-.contact-links a:not(:first-child) {
-  background: transparent;
-  color: var(--text);
+.Horizontal__text {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  gap: 4vw;
+  padding-left: 100vw;
+  color: var(--accent);
+}
+
+.heading-xl {
+  font-size: clamp(2rem, 10vw, 12rem);
+  font-weight: 600;
+  line-height: 1.1;
 }
 
 .gallery-section,
 .section {
   position: relative;
   padding: clamp(4rem, 10vw, 9rem) clamp(1rem, 5vw, 5rem);
+  background: #000;
 }
 
 .section-heading {
@@ -263,11 +181,20 @@ a {
 .section-heading p,
 .contact-panel > p {
   margin: 0 0 0.9rem;
-  color: var(--primary);
+  color: var(--accent);
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.82rem;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+.section-heading h2,
+.contact-panel h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4.8rem);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: 0;
 }
 
 .gallery-wrap {
@@ -278,6 +205,7 @@ a {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background: #000;
 }
 
 .gallery {
@@ -296,37 +224,7 @@ a {
   min-width: 0;
   overflow: hidden;
   padding: clamp(0.9rem, 2vw, 1.3rem);
-  border: 1px solid rgba(248, 250, 252, 0.14);
-  background:
-    linear-gradient(135deg, rgba(163, 230, 53, 0.16), transparent 48%),
-    linear-gradient(315deg, rgba(6, 182, 212, 0.14), transparent 42%),
-    var(--surface);
-}
-
-.gallery__item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(248, 250, 252, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.05) 1px, transparent 1px);
-  background-size: 18px 18px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent);
-  pointer-events: none;
-}
-
-.gallery__item:nth-child(2n) {
-  background:
-    linear-gradient(135deg, rgba(6, 182, 212, 0.17), transparent 47%),
-    linear-gradient(315deg, rgba(245, 158, 11, 0.11), transparent 44%),
-    #10170f;
-}
-
-.gallery__item:nth-child(3n) {
-  background:
-    linear-gradient(135deg, rgba(251, 113, 133, 0.13), transparent 48%),
-    linear-gradient(315deg, rgba(163, 230, 53, 0.14), transparent 42%),
-    #11140d;
+  background: transparent;
 }
 
 .gallery__item span,
@@ -338,7 +236,7 @@ a {
 }
 
 .gallery__item span {
-  color: var(--primary);
+  color: var(--muted);
   font-family: var(--font-geist-mono), monospace;
   font-weight: 900;
 }
@@ -356,6 +254,7 @@ a {
   z-index: 1;
   margin: 0;
   overflow-wrap: anywhere;
+  color: var(--text);
   font-size: clamp(1.2rem, 3vw, 2.45rem);
   font-weight: 950;
   line-height: 0.98;
@@ -426,21 +325,15 @@ a {
 .about-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
   max-width: 1180px;
   margin: 0 auto;
 }
 
-.info-card,
-.timeline-item,
-.contact-panel {
-  border: 1px solid var(--line);
-  background: rgba(21, 26, 16, 0.78);
-}
-
 .info-card {
   min-height: 260px;
-  padding: 1.4rem;
+  padding: 0;
+  background: transparent;
 }
 
 .info-card span {
@@ -459,16 +352,14 @@ a {
 .skill-cloud {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 0.9rem 1.2rem;
   max-width: 1050px;
   margin: 0 auto;
 }
 
 .skill-cloud span,
 .leadership-list span {
-  border: 1px solid rgba(163, 230, 53, 0.26);
-  background: rgba(163, 230, 53, 0.08);
-  padding: 0.75rem 0.95rem;
+  padding: 0;
   color: #ecffd5;
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.86rem;
@@ -484,15 +375,12 @@ a {
   display: grid;
   grid-template-columns: 0.9fr 1.6fr;
   gap: 1.5rem;
-  padding: clamp(1rem, 3vw, 1.6rem);
-}
-
-.timeline-item + .timeline-item {
-  border-top: 0;
+  padding: clamp(1rem, 3vw, 1.6rem) 0;
+  background: transparent;
 }
 
 .timeline-item span {
-  color: var(--primary);
+  color: var(--accent);
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.8rem;
   font-weight: 900;
@@ -512,7 +400,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 0.8rem 1.2rem;
   max-width: 980px;
   margin: 0 auto;
 }
@@ -520,13 +408,37 @@ a {
 .contact-panel {
   max-width: 1100px;
   margin: 0 auto;
-  padding: clamp(1.4rem, 5vw, 4rem);
+  padding: 0;
   text-align: center;
+  background: transparent;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.4rem;
+  margin-top: 1.5rem;
+}
+
+.contact-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.contact-links a:hover {
+  color: var(--text);
 }
 
 @media (max-width: 900px) {
   .hero-name {
     flex-direction: column;
+    gap: 0;
   }
 
   .gallery--bento,
@@ -555,16 +467,16 @@ a {
   }
 
   .nav {
-    gap: 0.2rem;
+    gap: 0.65rem;
   }
 
   .nav a {
-    padding: 0.48rem 0.5rem;
+    padding: 0.28rem 0;
     font-size: 0.68rem;
   }
 
-  .hello-panel {
-    min-height: 420px;
+  .hero-name {
+    font-size: clamp(4.5rem, 24vw, 8rem);
   }
 
   .gallery-wrap {
@@ -592,10 +504,5 @@ a {
   *::before,
   *::after {
     scroll-behavior: auto !important;
-  }
-
-  .hello-panel {
-    opacity: 1;
-    transform: translate(-50%, -50%) scaleX(1);
   }
 }

@@ -30,8 +30,12 @@ test("server-renders Emaan Bilal's portfolio shell", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Emaan Bilal \| Frontend &amp; Game Developer<\/title>/i);
-  assert.match(html, /EMAAN/);
-  assert.match(html, /BILAL/);
+  assert.match(html, /Emaan/);
+  assert.match(html, /Bilal/);
+  assert.match(
+    html,
+    /Curious enough to explore, creative enough to imagine, and determined enough to build\./,
+  );
   assert.match(html, /Scrubbed bento project gallery/);
   assert.match(html, /Kaam Compiler/);
   assert.match(html, /Tech Avenue Private Limited/);
@@ -47,11 +51,14 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   ]);
 
   assert.match(page, /<PortfolioHome \/>/);
-  assert.match(portfolio, /gsap\.registerPlugin\(ScrollTrigger, Flip\)/);
+  assert.match(portfolio, /gsap\.registerPlugin\(ScrollTrigger, Flip, SplitText\)/);
+  assert.match(portfolio, /SplitText\.create\("\.Horizontal__text"/);
   assert.match(portfolio, /id="gallery-8"/);
-  assert.match(portfolio, /hello/);
-  assert.match(css, /--primary:\s*#a3e635/i);
+  assert.match(portfolio, /className="Horizontal"/);
+  assert.match(css, /background:\s*#000/i);
   assert.match(css, /--accent:\s*#06b6d4/i);
+  assert.match(css, /--font-signature/);
+  assert.doesNotMatch(css, /background-image|radial-gradient|linear-gradient/i);
   assert.match(packageJson, /"gsap":/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
 });

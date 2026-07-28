@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
+import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const profile = {
@@ -13,9 +14,6 @@ const profile = {
   linkedin: "https://www.linkedin.com/in/emaan-b-883b0a268/",
   emails: ["emaxbilaleo@gmail.com", "i240502@isb.nu.edu.pk"],
 };
-
-const intro =
-  "Hi, Emaan here. I am an undergraduate Computer Science student at FAST-NUCES. Art has been part of me since childhood, from painting to creating things visually. Computer science gave that creativity a new direction: front-end development, interactive interfaces, and game development became places where I could turn ideas into experiences.";
 
 const about = [
   "I learn best by building from curiosity, turning ideas into working things while I study the concepts behind them.",
@@ -109,11 +107,14 @@ const leadership = [
   "NASCON, FAST-NUCES - Management Team",
 ];
 
+const quote =
+  "Curious enough to explore, creative enough to imagine, and determined enough to build.";
+
 export default function PortfolioHome() {
   const rootRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, Flip);
+    gsap.registerPlugin(ScrollTrigger, Flip, SplitText);
 
     const root = rootRef.current;
     if (!root) return;
@@ -138,41 +139,61 @@ export default function PortfolioHome() {
           )
           .to(
             ".name-left",
-            { x: "-32vw", duration: 1.15, ease: "expo.inOut" },
+            { x: "-62vw", opacity: 0, duration: 1.45, ease: "expo.inOut" },
             "+=0.15",
           )
           .to(
             ".name-right",
-            { x: "32vw", duration: 1.15, ease: "expo.inOut" },
+            { x: "62vw", opacity: 0, duration: 1.45, ease: "expo.inOut" },
             "<",
           )
+          .to(".hero-kicker, .hero-meta", { opacity: 0, duration: 0.55 }, "<")
           .to(
             ".split-panel-left",
-            { xPercent: -102, duration: 1.05, ease: "expo.inOut" },
+            { xPercent: -102, duration: 1.25, ease: "expo.inOut" },
             "<",
           )
           .to(
             ".split-panel-right",
-            { xPercent: 102, duration: 1.05, ease: "expo.inOut" },
+            { xPercent: 102, duration: 1.25, ease: "expo.inOut" },
             "<",
           )
-          .fromTo(
-            ".hello-panel",
-            { scaleX: 0, opacity: 0 },
-            {
-              scaleX: 1,
-              opacity: 1,
-              duration: 0.9,
-              transformOrigin: "50% 50%",
-              ease: "expo.inOut",
+          .from(".Horizontal", { opacity: 0, duration: 0.8 }, "-=0.35");
+
+        const wrapper = root.querySelector<HTMLElement>(".Horizontal");
+        const text = root.querySelector<HTMLElement>(".Horizontal__text");
+
+        if (wrapper && text) {
+          const split = SplitText.create(".Horizontal__text", {
+            type: "chars, words",
+          });
+
+          const scrollTween = gsap.to(text, {
+            xPercent: -100,
+            ease: "none",
+            scrollTrigger: {
+              trigger: wrapper,
+              pin: true,
+              end: "+=5000px",
+              scrub: true,
             },
-            "-=0.6",
-          )
-          .from(
-            ".hello-content > *",
-            { y: 20, opacity: 0, duration: 0.72, stagger: 0.08 },
-            "-=0.25",
-          );
+          });
+
+          split.chars.forEach((char) => {
+            gsap.from(char, {
+              yPercent: "random(-200, 200)",
+              rotation: "random(-20, 20)",
+              ease: "back.out(1.2)",
+              scrollTrigger: {
+                trigger: char,
+                containerAnimation: scrollTween,
+                start: "left 100%",
+                end: "left 30%",
+                scrub: 1,
+              },
+            });
+          });
+        }
 
         gsap.utils.toArray<HTMLElement>(".reveal-row").forEach((item) => {
           gsap.from(item, {
@@ -250,24 +271,17 @@ export default function PortfolioHome() {
 
         <p className="hero-kicker">Creative CS student building interactive tech</p>
         <h1 className="hero-name" aria-label={profile.name}>
-          <span className="name-word name-left">EMAAN</span>
-          <span className="name-word name-right">BILAL</span>
+          <span className="name-word name-left">Emaan</span>
+          <span className="name-word name-right">Bilal</span>
         </h1>
         <p className="hero-meta">
           {profile.role} / {profile.location}
         </p>
 
-        <div className="hello-panel" aria-label="Welcome">
-          <div className="hello-content">
-            <span className="hello-tag">hello</span>
-            <h2>Welcome to Emaan's interactive portfolio.</h2>
-            <p>{intro}</p>
-            <div className="hero-actions">
-              <a href="#projects">View Projects</a>
-              <a href="#contact">Contact</a>
-            </div>
-          </div>
-        </div>
+      </section>
+
+      <section className="Horizontal" aria-label="Portfolio quote">
+        <div className="Horizontal__text heading-xl">{quote}</div>
       </section>
 
       <section className="gallery-section" id="projects" aria-label="Scrubbed bento project gallery">
