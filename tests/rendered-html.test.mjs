@@ -75,8 +75,8 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(css, /\.ribbon-hero-a/);
   assert.match(css, /\.neon-ribbon/);
   assert.match(css, /--tile-rgb/);
-  assert.match(css, /\.gallery--bento::before/);
   assert.match(css, /\.post-project-blank/);
+  assert.doesNotMatch(css, /\.gallery--bento::before/);
   assert.doesNotMatch(css, /border:\s*1px solid rgba\(var\(--tile-rgb\)/);
   assert.match(css, /background:\s*#000/i);
   assert.match(css, /--accent:\s*#06b6d4/i);
