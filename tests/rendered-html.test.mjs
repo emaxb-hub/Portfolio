@@ -55,8 +55,14 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   ]);
 
   assert.match(page, /<PortfolioHome \/>/);
-  assert.match(portfolio, /gsap\.registerPlugin\(ScrollTrigger, Flip, SplitText\)/);
+  assert.match(portfolio, /gsap\.registerPlugin\(ScrollTrigger, Draggable, Flip, SplitText\)/);
   assert.match(portfolio, /SplitText\.create\("\.Horizontal__text"/);
+  assert.match(portfolio, /Draggable\.create\(dragProxy/);
+  assert.match(portfolio, /buildSeamlessLoop/);
+  assert.match(portfolio, /className="about-card-gallery reveal-row"/);
+  assert.match(portfolio, /className="about-cards"/);
+  assert.match(portfolio, /className="about-card"/);
+  assert.doesNotMatch(portfolio, /about-grid|info-card/);
   assert.match(portfolio, /className="hero-intro"/);
   assert.match(portfolio, /\.hero-intro-block/);
   assert.match(portfolio, /className="water-field"/);
@@ -75,6 +81,10 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(css, /--primary:\s*#39ff14/i);
   assert.match(css, /--blue:\s*#00d9ff/i);
   assert.match(css, /--purple:\s*#a855f7/i);
+  assert.match(css, /\.about-card-gallery/);
+  assert.match(css, /\.about-card/);
+  assert.match(css, /\.drag-proxy/);
+  assert.doesNotMatch(css, /\.about-grid|\.info-card/);
   assert.match(css, /\.water-field/);
   assert.doesNotMatch(css, /\.ribbon-field|\.ribbon-hero-a|\.neon-ribbon/);
   assert.match(css, /--tile-rgb/);

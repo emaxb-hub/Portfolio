@@ -83,7 +83,7 @@ a {
 .Horizontal__text,
 .section-heading,
 .gallery,
-.about-grid,
+.about-card-gallery,
 .skill-cloud,
 .timeline,
 .leadership-list,
@@ -474,31 +474,115 @@ a {
   grid-area: 4 / 2 / 5 / 3;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-  max-width: 1180px;
+.about-card-gallery {
+  position: relative;
+  width: min(100%, 1080px);
+  height: min(72vh, 620px);
+  min-height: 460px;
   margin: 0 auto;
+  overflow: hidden;
+  perspective: 1100px;
+  touch-action: pan-y;
 }
 
-.info-card {
-  min-height: 260px;
+.about-cards {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  width: clamp(14rem, 24vw, 19rem);
+  height: clamp(18rem, 34vw, 25rem);
+  margin: 0;
   padding: 0;
-  background: transparent;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
 }
 
-.info-card span {
-  color: var(--primary);
+.about-card {
+  --about-card-rgb: 57, 255, 20;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.4rem;
+  list-style: none;
+  padding: clamp(1rem, 2.3vw, 1.45rem);
+  border-radius: 0.8rem;
+  background:
+    linear-gradient(145deg, rgba(var(--about-card-rgb), 0.16), rgba(0, 0, 0, 0.76) 42%),
+    #020302;
+  box-shadow:
+    0 0 0 1px rgba(var(--about-card-rgb), 0.32),
+    0 22px 70px rgba(var(--about-card-rgb), 0.16);
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.about-card:nth-child(2) {
+  --about-card-rgb: 0, 217, 255;
+}
+
+.about-card:nth-child(3) {
+  --about-card-rgb: 168, 85, 247;
+}
+
+.about-card span {
+  color: rgb(var(--about-card-rgb));
   font-family: var(--font-geist-mono), monospace;
+  font-size: 0.82rem;
   font-weight: 900;
 }
 
-.info-card p,
+.about-card p,
 .timeline-item p {
   margin: 2rem 0 0;
   color: #dce8d8;
   line-height: 1.7;
+}
+
+.about-card p {
+  margin: 0;
+  color: #f7fff2;
+  font-size: clamp(1rem, 1.65vw, 1.28rem);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.about-actions {
+  position: absolute;
+  bottom: clamp(1rem, 3vw, 1.8rem);
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transform: translateX(-50%);
+}
+
+.about-actions button {
+  min-width: 6.5rem;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.08);
+  color: var(--text);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.about-actions button:hover {
+  background: rgba(57, 255, 20, 0.18);
+  color: var(--primary);
+}
+
+.drag-proxy {
+  position: absolute;
+  visibility: hidden;
 }
 
 .skill-cloud {
@@ -607,7 +691,6 @@ a {
     font-size: clamp(1rem, 5vw, 1.5rem);
   }
 
-  .about-grid,
   .timeline-item {
     grid-template-columns: 1fr;
   }

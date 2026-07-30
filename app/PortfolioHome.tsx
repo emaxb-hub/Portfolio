@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { Draggable } from "gsap/Draggable";
 import { Flip } from "gsap/Flip";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -149,7 +150,7 @@ export default function PortfolioHome() {
   const waterCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, Flip, SplitText);
+    gsap.registerPlugin(ScrollTrigger, Draggable, Flip, SplitText);
 
     const root = rootRef.current;
     if (!root) return;
@@ -238,6 +239,8 @@ export default function PortfolioHome() {
     }
 
     const ctx = gsap.context(() => {
+      let aboutCleanup = () => {};
+
       if (!reduceMotion) {
         const introTl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
@@ -335,6 +338,165 @@ export default function PortfolioHome() {
             },
           });
         });
+
+        const aboutStage = root.querySelector<HTMLElement>(".about-card-gallery");
+        const aboutCards = gsap.utils.toArray<HTMLElement>(".about-cards li", root);
+        const aboutDeck = root.querySelector<HTMLElement>(".about-cards");
+        const dragProxy = root.querySelector<HTMLElement>(".drag-proxy");
+        const nextButton = root.querySelector<HTMLButtonElement>(".about-next");
+        const prevButton = root.querySelector<HTMLButtonElement>(".about-prev");
+
+        if (aboutStage && aboutDeck && dragProxy && aboutCards.length > 0) {
+          gsap.set(aboutCards, { xPercent: 260, opacity: 0, scale: 0.72, rotationY: -12 });
+
+          const spacing = 0.3;
+          const snapTime = gsap.utils.snap(spacing);
+          const animateCard = (element: HTMLElement) => {
+            const tl = gsap.timeline();
+
+            tl.fromTo(
+              element,
+              { scale: 0.72, opacity: 0, rotationY: -12 },
+              {
+                scale: 1,
+                opacity: 1,
+                rotationY: 0,
+                zIndex: 100,
+                duration: 0.5,
+                yoyo: true,
+                repeat: 1,
+                ease: "power1.inOut",
+                immediateRender: false,
+              },
+            ).fromTo(
+              element,
+              { xPercent: 260 },
+              { xPercent: -260, duration: 1, ease: "none", immediateRender: false },
+              0,
+            );
+
+            return tl;
+          };
+
+          const buildSeamlessLoop = (
+            items: HTMLElement[],
+            spacingValue: number,
+            animateFunc: (element: HTMLElement) => gsap.core.Timeline,
+          ) => {
+            const overlap = Math.ceil(1 / spacingValue);
+            const startTime = items.length * spacingValue + 0.5;
+            const loopTime = (items.length + overlap) * spacingValue + 1;
+            const rawSequence = gsap.timeline({ paused: true });
+            const seamlessLoop = gsap.timeline({ paused: true, repeat: -1 });
+            const totalItems = items.length + overlap * 2;
+
+            for (let i = 0; i < totalItems; i += 1) {
+              const index = i % items.length;
+              const time = i * spacingValue;
+
+              rawSequence.add(animateFunc(items[index]), time);
+              if (i <= items.length) {
+                seamlessLoop.add(`label${i}`, time);
+              }
+            }
+
+            rawSequence.time(startTime);
+            seamlessLoop
+              .to(rawSequence, {
+                time: loopTime,
+                duration: loopTime - startTime,
+                ease: "none",
+              })
+              .fromTo(
+                rawSequence,
+                { time: overlap * spacingValue + 1 },
+                {
+                  time: startTime,
+                  duration: startTime - (overlap * spacingValue + 1),
+                  immediateRender: false,
+                  ease: "none",
+                },
+              );
+
+            return seamlessLoop;
+          };
+
+          const seamlessLoop = buildSeamlessLoop(aboutCards, spacing, animateCard);
+          const playhead = { offset: 0 };
+          const wrapTime = gsap.utils.wrap(0, seamlessLoop.duration());
+          const renderLoop = () => seamlessLoop.time(wrapTime(playhead.offset));
+          const scrub = gsap.to(playhead, {
+            offset: 0,
+            onUpdate: renderLoop,
+            duration: 0.5,
+            ease: "power3",
+            paused: true,
+          });
+          const scrubVars = scrub.vars as gsap.TweenVars & { offset: number };
+          const autoLoop = gsap.to(playhead, {
+            offset: `+=${seamlessLoop.duration()}`,
+            duration: 9,
+            ease: "none",
+            repeat: -1,
+            onUpdate: renderLoop,
+          });
+          const aboutTrigger = ScrollTrigger.create({
+            trigger: aboutStage,
+            start: "top 80%",
+            end: "bottom top",
+            onEnter: () => autoLoop.play(),
+            onEnterBack: () => autoLoop.play(),
+            onLeave: () => autoLoop.pause(),
+            onLeaveBack: () => autoLoop.pause(),
+          });
+          let restartAuto: gsap.core.Tween | undefined;
+
+          const setOffset = (offset: number) => {
+            scrubVars.offset = offset;
+            scrub.invalidate().restart();
+          };
+
+          const moveToOffset = (offset: number) => {
+            restartAuto?.kill();
+            autoLoop.pause();
+            setOffset(snapTime(offset));
+            restartAuto = gsap.delayedCall(1.8, () => autoLoop.play());
+          };
+
+          const nextCard = () => moveToOffset(playhead.offset + spacing);
+          const previousCard = () => moveToOffset(playhead.offset - spacing);
+
+          nextButton?.addEventListener("click", nextCard);
+          prevButton?.addEventListener("click", previousCard);
+
+          let dragStartOffset = 0;
+          const draggables = Draggable.create(dragProxy, {
+            type: "x",
+            trigger: aboutDeck,
+            onPress() {
+              autoLoop.pause();
+              dragStartOffset = playhead.offset;
+            },
+            onDrag() {
+              const drag = this as Draggable & { startX: number; x: number };
+
+              setOffset(dragStartOffset + (drag.startX - drag.x) * 0.0014);
+            },
+            onDragEnd() {
+              moveToOffset(playhead.offset);
+            },
+          });
+
+          aboutCleanup = () => {
+            nextButton?.removeEventListener("click", nextCard);
+            prevButton?.removeEventListener("click", previousCard);
+            draggables.forEach((draggable) => draggable.kill());
+            restartAuto?.kill();
+            aboutTrigger.kill();
+            autoLoop.kill();
+            scrub.kill();
+          };
+        }
       }
 
       let flipCtx: gsap.Context | undefined;
@@ -377,6 +539,7 @@ export default function PortfolioHome() {
       window.addEventListener("resize", createTween);
 
       return () => {
+        aboutCleanup();
         window.removeEventListener("resize", createTween);
         flipCtx?.revert();
       };
@@ -459,13 +622,25 @@ export default function PortfolioHome() {
           <p>About</p>
           <h2>Artist brain, developer hands, builder energy.</h2>
         </div>
-        <div className="about-grid">
-          {about.map((line, index) => (
-            <article className="info-card reveal-row" key={line}>
-              <span>0{index + 1}</span>
-              <p>{line}</p>
-            </article>
-          ))}
+
+        <div className="about-card-gallery reveal-row" aria-label="Infinite about cards">
+          <ul className="about-cards">
+            {about.map((line, index) => (
+              <li className="about-card" key={line}>
+                <span>0{index + 1}</span>
+                <p>{line}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="about-actions" aria-label="About card controls">
+            <button className="about-prev" type="button">
+              Previous
+            </button>
+            <button className="about-next" type="button">
+              Next
+            </button>
+          </div>
+          <div className="drag-proxy" aria-hidden="true" />
         </div>
       </section>
 
