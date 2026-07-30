@@ -172,30 +172,37 @@ function HeroRibbons() {
 
 const randomBetween = (min: number, max: number) => min + Math.random() * (max - min);
 
-function createHeroRibbonPath() {
-  const topToBottom = Math.random() > 0.5;
-  const edgeX = Math.random() > 0.5
-    ? randomBetween(34, 238)
-    : randomBetween(1202, 1406);
-  const bend = () => randomBetween(-62, 62);
-  const start = {
-    x: edgeX + bend(),
-    y: topToBottom ? -34 : 1014,
-  };
-  const end = {
-    x: edgeX + bend(),
-    y: topToBottom ? 1014 : -34,
-  };
-  const controlOne = {
-    x: edgeX + randomBetween(-108, 108),
-    y: topToBottom ? randomBetween(190, 330) : randomBetween(680, 820),
-  };
-  const controlTwo = {
-    x: edgeX + randomBetween(-108, 108),
-    y: topToBottom ? randomBetween(650, 790) : randomBetween(160, 300),
-  };
+function createHeroRibbonPath(index = 0) {
+  const route = (index + Math.floor(Math.random() * 4)) % 4;
 
-  return `M ${start.x} ${start.y} C ${controlOne.x} ${controlOne.y}, ${controlTwo.x} ${controlTwo.y}, ${end.x} ${end.y}`;
+  if (route === 0) {
+    const yStart = randomBetween(115, 175);
+    const yMiddle = randomBetween(185, 255);
+    const yEnd = randomBetween(120, 190);
+    return `M -42 ${yStart}
+      C 90 ${yStart - 28}, 160 ${yMiddle - 24}, 300 ${yMiddle}
+      C 470 ${yMiddle + 36}, 610 ${yMiddle + 38}, 790 ${randomBetween(165, 240)}
+      C 960 ${randomBetween(155, 225)}, 1160 ${yEnd + 34}, 1482 ${yEnd}`;
+  }
+
+  if (route === 1) {
+    const yStart = randomBetween(805, 875);
+    const yMiddle = randomBetween(730, 815);
+    const yEnd = randomBetween(795, 875);
+    return `M 1482 ${yStart}
+      C 1320 ${yStart + 28}, 1240 ${yMiddle + 24}, 1110 ${yMiddle}
+      C 940 ${yMiddle - 36}, 790 ${yMiddle - 38}, 620 ${randomBetween(750, 830)}
+      C 430 ${randomBetween(760, 835)}, 220 ${yEnd - 34}, -42 ${yEnd}`;
+  }
+
+  const leftSide = route === 2;
+  const xBase = leftSide ? randomBetween(80, 170) : randomBetween(1270, 1360);
+  const xBend = leftSide ? randomBetween(105, 225) : randomBetween(1215, 1335);
+  const yEnd = randomBetween(855, 955);
+
+  return `M ${xBase} -42
+    C ${xBend} ${randomBetween(100, 190)}, ${xBend + (leftSide ? 35 : -35)} ${randomBetween(235, 325)}, ${xBase + (leftSide ? 28 : -28)} ${randomBetween(390, 470)}
+    C ${xBase + (leftSide ? -18 : 18)} ${randomBetween(545, 645)}, ${xBend + (leftSide ? 25 : -25)} ${randomBetween(700, 800)}, ${xBase} ${yEnd}`;
 }
 
 function MarqueeText({
@@ -310,7 +317,7 @@ export default function PortfolioHome() {
         const heroRibbonPaths = gsap.utils.toArray<SVGPathElement>(".hero-ribbon", root);
 
         const paintRibbon = (path: SVGPathElement, index: number, delay = index * 0.8) => {
-          path.setAttribute("d", createHeroRibbonPath());
+          path.setAttribute("d", createHeroRibbonPath(index));
           const length = path.getTotalLength();
           const timeline = gsap.timeline({ delay });
           ribbonTimelines.add(timeline);
@@ -341,7 +348,7 @@ export default function PortfolioHome() {
 
         if (reduceMotion) {
           heroRibbonPaths.forEach((path) => {
-            path.setAttribute("d", createHeroRibbonPath());
+            path.setAttribute("d", createHeroRibbonPath(index));
             gsap.set(path, { opacity: 0.48 });
           });
         } else {
