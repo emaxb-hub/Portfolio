@@ -199,42 +199,26 @@ export default function PortfolioHome() {
         colours.forEach((layer, index) => {
           const x = cursor.x + Math.sin(time * 0.0007 + layer.drift) * width * 0.13;
           const y = cursor.y + Math.cos(time * 0.0006 + layer.drift) * height * 0.12;
-          const radius = Math.max(width, height) * (0.22 + index * 0.035) * layer.scale;
+          const radius = Math.max(width, height) * (0.3 + index * 0.045) * layer.scale;
           const gradient = ctx2d.createRadialGradient(x, y, 0, x, y, radius);
 
-          gradient.addColorStop(0, `rgba(${layer.color}, 0.22)`);
-          gradient.addColorStop(0.48, `rgba(${layer.color}, 0.09)`);
+          gradient.addColorStop(0, `rgba(${layer.color}, 0.26)`);
+          gradient.addColorStop(0.5, `rgba(${layer.color}, 0.12)`);
           gradient.addColorStop(1, `rgba(${layer.color}, 0)`);
 
           ctx2d.fillStyle = gradient;
           ctx2d.beginPath();
-          ctx2d.ellipse(x, y, radius * 1.65, radius * 0.78, Math.sin(time * 0.00045 + index), 0, Math.PI * 2);
+          ctx2d.ellipse(
+            x,
+            y,
+            radius * 1.9,
+            radius * 0.92,
+            Math.sin(time * 0.00045 + index),
+            0,
+            Math.PI * 2,
+          );
           ctx2d.fill();
         });
-
-        for (let ring = 0; ring < 5; ring += 1) {
-          const hue = ring % 3 === 0 ? "57, 255, 20" : ring % 3 === 1 ? "0, 217, 255" : "168, 85, 247";
-          const radius = 78 + ring * 54 + Math.sin(time * 0.001 + ring) * 14;
-
-          ctx2d.beginPath();
-          for (let step = 0; step <= 150; step += 1) {
-            const angle = (step / 150) * Math.PI * 2;
-            const wobble = Math.sin(angle * 5 + time * 0.002 + ring) * 10;
-            const px = cursor.x + Math.cos(angle) * (radius + wobble) * 1.55;
-            const py = cursor.y + Math.sin(angle) * (radius + wobble) * 0.74;
-
-            if (step === 0) {
-              ctx2d.moveTo(px, py);
-            } else {
-              ctx2d.lineTo(px, py);
-            }
-          }
-
-          ctx2d.closePath();
-          ctx2d.strokeStyle = `rgba(${hue}, ${0.16 - ring * 0.018})`;
-          ctx2d.lineWidth = 1.4;
-          ctx2d.stroke();
-        }
 
         if (!reduceMotion) {
           frameId = requestAnimationFrame(drawLiquid);
