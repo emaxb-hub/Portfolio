@@ -146,6 +146,7 @@ const introBlocks = [
 
 export default function PortfolioHome() {
   const rootRef = useRef<HTMLElement | null>(null);
+  const waterCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, Flip, SplitText);
@@ -154,30 +155,106 @@ export default function PortfolioHome() {
     if (!root) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let stopWater = () => {};
+
+    const canvas = waterCanvasRef.current;
+    const ctx2d = canvas?.getContext("2d");
+
+    if (canvas && ctx2d) {
+      const pointer = { x: window.innerWidth * 0.5, y: window.innerHeight * 0.5 };
+      const cursor = { x: pointer.x, y: pointer.y };
+      let width = 0;
+      let height = 0;
+      let frameId = 0;
+
+      const resizeCanvas = () => {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+        width = rect.width;
+        height = rect.height;
+        canvas.width = Math.max(1, Math.floor(width * dpr));
+        canvas.height = Math.max(1, Math.floor(height * dpr));
+        ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
+      };
+
+      const movePointer = (event: PointerEvent) => {
+        const rect = canvas.getBoundingClientRect();
+        pointer.x = event.clientX - rect.left;
+        pointer.y = event.clientY - rect.top;
+      };
+
+      const drawLiquid = (time = 0) => {
+        cursor.x += (pointer.x - cursor.x) * 0.08;
+        cursor.y += (pointer.y - cursor.y) * 0.08;
+
+        ctx2d.clearRect(0, 0, width, height);
+        ctx2d.globalCompositeOperation = "screen";
+
+        const colours = [
+          { color: "57, 255, 20", drift: 0, scale: 1.15 },
+          { color: "0, 217, 255", drift: 2.1, scale: 0.9 },
+          { color: "168, 85, 247", drift: 4.2, scale: 1.02 },
+        ];
+
+        colours.forEach((layer, index) => {
+          const x = cursor.x + Math.sin(time * 0.0007 + layer.drift) * width * 0.13;
+          const y = cursor.y + Math.cos(time * 0.0006 + layer.drift) * height * 0.12;
+          const radius = Math.max(width, height) * (0.22 + index * 0.035) * layer.scale;
+          const gradient = ctx2d.createRadialGradient(x, y, 0, x, y, radius);
+
+          gradient.addColorStop(0, `rgba(${layer.color}, 0.22)`);
+          gradient.addColorStop(0.48, `rgba(${layer.color}, 0.09)`);
+          gradient.addColorStop(1, `rgba(${layer.color}, 0)`);
+
+          ctx2d.fillStyle = gradient;
+          ctx2d.beginPath();
+          ctx2d.ellipse(x, y, radius * 1.65, radius * 0.78, Math.sin(time * 0.00045 + index), 0, Math.PI * 2);
+          ctx2d.fill();
+        });
+
+        for (let ring = 0; ring < 5; ring += 1) {
+          const hue = ring % 3 === 0 ? "57, 255, 20" : ring % 3 === 1 ? "0, 217, 255" : "168, 85, 247";
+          const radius = 78 + ring * 54 + Math.sin(time * 0.001 + ring) * 14;
+
+          ctx2d.beginPath();
+          for (let step = 0; step <= 150; step += 1) {
+            const angle = (step / 150) * Math.PI * 2;
+            const wobble = Math.sin(angle * 5 + time * 0.002 + ring) * 10;
+            const px = cursor.x + Math.cos(angle) * (radius + wobble) * 1.55;
+            const py = cursor.y + Math.sin(angle) * (radius + wobble) * 0.74;
+
+            if (step === 0) {
+              ctx2d.moveTo(px, py);
+            } else {
+              ctx2d.lineTo(px, py);
+            }
+          }
+
+          ctx2d.closePath();
+          ctx2d.strokeStyle = `rgba(${hue}, ${0.16 - ring * 0.018})`;
+          ctx2d.lineWidth = 1.4;
+          ctx2d.stroke();
+        }
+
+        if (!reduceMotion) {
+          frameId = requestAnimationFrame(drawLiquid);
+        }
+      };
+
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+      window.addEventListener("pointermove", movePointer, { passive: true });
+      drawLiquid();
+
+      stopWater = () => {
+        cancelAnimationFrame(frameId);
+        window.removeEventListener("resize", resizeCanvas);
+        window.removeEventListener("pointermove", movePointer);
+      };
+    }
 
     const ctx = gsap.context(() => {
       if (!reduceMotion) {
-        gsap.to(".neon-ribbon", {
-          y: "random(-70, 70)",
-          x: "random(-22, 22)",
-          rotation: "random(-8, 8)",
-          scaleY: "random(0.92, 1.08)",
-          duration: "random(5, 8)",
-          ease: "sine.inOut",
-          repeat: -1,
-          yoyo: true,
-          stagger: {
-            each: 0.35,
-            from: "random",
-          },
-        });
-
-        gsap.to(".ribbon-field", {
-          opacity: 1,
-          duration: 1.4,
-          ease: "power2.out",
-        });
-
         const introTl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
         introTl
@@ -321,18 +398,16 @@ export default function PortfolioHome() {
       };
     }, root);
 
-    return () => ctx.revert();
+    return () => {
+      stopWater();
+      ctx.revert();
+    };
   }, []);
 
   return (
     <main className="portfolio" ref={rootRef}>
       <section className="hero" id="home" aria-label="Intro">
-        <div className="ribbon-field" aria-hidden="true">
-          <span className="neon-ribbon ribbon-hero-a" />
-          <span className="neon-ribbon ribbon-hero-b" />
-          <span className="neon-ribbon ribbon-hero-c" />
-          <span className="neon-ribbon ribbon-hero-d" />
-        </div>
+        <canvas className="water-field" ref={waterCanvasRef} aria-hidden="true" />
 
         <div className="split-panel split-panel-left" />
         <div className="split-panel split-panel-right" />

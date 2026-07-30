@@ -59,9 +59,10 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(portfolio, /SplitText\.create\("\.Horizontal__text"/);
   assert.match(portfolio, /className="hero-intro"/);
   assert.match(portfolio, /\.hero-intro-block/);
-  assert.match(portfolio, /className="ribbon-field"/);
-  assert.match(portfolio, /\.neon-ribbon/);
-  assert.match(portfolio, /ribbon-hero-a/);
+  assert.match(portfolio, /className="water-field"/);
+  assert.match(portfolio, /waterCanvasRef/);
+  assert.match(portfolio, /pointermove/);
+  assert.doesNotMatch(portfolio, /ribbon-field|neon-ribbon|ribbon-hero-a/);
   assert.match(portfolio, /id="gallery-8"/);
   assert.match(portfolio, /post-project-blank/);
   assert.match(portfolio, /autoAlpha: 0/);
@@ -71,9 +72,8 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(css, /--primary:\s*#39ff14/i);
   assert.match(css, /--blue:\s*#00d9ff/i);
   assert.match(css, /--purple:\s*#a855f7/i);
-  assert.match(css, /\.ribbon-field/);
-  assert.match(css, /\.ribbon-hero-a/);
-  assert.match(css, /\.neon-ribbon/);
+  assert.match(css, /\.water-field/);
+  assert.doesNotMatch(css, /\.ribbon-field|\.ribbon-hero-a|\.neon-ribbon/);
   assert.match(css, /--tile-rgb/);
   assert.match(css, /\.post-project-blank/);
   assert.doesNotMatch(css, /\.gallery--bento::before/);

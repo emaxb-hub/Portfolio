@@ -46,69 +46,16 @@ a {
   background: #000;
 }
 
-.ribbon-field {
+.water-field {
   position: absolute;
   inset: 0;
   z-index: 1;
-  overflow: hidden;
-  opacity: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
   pointer-events: none;
-}
-
-.neon-ribbon {
-  position: absolute;
-  top: -22vh;
-  width: clamp(5.5rem, 12vw, 12rem);
-  height: 146vh;
-  border-radius: 999px;
-  filter: blur(22px);
   mix-blend-mode: screen;
-  opacity: 0.34;
-  transform-origin: center;
-  will-change: transform;
-}
-
-.neon-ribbon::after {
-  content: "";
-  position: absolute;
-  inset: 18% 38%;
-  border-radius: inherit;
-  background: rgba(255, 255, 255, 0.52);
-  filter: blur(12px);
-  opacity: 0.38;
-}
-
-.neon-ribbon {
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(57, 255, 20, 0.08) 16%,
-    rgba(57, 255, 20, 0.72) 48%,
-    rgba(163, 230, 53, 0.32) 70%,
-    transparent 100%
-  );
-}
-
-.ribbon-hero-a {
-  left: 5vw;
-  transform: rotate(16deg);
-}
-
-.ribbon-hero-b {
-  left: 29vw;
-  opacity: 0.18;
-  transform: rotate(-13deg);
-}
-
-.ribbon-hero-c {
-  right: 26vw;
-  opacity: 0.2;
-  transform: rotate(11deg);
-}
-
-.ribbon-hero-d {
-  right: 4vw;
-  transform: rotate(-16deg);
+  filter: blur(0.25px);
 }
 
 .hero {
@@ -694,10 +641,8 @@ a {
     line-height: 1.55;
   }
 
-  .neon-ribbon {
-    width: clamp(4rem, 14vw, 6rem);
-    opacity: 0.22;
-    filter: blur(16px);
+  .water-field {
+    opacity: 0.72;
   }
 
   .gallery-wrap {
