@@ -60,7 +60,7 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(portfolio, /\.hero-intro-block/);
   assert.match(portfolio, /className="ribbon-field"/);
   assert.match(portfolio, /\.neon-ribbon/);
-  assert.match(portfolio, /ribbon-blue/);
+  assert.match(portfolio, /ribbon-hero-a/);
   assert.match(portfolio, /id="gallery-8"/);
   assert.match(portfolio, /className="Horizontal"/);
   assert.match(css, /\.hero-intro/);
@@ -69,10 +69,11 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(css, /--blue:\s*#00d9ff/i);
   assert.match(css, /--purple:\s*#a855f7/i);
   assert.match(css, /\.ribbon-field/);
-  assert.match(css, /\.ribbon-blue/);
+  assert.match(css, /\.ribbon-hero-a/);
   assert.match(css, /\.neon-ribbon/);
   assert.match(css, /--tile-rgb/);
-  assert.match(css, /border:\s*1px solid rgba\(var\(--tile-rgb\), 0\.78\)/);
+  assert.match(css, /\.gallery--bento::before/);
+  assert.doesNotMatch(css, /border:\s*1px solid rgba\(var\(--tile-rgb\)/);
   assert.match(css, /background:\s*#000/i);
   assert.match(css, /--accent:\s*#06b6d4/i);
   assert.match(css, /--font-signature/);

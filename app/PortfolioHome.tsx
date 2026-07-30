@@ -326,10 +326,10 @@ export default function PortfolioHome() {
     <main className="portfolio" ref={rootRef}>
       <section className="hero" id="home" aria-label="Intro">
         <div className="ribbon-field" aria-hidden="true">
-          <span className="neon-ribbon ribbon-left ribbon-green" />
-          <span className="neon-ribbon ribbon-left ribbon-blue" />
-          <span className="neon-ribbon ribbon-right ribbon-purple" />
-          <span className="neon-ribbon ribbon-right ribbon-blue" />
+          <span className="neon-ribbon ribbon-hero-a" />
+          <span className="neon-ribbon ribbon-hero-b" />
+          <span className="neon-ribbon ribbon-hero-c" />
+          <span className="neon-ribbon ribbon-hero-d" />
         </div>
 
         <div className="split-panel split-panel-left" />
