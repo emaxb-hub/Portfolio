@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
-import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const profile = {
@@ -149,7 +148,7 @@ export default function PortfolioHome() {
   const waterCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, Flip, SplitText);
+    gsap.registerPlugin(ScrollTrigger, Flip);
 
     const root = rootRef.current;
     if (!root) return;
@@ -296,34 +295,17 @@ export default function PortfolioHome() {
         const text = root.querySelector<HTMLElement>(".Horizontal__text");
 
         if (wrapper && text) {
-          const split = SplitText.create(".Horizontal__text", {
-            type: "chars, words",
-          });
-
           gsap.fromTo(text, {
-            xPercent: 18,
+            xPercent: 12,
           }, {
-            xPercent: -12,
+            xPercent: -8,
             ease: "none",
             scrollTrigger: {
               trigger: wrapper,
-              start: "top 88%",
-              end: "+=700",
-              scrub: 0.7,
+              start: "top 82%",
+              end: "+=1100",
+              scrub: 1.1,
             },
-          });
-
-          split.chars.forEach((char) => {
-            gsap.from(char, {
-              yPercent: "random(-200, 200)",
-              rotation: "random(-20, 20)",
-              ease: "back.out(1.2)",
-              scrollTrigger: {
-                trigger: wrapper,
-                start: "top 86%",
-                toggleActions: "play none none reverse",
-              },
-            });
           });
         }
 
@@ -420,16 +402,16 @@ export default function PortfolioHome() {
           const seamlessLoop = buildSeamlessLoop(aboutCards, spacing, animateCard);
           const wrapTime = gsap.utils.wrap(0, seamlessLoop.duration());
           const renderAboutCards = (progress: number) => {
-            seamlessLoop.time(wrapTime(progress * seamlessLoop.duration() * 1.2));
+            seamlessLoop.time(wrapTime(progress * seamlessLoop.duration() * 0.62));
           };
 
           renderAboutCards(0);
 
           const aboutTrigger = ScrollTrigger.create({
             trigger: aboutStage,
-            start: "top 78%",
-            end: "bottom 18%",
-            scrub: 0.8,
+            start: "top 72%",
+            end: "bottom top",
+            scrub: 1.35,
             onUpdate(self) {
               renderAboutCards(self.progress);
             },

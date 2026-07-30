@@ -56,11 +56,14 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   ]);
 
   assert.match(page, /<PortfolioHome \/>/);
-  assert.match(portfolio, /gsap\.registerPlugin\(ScrollTrigger, Flip, SplitText\)/);
-  assert.match(portfolio, /SplitText\.create\("\.Horizontal__text"/);
+  assert.match(portfolio, /gsap\.registerPlugin\(ScrollTrigger, Flip\)/);
+  assert.doesNotMatch(portfolio, /SplitText|SplitText\.create\("\.Horizontal__text"/);
   assert.match(portfolio, /gsap\.fromTo\(text/);
-  assert.match(portfolio, /start:\s*"top 88%"/);
-  assert.match(portfolio, /end:\s*"\+=700"/);
+  assert.match(portfolio, /start:\s*"top 82%"/);
+  assert.match(portfolio, /end:\s*"\+=1100"/);
+  assert.match(portfolio, /scrub:\s*1\.1/);
+  assert.match(portfolio, /0\.62/);
+  assert.match(portfolio, /scrub:\s*1\.35/);
   assert.doesNotMatch(portfolio, /duration:\s*16/);
   assert.doesNotMatch(portfolio, /xPercent:\s*-50/);
   assert.doesNotMatch(portfolio, /aria-hidden="true">\{quote\}/);
@@ -89,6 +92,7 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(portfolio, /className="Horizontal"/);
   assert.match(css, /height:\s*78vh/);
   assert.match(css, /align-items:\s*flex-start/);
+  assert.match(css, /color:\s*var\(--text\)/);
   assert.match(css, /\.hero-intro/);
   assert.match(css, /\.hero-intro-block span/);
   assert.match(css, /--primary:\s*#39ff14/i);

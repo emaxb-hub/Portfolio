@@ -229,10 +229,10 @@ a {
   width: max-content;
   white-space: nowrap;
   padding-left: 0;
-  color: var(--purple);
+  color: var(--text);
   text-shadow:
-    0 0 28px rgba(168, 85, 247, 0.34),
-    0 0 42px rgba(57, 255, 20, 0.12);
+    0 0 28px rgba(248, 250, 252, 0.2),
+    0 0 46px rgba(0, 229, 255, 0.12);
   will-change: transform;
 }
 
