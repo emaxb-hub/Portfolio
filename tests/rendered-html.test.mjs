@@ -71,6 +71,9 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(portfolio, /waterCanvasRef/);
   assert.match(portfolio, /pointermove/);
   assert.match(portfolio, /createRadialGradient/);
+  assert.match(portfolio, /0, 229, 255/);
+  assert.match(portfolio, /0, 102, 255/);
+  assert.match(portfolio, /139, 92, 246/);
   assert.doesNotMatch(portfolio, /ctx2d\.stroke\(/);
   assert.doesNotMatch(portfolio, /strokeStyle/);
   assert.doesNotMatch(portfolio, /ribbon-field|neon-ribbon|ribbon-hero-a/);
@@ -87,6 +90,7 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(css, /\.about-card/);
   assert.doesNotMatch(css, /\.about-grid|\.info-card|\.about-actions|\.drag-proxy/);
   assert.match(css, /\.water-field/);
+  assert.match(css, /saturate\(1\.25\) contrast\(1\.08\)/);
   assert.doesNotMatch(css, /\.ribbon-field|\.ribbon-hero-a|\.neon-ribbon/);
   assert.match(css, /--tile-rgb/);
   assert.doesNotMatch(css, /\.post-project-blank|\.rolling-container|\.rolling-line|\.rolling-char/);

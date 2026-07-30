@@ -191,19 +191,21 @@ export default function PortfolioHome() {
         ctx2d.globalCompositeOperation = "screen";
 
         const colours = [
-          { color: "57, 255, 20", drift: 0, scale: 1.15 },
-          { color: "0, 217, 255", drift: 2.1, scale: 0.9 },
-          { color: "168, 85, 247", drift: 4.2, scale: 1.02 },
+          { color: "0, 229, 255", drift: 0, scale: 0.92, core: 0.28, mid: 0.1 },
+          { color: "0, 102, 255", drift: 1.65, scale: 1.08, core: 0.22, mid: 0.09 },
+          { color: "57, 255, 20", drift: 3.1, scale: 0.78, core: 0.2, mid: 0.075 },
+          { color: "139, 92, 246", drift: 4.55, scale: 1.24, core: 0.18, mid: 0.08 },
         ];
 
         colours.forEach((layer, index) => {
-          const x = cursor.x + Math.sin(time * 0.0007 + layer.drift) * width * 0.13;
-          const y = cursor.y + Math.cos(time * 0.0006 + layer.drift) * height * 0.12;
-          const radius = Math.max(width, height) * (0.3 + index * 0.045) * layer.scale;
+          const x = cursor.x + Math.sin(time * 0.00082 + layer.drift) * width * 0.11;
+          const y = cursor.y + Math.cos(time * 0.0007 + layer.drift) * height * 0.1;
+          const radius = Math.max(width, height) * (0.24 + index * 0.032) * layer.scale;
           const gradient = ctx2d.createRadialGradient(x, y, 0, x, y, radius);
 
-          gradient.addColorStop(0, `rgba(${layer.color}, 0.26)`);
-          gradient.addColorStop(0.5, `rgba(${layer.color}, 0.12)`);
+          gradient.addColorStop(0, `rgba(${layer.color}, ${layer.core})`);
+          gradient.addColorStop(0.42, `rgba(${layer.color}, ${layer.mid})`);
+          gradient.addColorStop(0.76, `rgba(${layer.color}, 0.028)`);
           gradient.addColorStop(1, `rgba(${layer.color}, 0)`);
 
           ctx2d.fillStyle = gradient;
@@ -211,9 +213,9 @@ export default function PortfolioHome() {
           ctx2d.ellipse(
             x,
             y,
-            radius * 1.9,
-            radius * 0.92,
-            Math.sin(time * 0.00045 + index),
+            radius * 1.62,
+            radius * 0.82,
+            Math.sin(time * 0.00055 + index),
             0,
             Math.PI * 2,
           );

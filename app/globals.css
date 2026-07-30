@@ -55,7 +55,7 @@ a {
   opacity: 0.9;
   pointer-events: none;
   mix-blend-mode: screen;
-  filter: blur(0.25px);
+  filter: saturate(1.25) contrast(1.08) blur(0.18px);
 }
 
 .hero {
