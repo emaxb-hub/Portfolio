@@ -40,6 +40,7 @@ test("server-renders Emaan Bilal's portfolio shell", async () => {
   assert.match(html, /FAST-NUCES/);
   assert.match(html, /computer vision/);
   assert.match(html, /Scrubbed bento project gallery/);
+  assert.match(html, /Blank section for next content/);
   assert.match(html, /Kaam Compiler/);
   assert.match(html, /Tech Avenue Private Limited/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
@@ -62,6 +63,8 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(portfolio, /\.neon-ribbon/);
   assert.match(portfolio, /ribbon-hero-a/);
   assert.match(portfolio, /id="gallery-8"/);
+  assert.match(portfolio, /post-project-blank/);
+  assert.match(portfolio, /autoAlpha: 0/);
   assert.match(portfolio, /className="Horizontal"/);
   assert.match(css, /\.hero-intro/);
   assert.match(css, /\.hero-intro-block span/);
@@ -73,6 +76,7 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(css, /\.neon-ribbon/);
   assert.match(css, /--tile-rgb/);
   assert.match(css, /\.gallery--bento::before/);
+  assert.match(css, /\.post-project-blank/);
   assert.doesNotMatch(css, /border:\s*1px solid rgba\(var\(--tile-rgb\)/);
   assert.match(css, /background:\s*#000/i);
   assert.match(css, /--accent:\s*#06b6d4/i);

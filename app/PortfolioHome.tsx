@@ -304,9 +304,11 @@ export default function PortfolioHome() {
               scrub: true,
               pin: galleryElement.parentNode as Element,
             },
-          }).add(flip);
+          })
+            .add(flip)
+            .to(galleryElement, { autoAlpha: 0, duration: 0.22, ease: "none" });
 
-          return () => gsap.set(galleryItems, { clearProps: "all" });
+          return () => gsap.set([galleryElement, ...galleryItems], { clearProps: "all" });
         }, root);
       };
 
@@ -390,6 +392,8 @@ export default function PortfolioHome() {
           </div>
         </div>
       </section>
+
+      <section className="post-project-blank" aria-label="Blank section for next content" />
 
       <section className="section about-section" id="about">
         <div className="section-heading reveal-row">

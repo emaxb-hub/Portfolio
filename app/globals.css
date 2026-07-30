@@ -296,10 +296,16 @@ a {
 }
 
 .gallery-section,
-.section {
+.section,
+.post-project-blank {
   position: relative;
   padding: clamp(4rem, 10vw, 9rem) clamp(1rem, 5vw, 5rem);
   background: #000;
+}
+
+.post-project-blank {
+  min-height: 100vh;
+  padding: 0;
 }
 
 .section-heading {
