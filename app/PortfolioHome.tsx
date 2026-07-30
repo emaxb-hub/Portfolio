@@ -109,9 +109,6 @@ const leadership = [
 const quote =
   "I imagine, learn, and build.";
 
-const aboutMarquee =
-  "Artist brain. Developer hands. Builder energy.";
-
 const introBlocks = [
   {
     text: <>Hi, <span>Emaan</span> here.</>,
@@ -514,20 +511,18 @@ export default function PortfolioHome() {
           };
 
           const seamlessLoop = buildSeamlessLoop(aboutCards, spacing, animateCard);
-          const wrapTime = gsap.utils.wrap(0, seamlessLoop.duration());
-          const renderAboutCards = (progress: number) => {
-            seamlessLoop.time(wrapTime(progress * seamlessLoop.duration() * 0.62));
-          };
-
-          renderAboutCards(0);
+          seamlessLoop.timeScale(0.18);
 
           const aboutTrigger = ScrollTrigger.create({
             trigger: aboutStage,
-            start: "top 72%",
-            end: "bottom top",
-            scrub: 1.35,
-            onUpdate(self) {
-              renderAboutCards(self.progress);
+            start: "top 82%",
+            end: "bottom 18%",
+            onToggle(self) {
+              if (self.isActive) {
+                seamlessLoop.play();
+              } else {
+                seamlessLoop.pause();
+              }
             },
           });
 
@@ -691,8 +686,6 @@ export default function PortfolioHome() {
           <p>About</p>
           <h2>Artist brain, developer hands, builder energy.</h2>
         </div>
-
-        <MarqueeText text={aboutMarquee} className="about-marquee" duration={44} />
 
         <div className="about-card-gallery reveal-row" aria-label="Infinite about cards">
           <ul className="about-cards">

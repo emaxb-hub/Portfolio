@@ -68,7 +68,6 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(portfolio, /className="marquee-track"/);
   assert.match(portfolio, /className="marquee-group"/);
   assert.match(portfolio, /className="quote-marquee heading-xl"/);
-  assert.match(portfolio, /className="about-marquee"/);
   assert.match(portfolio, /xPercent:\s*-50/);
   assert.match(portfolio, /repeat:\s*-1/);
   assert.match(portfolio, /createHeroRibbonPath/);
@@ -89,11 +88,11 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.doesNotMatch(portfolio, /className="ambient-backdrop"|className="ambient-ribbons"/);
   assert.doesNotMatch(portfolio, /rolling-wheel|quote-wheel|about-wheel|quote-stage/);
   assert.match(portfolio, /0\.62/);
-  assert.match(portfolio, /scrub:\s*1\.35/);
+  assert.match(portfolio, /timeScale\(0\.18\)/);
+  assert.match(portfolio, /onToggle\(self\)/);
   assert.doesNotMatch(portfolio, /duration:\s*16/);
   assert.doesNotMatch(portfolio, /aria-hidden="true">\{quote\}/);
   assert.match(portfolio, /buildSeamlessLoop/);
-  assert.match(portfolio, /renderAboutCards\(self\.progress\)/);
   assert.match(portfolio, /pointerenter/);
   assert.match(portfolio, /liftCard/);
   assert.doesNotMatch(portfolio, /Draggable|dragProxy|about-next|about-prev|about-actions/);
@@ -147,7 +146,7 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(css, /\.marquee/);
   assert.match(css, /\.marquee-track/);
   assert.match(css, /\.quote-marquee/);
-  assert.match(css, /\.about-marquee/);
+  assert.doesNotMatch(css, /\.about-marquee/);
   assert.match(css, /\.about-card::before/);
   assert.match(css, /clip-path:\s*polygon/);
   assert.match(css, /#fb7185/);
