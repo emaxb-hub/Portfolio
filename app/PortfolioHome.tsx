@@ -173,27 +173,7 @@ function HeroRibbons() {
 const randomBetween = (min: number, max: number) => min + Math.random() * (max - min);
 
 function createHeroRibbonPath(index = 0) {
-  const route = (index + Math.floor(Math.random() * 4)) % 4;
-
-  if (route === 0) {
-    const yStart = randomBetween(115, 175);
-    const yEnd = randomBetween(120, 190);
-    const controlOne = { x: randomBetween(300, 520), y: randomBetween(155, 245) };
-    const controlTwo = { x: randomBetween(920, 1160), y: randomBetween(145, 235) };
-    return `M -42 ${yStart}
-      C ${controlOne.x} ${controlOne.y}, ${controlTwo.x} ${controlTwo.y}, 1482 ${yEnd}`;
-  }
-
-  if (route === 1) {
-    const yStart = randomBetween(805, 875);
-    const yEnd = randomBetween(795, 875);
-    const controlOne = { x: randomBetween(920, 1160), y: randomBetween(735, 825) };
-    const controlTwo = { x: randomBetween(300, 520), y: randomBetween(745, 835) };
-    return `M 1482 ${yStart}
-      C ${controlOne.x} ${controlOne.y}, ${controlTwo.x} ${controlTwo.y}, -42 ${yEnd}`;
-  }
-
-  const leftSide = route === 2;
+  const leftSide = (index + Math.floor(Math.random() * 2)) % 2 === 0;
   const xBase = leftSide ? randomBetween(80, 170) : randomBetween(1270, 1360);
   const controlOne = {
     x: leftSide ? randomBetween(120, 230) : randomBetween(1210, 1320),
