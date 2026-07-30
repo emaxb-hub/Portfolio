@@ -77,6 +77,11 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(css, /--tile-rgb/);
   assert.match(css, /\.post-project-blank/);
   assert.doesNotMatch(css, /\.gallery--bento::before/);
+  assert.match(css, /\.gallery__item::before/);
+  assert.match(css, /\.gallery__item::after/);
+  assert.match(css, /\.gallery--bento \.gallery__item:nth-child\(1\)::before/);
+  assert.match(css, /\.gallery--bento \.gallery__item:nth-child\(5\)::after/);
+  assert.match(css, /box-shadow:\s*0 0 14px rgba\(var\(--tile-rgb\), 0\.5\)/);
   assert.doesNotMatch(css, /border:\s*1px solid rgba\(var\(--tile-rgb\)/);
   assert.match(css, /background:\s*#000/i);
   assert.match(css, /--accent:\s*#06b6d4/i);

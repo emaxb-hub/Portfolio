@@ -364,6 +364,31 @@ a {
   background: transparent;
 }
 
+.gallery__item::before,
+.gallery__item::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  display: none;
+  pointer-events: none;
+  background: rgb(var(--tile-rgb));
+  box-shadow: 0 0 14px rgba(var(--tile-rgb), 0.5);
+}
+
+.gallery__item::before {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 2px;
+}
+
+.gallery__item::after {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+}
+
 .gallery__item:nth-child(2) {
   --tile-rgb: 57, 255, 20;
 }
@@ -390,6 +415,20 @@ a {
 
 .gallery__item:nth-child(8) {
   --tile-rgb: 168, 85, 247;
+}
+
+.gallery--bento .gallery__item:nth-child(1)::before,
+.gallery--bento .gallery__item:nth-child(2)::before,
+.gallery--bento .gallery__item:nth-child(3)::before,
+.gallery--bento .gallery__item:nth-child(5)::before,
+.gallery--bento .gallery__item:nth-child(7)::before,
+.gallery--bento .gallery__item:nth-child(8)::before,
+.gallery--bento .gallery__item:nth-child(1)::after,
+.gallery--bento .gallery__item:nth-child(2)::after,
+.gallery--bento .gallery__item:nth-child(3)::after,
+.gallery--bento .gallery__item:nth-child(4)::after,
+.gallery--bento .gallery__item:nth-child(5)::after {
+  display: block;
 }
 
 .gallery__item span,
@@ -443,7 +482,7 @@ a {
 
 .gallery--bento {
   display: grid;
-  gap: 1vh;
+  gap: 0;
   grid-template-columns: repeat(3, minmax(0, 32.5vw));
   grid-template-rows: repeat(4, 23vh);
   justify-content: center;
@@ -453,7 +492,7 @@ a {
 .gallery--final.gallery--bento {
   grid-template-columns: repeat(3, 100vw);
   grid-template-rows: repeat(4, 49.5vh);
-  gap: 1vh;
+  gap: 0;
 }
 
 .gallery--bento .gallery__item:nth-child(1) {
