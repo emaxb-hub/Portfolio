@@ -158,9 +158,9 @@ export default function PortfolioHome() {
     const ctx = gsap.context(() => {
       if (!reduceMotion) {
         gsap.to(".neon-ribbon", {
-          y: "random(-80, 80)",
-          x: "random(-34, 34)",
-          rotation: "random(-10, 10)",
+          y: "random(-70, 70)",
+          x: "random(-22, 22)",
+          rotation: "random(-8, 8)",
           scaleY: "random(0.92, 1.08)",
           duration: "random(5, 8)",
           ease: "sine.inOut",
@@ -324,14 +324,14 @@ export default function PortfolioHome() {
 
   return (
     <main className="portfolio" ref={rootRef}>
-      <div className="ribbon-field" aria-hidden="true">
-        <span className="neon-ribbon ribbon-left ribbon-green" />
-        <span className="neon-ribbon ribbon-left ribbon-purple" />
-        <span className="neon-ribbon ribbon-right ribbon-purple" />
-        <span className="neon-ribbon ribbon-right ribbon-green" />
-      </div>
-
       <section className="hero" id="home" aria-label="Intro">
+        <div className="ribbon-field" aria-hidden="true">
+          <span className="neon-ribbon ribbon-left ribbon-green" />
+          <span className="neon-ribbon ribbon-left ribbon-blue" />
+          <span className="neon-ribbon ribbon-right ribbon-purple" />
+          <span className="neon-ribbon ribbon-right ribbon-blue" />
+        </div>
+
         <div className="split-panel split-panel-left" />
         <div className="split-panel split-panel-right" />
 
