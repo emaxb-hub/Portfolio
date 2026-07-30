@@ -124,7 +124,7 @@ a {
 }
 
 .nav a {
-  padding: 0.35rem 0;
+  padding: 0.42rem 0.72rem;
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 800;
@@ -133,7 +133,57 @@ a {
 }
 
 .nav a:hover {
-  color: var(--accent);
+  color: var(--background);
+}
+
+.magnetic-btn {
+  position: relative;
+  min-height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 999px;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.magnetic-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(114deg, #39ff14 18%, #abff84 62%, #00e5ff 100%);
+  opacity: 0;
+  transform: scaleX(0.72);
+  transition:
+    opacity 0.18s ease,
+    transform 0.22s ease;
+}
+
+.magnetic-btn:hover::before,
+.magnetic-btn:focus-visible::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.magnetic-btn:hover,
+.magnetic-btn:focus-visible {
+  color: #020302;
+  text-shadow: none;
+}
+
+.magnetic-btn:focus-visible {
+  outline: 1px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.magnetic-label {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
 }
 
 .hero-kicker,
@@ -619,13 +669,18 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding: 0.45rem 1rem;
   color: var(--purple);
   font-weight: 900;
 }
 
 .contact-links a:hover {
   color: var(--text);
+}
+
+.contact-links a.magnetic-btn:hover,
+.contact-links a.magnetic-btn:focus-visible {
+  color: #020302;
 }
 
 @media (max-width: 900px) {

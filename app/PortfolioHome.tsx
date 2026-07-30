@@ -240,6 +240,7 @@ export default function PortfolioHome() {
 
     const ctx = gsap.context(() => {
       let aboutCleanup = () => {};
+      let magneticCleanup = () => {};
 
       if (!reduceMotion) {
         const introTl = gsap.timeline({ defaults: { ease: "power4.out" } });
@@ -321,6 +322,78 @@ export default function PortfolioHome() {
             },
           });
         });
+
+        const magneticButtons = gsap.utils.toArray<HTMLElement>(".magnetic-btn", root);
+        const magneticCleanups: Array<() => void> = [];
+
+        magneticButtons.forEach((button) => {
+          const label = button.querySelector<HTMLElement>(".magnetic-label");
+
+          const moveButton = (event: PointerEvent) => {
+            const rect = button.getBoundingClientRect();
+            const mappedX = gsap.utils.mapRange(
+              rect.left,
+              rect.right,
+              -rect.width / 2,
+              rect.width / 2,
+              event.clientX,
+            );
+            const mappedY = gsap.utils.mapRange(
+              rect.top,
+              rect.bottom,
+              -rect.height / 2,
+              rect.height / 2,
+              event.clientY,
+            );
+
+            gsap.to(button, {
+              x: mappedX * 0.34,
+              y: mappedY * 0.34,
+              duration: 0.34,
+              ease: "power2.out",
+              overwrite: "auto",
+            });
+
+            if (label) {
+              gsap.to(label, {
+                x: mappedX * 0.18,
+                y: mappedY * 0.18,
+                duration: 0.34,
+                ease: "power2.out",
+                overwrite: "auto",
+              });
+            }
+          };
+
+          const resetButton = () => {
+            gsap.to(button, {
+              x: 0,
+              y: 0,
+              duration: 0.62,
+              ease: "elastic.out(1, 0.45)",
+              overwrite: "auto",
+            });
+
+            if (label) {
+              gsap.to(label, {
+                x: 0,
+                y: 0,
+                duration: 0.62,
+                ease: "elastic.out(1, 0.45)",
+                overwrite: "auto",
+              });
+            }
+          };
+
+          button.addEventListener("pointermove", moveButton);
+          button.addEventListener("pointerleave", resetButton);
+          magneticCleanups.push(() => {
+            button.removeEventListener("pointermove", moveButton);
+            button.removeEventListener("pointerleave", resetButton);
+          });
+        });
+
+        magneticCleanup = () => magneticCleanups.forEach((cleanup) => cleanup());
 
         const aboutStage = root.querySelector<HTMLElement>(".about-card-gallery");
         const aboutCards = gsap.utils.toArray<HTMLElement>(".about-cards li", root);
@@ -465,6 +538,7 @@ export default function PortfolioHome() {
 
       return () => {
         aboutCleanup();
+        magneticCleanup();
         window.removeEventListener("resize", createTween);
         flipCtx?.revert();
       };
@@ -486,8 +560,8 @@ export default function PortfolioHome() {
 
         <nav className="nav" aria-label="Main navigation">
           {["About", "Projects", "Skills", "Experience", "Contact"].map((item) => (
-            <a href={`#${item.toLowerCase()}`} key={item}>
-              {item}
+            <a className="magnetic-btn" href={`#${item.toLowerCase()}`} key={item}>
+              <span className="magnetic-label">{item}</span>
             </a>
           ))}
         </nav>
@@ -602,9 +676,15 @@ export default function PortfolioHome() {
           <p>Contact</p>
           <h2>Let&apos;s build something visually sharp and technically alive.</h2>
           <div className="contact-links">
-            <a href={`mailto:${profile.emails[0]}`}>{profile.emails[0]}</a>
-            <a href={profile.github}>GitHub</a>
-            <a href={profile.linkedin}>LinkedIn</a>
+            <a className="magnetic-btn" href={`mailto:${profile.emails[0]}`}>
+              <span className="magnetic-label">{profile.emails[0]}</span>
+            </a>
+            <a className="magnetic-btn" href={profile.github}>
+              <span className="magnetic-label">GitHub</span>
+            </a>
+            <a className="magnetic-btn" href={profile.linkedin}>
+              <span className="magnetic-label">LinkedIn</span>
+            </a>
           </div>
         </div>
       </section>

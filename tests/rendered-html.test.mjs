@@ -70,6 +70,11 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(portfolio, /buildSeamlessLoop/);
   assert.match(portfolio, /renderAboutCards\(self\.progress\)/);
   assert.doesNotMatch(portfolio, /Draggable|dragProxy|about-next|about-prev|about-actions/);
+  assert.match(portfolio, /className="magnetic-btn"/);
+  assert.match(portfolio, /className="magnetic-label"/);
+  assert.match(portfolio, /magneticButtons/);
+  assert.match(portfolio, /pointermove/);
+  assert.match(portfolio, /elastic\.out\(1, 0\.45\)/);
   assert.match(portfolio, /className="about-card-gallery reveal-row"/);
   assert.match(portfolio, /className="about-cards"/);
   assert.match(portfolio, /className="about-card"/);
@@ -100,6 +105,9 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(css, /--purple:\s*#a855f7/i);
   assert.match(css, /\.about-card-gallery/);
   assert.match(css, /\.about-card/);
+  assert.match(css, /\.magnetic-btn/);
+  assert.match(css, /\.magnetic-label/);
+  assert.match(css, /linear-gradient\(114deg, #39ff14/);
   assert.doesNotMatch(css, /\.about-grid|\.info-card|\.about-actions|\.drag-proxy/);
   assert.match(css, /\.water-field/);
   assert.match(css, /saturate\(1\.25\) contrast\(1\.08\)/);
