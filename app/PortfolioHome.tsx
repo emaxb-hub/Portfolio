@@ -300,16 +300,16 @@ export default function PortfolioHome() {
             type: "chars, words",
           });
 
-          gsap.to(text, {
-            xPercent: -50,
-            duration: 16,
+          gsap.fromTo(text, {
+            xPercent: 18,
+          }, {
+            xPercent: -12,
             ease: "none",
-            repeat: -1,
             scrollTrigger: {
               trigger: wrapper,
-              start: "top bottom",
-              end: "bottom top",
-              toggleActions: "play pause resume pause",
+              start: "top 88%",
+              end: "+=700",
+              scrub: 0.7,
             },
           });
 
@@ -320,7 +320,7 @@ export default function PortfolioHome() {
               ease: "back.out(1.2)",
               scrollTrigger: {
                 trigger: wrapper,
-                start: "top 70%",
+                start: "top 86%",
                 toggleActions: "play none none reverse",
               },
             });
@@ -531,9 +531,6 @@ export default function PortfolioHome() {
       <section className="Horizontal" aria-label="Portfolio quote">
         <div className="Horizontal__text heading-xl">
           <span>{quote}</span>
-          <span aria-hidden="true">{quote}</span>
-          <span aria-hidden="true">{quote}</span>
-          <span aria-hidden="true">{quote}</span>
         </div>
       </section>
 

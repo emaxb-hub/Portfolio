@@ -217,9 +217,10 @@ a {
 .Horizontal {
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  height: 78vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: clamp(4.5rem, 13vh, 7rem);
   background: #000;
 }
 
@@ -227,7 +228,6 @@ a {
   display: flex;
   width: max-content;
   white-space: nowrap;
-  gap: 8vw;
   padding-left: 0;
   color: var(--purple);
   text-shadow:

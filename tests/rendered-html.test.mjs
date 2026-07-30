@@ -58,6 +58,12 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(page, /<PortfolioHome \/>/);
   assert.match(portfolio, /gsap\.registerPlugin\(ScrollTrigger, Flip, SplitText\)/);
   assert.match(portfolio, /SplitText\.create\("\.Horizontal__text"/);
+  assert.match(portfolio, /gsap\.fromTo\(text/);
+  assert.match(portfolio, /start:\s*"top 88%"/);
+  assert.match(portfolio, /end:\s*"\+=700"/);
+  assert.doesNotMatch(portfolio, /duration:\s*16/);
+  assert.doesNotMatch(portfolio, /xPercent:\s*-50/);
+  assert.doesNotMatch(portfolio, /aria-hidden="true">\{quote\}/);
   assert.match(portfolio, /buildSeamlessLoop/);
   assert.match(portfolio, /renderAboutCards\(self\.progress\)/);
   assert.doesNotMatch(portfolio, /Draggable|dragProxy|about-next|about-prev|about-actions/);
@@ -81,6 +87,8 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.doesNotMatch(portfolio, /post-project-blank|rolling-container|rolling-line|rollingLines/);
   assert.match(portfolio, /autoAlpha: 0/);
   assert.match(portfolio, /className="Horizontal"/);
+  assert.match(css, /height:\s*78vh/);
+  assert.match(css, /align-items:\s*flex-start/);
   assert.match(css, /\.hero-intro/);
   assert.match(css, /\.hero-intro-block span/);
   assert.match(css, /--primary:\s*#39ff14/i);
