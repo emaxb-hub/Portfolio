@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { Draggable } from "gsap/Draggable";
 import { Flip } from "gsap/Flip";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -150,7 +149,7 @@ export default function PortfolioHome() {
   const waterCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, Draggable, Flip, SplitText);
+    gsap.registerPlugin(ScrollTrigger, Flip, SplitText);
 
     const root = rootRef.current;
     if (!root) return;
@@ -326,47 +325,6 @@ export default function PortfolioHome() {
           });
         }
 
-        const rollingContainer = root.querySelector<HTMLElement>(".rolling-container");
-        const rollingLines = gsap.utils.toArray<HTMLElement>(".rolling-line", root);
-
-        if (rollingContainer && rollingLines.length > 0) {
-          const splitRolling = rollingLines.map((line) =>
-            SplitText.create(line, {
-              type: "chars",
-              charsClass: "rolling-char",
-            }),
-          );
-          const rollingDepth = -Math.max(window.innerWidth, 720) / 8;
-          const transformOrigin = `50% 50% ${rollingDepth}px`;
-          const rollingTl = gsap.timeline({
-            repeat: -1,
-            repeatDelay: 2.2,
-            scrollTrigger: {
-              trigger: rollingContainer,
-              start: "top 78%",
-              end: "bottom top",
-              toggleActions: "play pause resume pause",
-            },
-          });
-
-          gsap.set(rollingContainer, { autoAlpha: 1 });
-          gsap.set(rollingLines, { perspective: 700, transformStyle: "preserve-3d" });
-          splitRolling.forEach((split, index) => {
-            gsap.set(split.chars, { rotationX: 0, transformOrigin });
-            rollingTl.to(
-              split.chars,
-              {
-                rotationX: 360,
-                stagger: 0.07,
-                duration: 1.55,
-                ease: "none",
-                transformOrigin,
-              },
-              index * 0.7,
-            );
-          });
-        }
-
         gsap.utils.toArray<HTMLElement>(".reveal-row").forEach((item) => {
           gsap.from(item, {
             y: 42,
@@ -382,16 +340,11 @@ export default function PortfolioHome() {
 
         const aboutStage = root.querySelector<HTMLElement>(".about-card-gallery");
         const aboutCards = gsap.utils.toArray<HTMLElement>(".about-cards li", root);
-        const aboutDeck = root.querySelector<HTMLElement>(".about-cards");
-        const dragProxy = root.querySelector<HTMLElement>(".drag-proxy");
-        const nextButton = root.querySelector<HTMLButtonElement>(".about-next");
-        const prevButton = root.querySelector<HTMLButtonElement>(".about-prev");
 
-        if (aboutStage && aboutDeck && dragProxy && aboutCards.length > 0) {
+        if (aboutStage && aboutCards.length > 0) {
           gsap.set(aboutCards, { xPercent: 260, opacity: 0, scale: 0.72, rotationY: -12 });
 
           const spacing = 0.3;
-          const snapTime = gsap.utils.snap(spacing);
           const animateCard = (element: HTMLElement) => {
             const tl = gsap.timeline();
 
@@ -463,79 +416,26 @@ export default function PortfolioHome() {
           };
 
           const seamlessLoop = buildSeamlessLoop(aboutCards, spacing, animateCard);
-          const playhead = { offset: 0 };
           const wrapTime = gsap.utils.wrap(0, seamlessLoop.duration());
-          const renderLoop = () => seamlessLoop.time(wrapTime(playhead.offset));
-          const scrub = gsap.to(playhead, {
-            offset: 0,
-            onUpdate: renderLoop,
-            duration: 0.5,
-            ease: "power3",
-            paused: true,
-          });
-          const scrubVars = scrub.vars as gsap.TweenVars & { offset: number };
-          const autoLoop = gsap.to(playhead, {
-            offset: `+=${seamlessLoop.duration()}`,
-            duration: 9,
-            ease: "none",
-            repeat: -1,
-            onUpdate: renderLoop,
-          });
+          const renderAboutCards = (progress: number) => {
+            seamlessLoop.time(wrapTime(progress * seamlessLoop.duration() * 1.2));
+          };
+
+          renderAboutCards(0);
+
           const aboutTrigger = ScrollTrigger.create({
             trigger: aboutStage,
-            start: "top 80%",
-            end: "bottom top",
-            onEnter: () => autoLoop.play(),
-            onEnterBack: () => autoLoop.play(),
-            onLeave: () => autoLoop.pause(),
-            onLeaveBack: () => autoLoop.pause(),
-          });
-          let restartAuto: gsap.core.Tween | undefined;
-
-          const setOffset = (offset: number) => {
-            scrubVars.offset = offset;
-            scrub.invalidate().restart();
-          };
-
-          const moveToOffset = (offset: number) => {
-            restartAuto?.kill();
-            autoLoop.pause();
-            setOffset(snapTime(offset));
-            restartAuto = gsap.delayedCall(1.8, () => autoLoop.play());
-          };
-
-          const nextCard = () => moveToOffset(playhead.offset + spacing);
-          const previousCard = () => moveToOffset(playhead.offset - spacing);
-
-          nextButton?.addEventListener("click", nextCard);
-          prevButton?.addEventListener("click", previousCard);
-
-          let dragStartOffset = 0;
-          const draggables = Draggable.create(dragProxy, {
-            type: "x",
-            trigger: aboutDeck,
-            onPress() {
-              autoLoop.pause();
-              dragStartOffset = playhead.offset;
-            },
-            onDrag() {
-              const drag = this as Draggable & { startX: number; x: number };
-
-              setOffset(dragStartOffset + (drag.startX - drag.x) * 0.0014);
-            },
-            onDragEnd() {
-              moveToOffset(playhead.offset);
+            start: "top 78%",
+            end: "bottom 18%",
+            scrub: 0.8,
+            onUpdate(self) {
+              renderAboutCards(self.progress);
             },
           });
 
           aboutCleanup = () => {
-            nextButton?.removeEventListener("click", nextCard);
-            prevButton?.removeEventListener("click", previousCard);
-            draggables.forEach((draggable) => draggable.kill());
-            restartAuto?.kill();
             aboutTrigger.kill();
-            autoLoop.kill();
-            scrub.kill();
+            seamlessLoop.kill();
           };
         }
       }
@@ -656,15 +556,6 @@ export default function PortfolioHome() {
         </div>
       </section>
 
-      <section className="post-project-blank" aria-label="Blank section for next content">
-        <div className="rolling-container">
-          <div className="rolling-tube">
-            <p className="rolling-line">Restlessly experimenting.</p>
-            <p className="rolling-line">Constantly creating.</p>
-          </div>
-        </div>
-      </section>
-
       <section className="section about-section" id="about">
         <div className="section-heading reveal-row">
           <p>About</p>
@@ -680,15 +571,6 @@ export default function PortfolioHome() {
               </li>
             ))}
           </ul>
-          <div className="about-actions" aria-label="About card controls">
-            <button className="about-prev" type="button">
-              Previous
-            </button>
-            <button className="about-next" type="button">
-              Next
-            </button>
-          </div>
-          <div className="drag-proxy" aria-hidden="true" />
         </div>
       </section>
 

@@ -243,59 +243,10 @@ a {
 }
 
 .gallery-section,
-.section,
-.post-project-blank {
+.section {
   position: relative;
   padding: clamp(4rem, 10vw, 9rem) clamp(1rem, 5vw, 5rem);
   background: #000;
-}
-
-.post-project-blank {
-  min-height: 82vh;
-  padding: 0;
-}
-
-.rolling-container {
-  width: 100%;
-  min-height: 82vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: clamp(2.5rem, 7vh, 5rem);
-  overflow: hidden;
-  visibility: visible;
-}
-
-.rolling-tube {
-  position: relative;
-  width: 100%;
-  min-height: clamp(8rem, 20vw, 15rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(0.35rem, 1vw, 0.8rem);
-}
-
-.rolling-line {
-  margin: 0;
-  color: var(--text);
-  font-size: clamp(2rem, 5vw, 5.8rem);
-  font-weight: 950;
-  line-height: 1.04;
-  letter-spacing: 0;
-  text-align: center;
-  text-shadow:
-    0 0 30px rgba(57, 255, 20, 0.18),
-    0 0 46px rgba(0, 217, 255, 0.12),
-    0 0 60px rgba(168, 85, 247, 0.16);
-  white-space: nowrap;
-}
-
-.rolling-char {
-  display: inline-block;
-  backface-visibility: hidden;
-  will-change: transform;
 }
 
 .section-heading {
@@ -591,43 +542,6 @@ a {
   line-height: 1.45;
 }
 
-.about-actions {
-  position: absolute;
-  bottom: clamp(1rem, 3vw, 1.8rem);
-  left: 50%;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  transform: translateX(-50%);
-}
-
-.about-actions button {
-  min-width: 6.5rem;
-  min-height: 2.75rem;
-  padding: 0 1rem;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(248, 250, 252, 0.08);
-  color: var(--text);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.72rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.about-actions button:hover {
-  background: rgba(57, 255, 20, 0.18);
-  color: var(--primary);
-}
-
-.drag-proxy {
-  position: absolute;
-  visibility: hidden;
-}
-
 .skill-cloud {
   display: flex;
   flex-wrap: wrap;
@@ -769,10 +683,6 @@ a {
 
   .water-field {
     opacity: 0.72;
-  }
-
-  .rolling-line {
-    font-size: clamp(1.35rem, 7.4vw, 2.6rem);
   }
 
   .gallery-wrap {
