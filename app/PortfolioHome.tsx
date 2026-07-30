@@ -143,9 +143,53 @@ const introBlocks = [
   },
 ];
 
+function AmbientBackdrop() {
+  return (
+    <div className="ambient-backdrop" aria-hidden="true">
+      <div className="ambient-smoke" />
+      <svg className="ambient-ribbons" viewBox="0 0 1440 1200" preserveAspectRatio="none">
+        <path
+          className="ribbon-path ribbon-lime"
+          d="M-120 210 C 180 20 330 420 590 240 S 1010 -10 1560 210"
+        />
+        <path
+          className="ribbon-path ribbon-green"
+          d="M-140 780 C 170 620 330 980 620 760 S 1060 520 1580 820"
+        />
+        <path
+          className="ribbon-path ribbon-blue"
+          d="M-90 1040 C 240 860 420 1110 710 930 S 1040 700 1530 950"
+        />
+        <path
+          className="ribbon-path ribbon-purple"
+          d="M-180 470 C 110 350 280 610 520 510 S 920 280 1550 430"
+        />
+        <path
+          className="ribbon-path ribbon-pink"
+          d="M-110 80 C 260 240 410 40 720 160 S 1090 390 1540 120"
+        />
+      </svg>
+    </div>
+  );
+}
+
+function RollingWheel({ className = "" }: { className?: string }) {
+  const classes = ["rolling-wheel", className].filter(Boolean).join(" ");
+
+  return (
+    <svg className={classes} viewBox="0 0 96 96" aria-hidden="true">
+      <circle className="wheel-ring" cx="48" cy="48" r="34" />
+      <circle className="wheel-core" cx="48" cy="48" r="8" />
+      <path className="wheel-spoke wheel-spoke-one" d="M48 14 V82" />
+      <path className="wheel-spoke wheel-spoke-two" d="M14 48 H82" />
+      <path className="wheel-spoke wheel-spoke-three" d="M24 24 L72 72" />
+      <path className="wheel-spoke wheel-spoke-four" d="M72 24 L24 72" />
+    </svg>
+  );
+}
+
 export default function PortfolioHome() {
   const rootRef = useRef<HTMLElement | null>(null);
-  const waterCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, Flip);
@@ -154,89 +198,6 @@ export default function PortfolioHome() {
     if (!root) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let stopWater = () => {};
-
-    const canvas = waterCanvasRef.current;
-    const ctx2d = canvas?.getContext("2d");
-
-    if (canvas && ctx2d) {
-      const pointer = { x: window.innerWidth * 0.5, y: window.innerHeight * 0.5 };
-      const cursor = { x: pointer.x, y: pointer.y };
-      let width = 0;
-      let height = 0;
-      let frameId = 0;
-
-      const resizeCanvas = () => {
-        const rect = canvas.getBoundingClientRect();
-        const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
-        width = rect.width;
-        height = rect.height;
-        canvas.width = Math.max(1, Math.floor(width * dpr));
-        canvas.height = Math.max(1, Math.floor(height * dpr));
-        ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
-      };
-
-      const movePointer = (event: PointerEvent) => {
-        const rect = canvas.getBoundingClientRect();
-        pointer.x = event.clientX - rect.left;
-        pointer.y = event.clientY - rect.top;
-      };
-
-      const drawLiquid = (time = 0) => {
-        cursor.x += (pointer.x - cursor.x) * 0.08;
-        cursor.y += (pointer.y - cursor.y) * 0.08;
-
-        ctx2d.clearRect(0, 0, width, height);
-        ctx2d.globalCompositeOperation = "screen";
-
-        const colours = [
-          { color: "0, 229, 255", drift: 0, scale: 0.92, core: 0.28, mid: 0.1 },
-          { color: "0, 102, 255", drift: 1.65, scale: 1.08, core: 0.22, mid: 0.09 },
-          { color: "57, 255, 20", drift: 3.1, scale: 0.78, core: 0.2, mid: 0.075 },
-          { color: "139, 92, 246", drift: 4.55, scale: 1.24, core: 0.18, mid: 0.08 },
-        ];
-
-        colours.forEach((layer, index) => {
-          const x = cursor.x + Math.sin(time * 0.00082 + layer.drift) * width * 0.11;
-          const y = cursor.y + Math.cos(time * 0.0007 + layer.drift) * height * 0.1;
-          const radius = Math.max(width, height) * (0.24 + index * 0.032) * layer.scale;
-          const gradient = ctx2d.createRadialGradient(x, y, 0, x, y, radius);
-
-          gradient.addColorStop(0, `rgba(${layer.color}, ${layer.core})`);
-          gradient.addColorStop(0.42, `rgba(${layer.color}, ${layer.mid})`);
-          gradient.addColorStop(0.76, `rgba(${layer.color}, 0.028)`);
-          gradient.addColorStop(1, `rgba(${layer.color}, 0)`);
-
-          ctx2d.fillStyle = gradient;
-          ctx2d.beginPath();
-          ctx2d.ellipse(
-            x,
-            y,
-            radius * 1.62,
-            radius * 0.82,
-            Math.sin(time * 0.00055 + index),
-            0,
-            Math.PI * 2,
-          );
-          ctx2d.fill();
-        });
-
-        if (!reduceMotion) {
-          frameId = requestAnimationFrame(drawLiquid);
-        }
-      };
-
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
-      window.addEventListener("pointermove", movePointer, { passive: true });
-      drawLiquid();
-
-      stopWater = () => {
-        cancelAnimationFrame(frameId);
-        window.removeEventListener("resize", resizeCanvas);
-        window.removeEventListener("pointermove", movePointer);
-      };
-    }
 
     const ctx = gsap.context(() => {
       let aboutCleanup = () => {};
@@ -309,6 +270,20 @@ export default function PortfolioHome() {
             },
           });
         }
+
+        gsap.utils.toArray<SVGSVGElement>(".rolling-wheel", root).forEach((wheel) => {
+          gsap.to(wheel, {
+            rotate: 360,
+            ease: "none",
+            transformOrigin: "50% 50%",
+            scrollTrigger: {
+              trigger: wheel.closest("section") ?? wheel,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.4,
+            },
+          });
+        });
 
         gsap.utils.toArray<HTMLElement>(".reveal-row").forEach((item) => {
           gsap.from(item, {
@@ -545,16 +520,15 @@ export default function PortfolioHome() {
     }, root);
 
     return () => {
-      stopWater();
       ctx.revert();
     };
   }, []);
 
   return (
     <main className="portfolio" ref={rootRef}>
-      <section className="hero" id="home" aria-label="Intro">
-        <canvas className="water-field" ref={waterCanvasRef} aria-hidden="true" />
+      <AmbientBackdrop />
 
+      <section className="hero" id="home" aria-label="Intro">
         <div className="split-panel split-panel-left" />
         <div className="split-panel split-panel-right" />
 
@@ -585,8 +559,11 @@ export default function PortfolioHome() {
       </section>
 
       <section className="Horizontal" aria-label="Portfolio quote">
-        <div className="Horizontal__text heading-xl">
-          <span>{quote}</span>
+        <div className="quote-stage">
+          <RollingWheel className="quote-wheel" />
+          <div className="Horizontal__text heading-xl">
+            <span>{quote}</span>
+          </div>
         </div>
       </section>
 
@@ -618,6 +595,7 @@ export default function PortfolioHome() {
         </div>
 
         <div className="about-card-gallery reveal-row" aria-label="Infinite about cards">
+          <RollingWheel className="about-wheel" />
           <ul className="about-cards">
             {about.map((line, index) => (
               <li className="about-card" key={line}>

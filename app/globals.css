@@ -42,20 +42,141 @@ a {
 }
 
 .portfolio {
+  position: relative;
   overflow: clip;
   background: #000;
 }
 
-.water-field {
-  position: absolute;
+.ambient-backdrop {
+  position: fixed;
   inset: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  opacity: 0.9;
+  z-index: 0;
+  overflow: hidden;
   pointer-events: none;
+  background: #000;
+  contain: paint;
+}
+
+.ambient-smoke,
+.ambient-smoke::before,
+.ambient-smoke::after {
+  position: absolute;
+  inset: -18%;
+  content: "";
+  opacity: 0.34;
   mix-blend-mode: screen;
-  filter: saturate(1.25) contrast(1.08) blur(0.18px);
+  filter: blur(42px) saturate(1.35);
+  will-change: transform;
+}
+
+.ambient-smoke {
+  background:
+    linear-gradient(118deg, transparent 0 10%, rgba(57, 255, 20, 0.16) 22%, transparent 38%),
+    linear-gradient(64deg, transparent 0 28%, rgba(0, 217, 255, 0.13) 44%, transparent 62%),
+    linear-gradient(141deg, transparent 0 48%, rgba(168, 85, 247, 0.14) 66%, transparent 86%);
+  animation: smokeDrift 28s ease-in-out infinite alternate;
+}
+
+.ambient-smoke::before {
+  background:
+    linear-gradient(74deg, transparent 0 18%, rgba(251, 113, 133, 0.11) 35%, transparent 52%),
+    linear-gradient(154deg, transparent 0 32%, rgba(163, 230, 53, 0.12) 54%, transparent 78%);
+  animation: smokeDriftAlt 36s ease-in-out infinite alternate;
+}
+
+.ambient-smoke::after {
+  background:
+    linear-gradient(24deg, transparent 0 16%, rgba(6, 182, 212, 0.1) 31%, transparent 50%),
+    linear-gradient(101deg, transparent 0 45%, rgba(57, 255, 20, 0.09) 64%, transparent 84%);
+  animation: smokeDriftDeep 44s ease-in-out infinite alternate;
+}
+
+.ambient-ribbons {
+  position: absolute;
+  inset: -8vh -8vw;
+  width: 116vw;
+  height: 116vh;
+  opacity: 0.46;
+  mix-blend-mode: screen;
+  overflow: visible;
+}
+
+.ribbon-path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 860 1280;
+  stroke-dashoffset: 0;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 12px currentColor);
+  transform-origin: center;
+  will-change: stroke-dashoffset, transform;
+  animation: ribbonDrift 34s linear infinite;
+}
+
+.ribbon-lime {
+  color: #39ff14;
+  animation-duration: 32s;
+}
+
+.ribbon-green {
+  color: #a3e635;
+  animation-duration: 40s;
+  animation-direction: reverse;
+}
+
+.ribbon-blue {
+  color: #00d9ff;
+  animation-duration: 36s;
+}
+
+.ribbon-purple {
+  color: #a855f7;
+  animation-duration: 44s;
+  animation-direction: reverse;
+}
+
+.ribbon-pink {
+  color: #fb7185;
+  animation-duration: 38s;
+}
+
+@keyframes smokeDrift {
+  from {
+    transform: translate3d(-3%, -2%, 0) skewX(-5deg) scale(1.02);
+  }
+
+  to {
+    transform: translate3d(4%, 3%, 0) skewX(6deg) scale(1.08);
+  }
+}
+
+@keyframes smokeDriftAlt {
+  from {
+    transform: translate3d(3%, 4%, 0) skewY(4deg) scale(1.04);
+  }
+
+  to {
+    transform: translate3d(-5%, -2%, 0) skewY(-5deg) scale(1.1);
+  }
+}
+
+@keyframes smokeDriftDeep {
+  from {
+    transform: translate3d(-2%, 5%, 0) scale(1.08);
+  }
+
+  to {
+    transform: translate3d(5%, -4%, 0) scale(1.14);
+  }
+}
+
+@keyframes ribbonDrift {
+  to {
+    stroke-dashoffset: -2140;
+    transform: translate3d(2%, -1%, 0) scale(1.02);
+  }
 }
 
 .hero {
@@ -65,7 +186,7 @@ a {
   place-items: center;
   padding: 2rem clamp(1rem, 4vw, 5rem);
   isolation: isolate;
-  background: #000;
+  background: transparent;
 }
 
 .hero,
@@ -271,7 +392,18 @@ a {
   display: flex;
   align-items: flex-start;
   padding-top: clamp(4.5rem, 13vh, 7rem);
-  background: #000;
+  background: transparent;
+}
+
+.quote-stage {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.8rem);
+  width: max-content;
+  min-width: 100%;
+  padding-inline: clamp(1rem, 5vw, 5rem);
 }
 
 .Horizontal__text {
@@ -286,6 +418,47 @@ a {
   will-change: transform;
 }
 
+.rolling-wheel {
+  flex: 0 0 auto;
+  width: clamp(3.2rem, 8vw, 7.2rem);
+  aspect-ratio: 1;
+  color: var(--primary);
+  opacity: 0.62;
+  overflow: visible;
+  filter:
+    drop-shadow(0 0 16px rgba(57, 255, 20, 0.34))
+    drop-shadow(0 0 26px rgba(0, 217, 255, 0.12));
+  will-change: transform;
+}
+
+.wheel-ring,
+.wheel-core,
+.wheel-spoke {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.wheel-ring {
+  stroke-width: 2.2;
+  stroke-dasharray: 16 10;
+}
+
+.wheel-core {
+  fill: rgba(57, 255, 20, 0.16);
+  stroke-width: 1.7;
+}
+
+.wheel-spoke {
+  stroke-width: 1.35;
+  opacity: 0.62;
+}
+
+.quote-wheel {
+  margin-top: clamp(0.25rem, 1vw, 1rem);
+}
+
 .heading-xl {
   font-size: clamp(2rem, 8vw, 9rem);
   font-weight: 600;
@@ -296,7 +469,7 @@ a {
 .section {
   position: relative;
   padding: clamp(4rem, 10vw, 9rem) clamp(1rem, 5vw, 5rem);
-  background: #000;
+  background: transparent;
 }
 
 .section-heading {
@@ -331,7 +504,7 @@ a {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #000;
+  background: transparent;
 }
 
 .gallery {
@@ -529,8 +702,19 @@ a {
   touch-action: pan-y;
 }
 
+.about-wheel {
+  position: absolute;
+  top: clamp(0.5rem, 2vw, 1.6rem);
+  right: clamp(0.25rem, 5vw, 4rem);
+  z-index: 1;
+  width: clamp(3rem, 7vw, 6rem);
+  color: #a3e635;
+  opacity: 0.5;
+}
+
 .about-cards {
   position: absolute;
+  z-index: 2;
   top: 42%;
   left: 50%;
   width: clamp(14rem, 24vw, 19rem);
@@ -543,6 +727,7 @@ a {
 
 .about-card {
   --about-card-rgb: 57, 255, 20;
+  --about-card-accent: #39ff14;
   position: absolute;
   inset: 0;
   display: flex;
@@ -551,23 +736,66 @@ a {
   gap: 1.4rem;
   list-style: none;
   padding: clamp(1rem, 2.3vw, 1.45rem);
-  border-radius: 0.8rem;
+  border-radius: 0.42rem;
   background:
-    linear-gradient(145deg, rgba(var(--about-card-rgb), 0.16), rgba(0, 0, 0, 0.76) 42%),
+    linear-gradient(145deg, rgba(var(--about-card-rgb), 0.13), rgba(0, 0, 0, 0.82) 38%),
+    linear-gradient(18deg, rgba(255, 255, 255, 0.025), transparent 58%),
     #020302;
   box-shadow:
-    0 0 0 1px rgba(var(--about-card-rgb), 0.32),
-    0 22px 70px rgba(var(--about-card-rgb), 0.16);
+    0 0 0 1px rgba(var(--about-card-rgb), 0.18),
+    0 24px 82px rgba(var(--about-card-rgb), 0.14);
+  translate: 0 0;
   transform-origin: center;
-  will-change: transform, opacity;
+  transition:
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    translate 0.22s ease;
+  will-change: transform, opacity, translate;
+}
+
+.about-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #39ff14, #a3e635 26%, #00d9ff 49%, #a855f7 72%, #fb7185);
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.about-card::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--about-card-accent), transparent);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.about-card:hover {
+  translate: 0 -0.35rem;
+  box-shadow:
+    0 0 0 1px rgba(var(--about-card-rgb), 0.34),
+    0 24px 86px rgba(var(--about-card-rgb), 0.24),
+    0 0 34px rgba(0, 217, 255, 0.08);
 }
 
 .about-card:nth-child(2) {
   --about-card-rgb: 0, 217, 255;
+  --about-card-accent: #00d9ff;
 }
 
 .about-card:nth-child(3) {
-  --about-card-rgb: 168, 85, 247;
+  --about-card-rgb: 251, 113, 133;
+  --about-card-accent: #a855f7;
 }
 
 .about-card span {
@@ -586,9 +814,9 @@ a {
 
 .about-card p {
   margin: 0;
-  color: #f7fff2;
+  color: var(--text);
   font-size: clamp(1rem, 1.65vw, 1.28rem);
-  font-weight: 700;
+  font-weight: 850;
   line-height: 1.45;
 }
 
@@ -736,10 +964,6 @@ a {
     line-height: 1.55;
   }
 
-  .water-field {
-    opacity: 0.72;
-  }
-
   .gallery-wrap {
     height: 112vh;
   }
@@ -758,6 +982,20 @@ a {
   .gallery__item em {
     display: none;
   }
+
+  .quote-stage {
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding-inline: 1rem;
+  }
+
+  .rolling-wheel {
+    width: clamp(2.6rem, 14vw, 4rem);
+  }
+
+  .about-card-gallery {
+    min-height: 420px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -765,5 +1003,17 @@ a {
   *::before,
   *::after {
     scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .ambient-smoke,
+  .ambient-smoke::before,
+  .ambient-smoke::after,
+  .ribbon-path,
+  .rolling-wheel {
+    animation: none !important;
+    transform: none !important;
   }
 }
