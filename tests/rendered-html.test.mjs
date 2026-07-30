@@ -41,7 +41,8 @@ test("server-renders Emaan Bilal's portfolio shell", async () => {
   assert.match(html, /computer vision/);
   assert.match(html, /Scrubbed bento project gallery/);
   assert.match(html, /Blank section for next content/);
-  assert.match(html, /Restlessly experimenting\. Constantly creating\./);
+  assert.match(html, /Restlessly experimenting\./);
+  assert.match(html, /Constantly creating\./);
   assert.match(html, /Kaam Compiler/);
   assert.match(html, /Tech Avenue Private Limited/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
@@ -79,8 +80,10 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(portfolio, /className="Horizontal"/);
   assert.match(portfolio, /className="rolling-container"/);
   assert.match(portfolio, /className="rolling-line"/);
-  assert.match(portfolio, /Restlessly experimenting\. Constantly creating\./);
-  assert.match(portfolio, /SplitText\.create\(rollingLine/);
+  assert.match(portfolio, /Restlessly experimenting\./);
+  assert.match(portfolio, /Constantly creating\./);
+  assert.match(portfolio, /SplitText\.create\(line/);
+  assert.match(portfolio, /rollingLines\.length/);
   assert.match(portfolio, /repeatDelay:\s*2\.2/);
   assert.match(css, /\.hero-intro/);
   assert.match(css, /\.hero-intro-block span/);

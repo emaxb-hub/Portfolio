@@ -327,13 +327,15 @@ export default function PortfolioHome() {
         }
 
         const rollingContainer = root.querySelector<HTMLElement>(".rolling-container");
-        const rollingLine = root.querySelector<HTMLElement>(".rolling-line");
+        const rollingLines = gsap.utils.toArray<HTMLElement>(".rolling-line", root);
 
-        if (rollingContainer && rollingLine) {
-          const splitRolling = SplitText.create(rollingLine, {
-            type: "chars",
-            charsClass: "rolling-char",
-          });
+        if (rollingContainer && rollingLines.length > 0) {
+          const splitRolling = rollingLines.map((line) =>
+            SplitText.create(line, {
+              type: "chars",
+              charsClass: "rolling-char",
+            }),
+          );
           const rollingDepth = -Math.max(window.innerWidth, 720) / 8;
           const transformOrigin = `50% 50% ${rollingDepth}px`;
           const rollingTl = gsap.timeline({
@@ -348,15 +350,20 @@ export default function PortfolioHome() {
           });
 
           gsap.set(rollingContainer, { autoAlpha: 1 });
-          gsap.set(rollingLine, { perspective: 700, transformStyle: "preserve-3d" });
-          gsap.set(splitRolling.chars, { rotationX: 0, transformOrigin });
-
-          rollingTl.to(splitRolling.chars, {
-            rotationX: 360,
-            stagger: 0.08,
-            duration: 1.7,
-            ease: "none",
-            transformOrigin,
+          gsap.set(rollingLines, { perspective: 700, transformStyle: "preserve-3d" });
+          splitRolling.forEach((split, index) => {
+            gsap.set(split.chars, { rotationX: 0, transformOrigin });
+            rollingTl.to(
+              split.chars,
+              {
+                rotationX: 360,
+                stagger: 0.07,
+                duration: 1.55,
+                ease: "none",
+                transformOrigin,
+              },
+              index * 0.7,
+            );
           });
         }
 
@@ -652,7 +659,8 @@ export default function PortfolioHome() {
       <section className="post-project-blank" aria-label="Blank section for next content">
         <div className="rolling-container">
           <div className="rolling-tube">
-            <p className="rolling-line">Restlessly experimenting. Constantly creating.</p>
+            <p className="rolling-line">Restlessly experimenting.</p>
+            <p className="rolling-line">Constantly creating.</p>
           </div>
         </div>
       </section>
