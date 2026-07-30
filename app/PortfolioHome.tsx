@@ -109,6 +109,9 @@ const leadership = [
 const quote =
   "I imagine, learn, and build.";
 
+const aboutMarquee =
+  "Artist brain. Developer hands. Builder energy.";
+
 const introBlocks = [
   {
     text: <>Hi, <span>Emaan</span> here.</>,
@@ -143,48 +146,59 @@ const introBlocks = [
   },
 ];
 
-function AmbientBackdrop() {
+function HeroRibbons() {
   return (
-    <div className="ambient-backdrop" aria-hidden="true">
-      <div className="ambient-smoke" />
-      <svg className="ambient-ribbons" viewBox="0 0 1440 1200" preserveAspectRatio="none">
+    <div className="hero-ribbons" aria-hidden="true">
+      <svg className="hero-ribbon-svg" viewBox="0 0 1440 980" preserveAspectRatio="none">
         <path
-          className="ribbon-path ribbon-lime"
-          d="M-120 210 C 180 20 330 420 590 240 S 1010 -10 1560 210"
+          className="hero-ribbon hero-ribbon-lime"
+          d="M-180 120 C 90 -20 220 160 140 360 C 70 560 -40 650 -170 820"
         />
         <path
-          className="ribbon-path ribbon-green"
-          d="M-140 780 C 170 620 330 980 620 760 S 1060 520 1580 820"
+          className="hero-ribbon hero-ribbon-green"
+          d="M1600 70 C 1280 110 1160 300 1280 480 C 1390 650 1290 800 1080 1010"
         />
         <path
-          className="ribbon-path ribbon-blue"
-          d="M-90 1040 C 240 860 420 1110 710 930 S 1040 700 1530 950"
+          className="hero-ribbon hero-ribbon-blue"
+          d="M-130 930 C 160 720 430 870 630 960 C 880 1075 1030 865 1210 825 C 1360 790 1480 860 1580 950"
         />
         <path
-          className="ribbon-path ribbon-purple"
-          d="M-180 470 C 110 350 280 610 520 510 S 920 280 1550 430"
+          className="hero-ribbon hero-ribbon-purple"
+          d="M1540 250 C 1240 360 1190 110 1010 -20 C 860 -130 710 -110 570 -5"
         />
         <path
-          className="ribbon-path ribbon-pink"
-          d="M-110 80 C 260 240 410 40 720 160 S 1090 390 1540 120"
+          className="hero-ribbon hero-ribbon-pink"
+          d="M-120 520 C 170 420 235 245 95 95 C -10 -20 -35 -95 30 -170"
         />
       </svg>
     </div>
   );
 }
 
-function RollingWheel({ className = "" }: { className?: string }) {
-  const classes = ["rolling-wheel", className].filter(Boolean).join(" ");
+function MarqueeText({
+  text,
+  className = "",
+  duration = 36,
+}: {
+  text: string;
+  className?: string;
+  duration?: number;
+}) {
+  const classes = ["marquee", className].filter(Boolean).join(" ");
+  const repeats = Array.from({ length: 4 }, (_, index) => index);
 
   return (
-    <svg className={classes} viewBox="0 0 96 96" aria-hidden="true">
-      <circle className="wheel-ring" cx="48" cy="48" r="34" />
-      <circle className="wheel-core" cx="48" cy="48" r="8" />
-      <path className="wheel-spoke wheel-spoke-one" d="M48 14 V82" />
-      <path className="wheel-spoke wheel-spoke-two" d="M14 48 H82" />
-      <path className="wheel-spoke wheel-spoke-three" d="M24 24 L72 72" />
-      <path className="wheel-spoke wheel-spoke-four" d="M72 24 L24 72" />
-    </svg>
+    <div className={classes} data-duration={duration} aria-label={text}>
+      <div className="marquee-track" aria-hidden="true">
+        {[0, 1].map((group) => (
+          <div className="marquee-group" key={group}>
+            {repeats.map((index) => (
+              <span key={`${group}-${index}`}>{text}</span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -201,6 +215,7 @@ export default function PortfolioHome() {
 
     const ctx = gsap.context(() => {
       let aboutCleanup = () => {};
+      let aboutHoverCleanup = () => {};
       let magneticCleanup = () => {};
 
       if (!reduceMotion) {
@@ -253,36 +268,29 @@ export default function PortfolioHome() {
             "-=0.25",
           );
 
-        const wrapper = root.querySelector<HTMLElement>(".Horizontal");
-        const text = root.querySelector<HTMLElement>(".Horizontal__text");
+        gsap.utils.toArray<HTMLElement>(".marquee", root).forEach((marquee) => {
+          const track = marquee.querySelector<HTMLElement>(".marquee-track");
+          if (!track) return;
 
-        if (wrapper && text) {
-          gsap.fromTo(text, {
-            xPercent: 12,
+          gsap.fromTo(track, {
+            xPercent: 0,
           }, {
-            xPercent: -8,
+            xPercent: -50,
+            duration: Number(marquee.dataset.duration) || 36,
+            repeat: -1,
             ease: "none",
-            scrollTrigger: {
-              trigger: wrapper,
-              start: "top 82%",
-              end: "+=1100",
-              scrub: 1.1,
-            },
           });
-        }
+        });
 
-        gsap.utils.toArray<SVGSVGElement>(".rolling-wheel", root).forEach((wheel) => {
-          gsap.to(wheel, {
-            rotate: 360,
-            ease: "none",
-            transformOrigin: "50% 50%",
-            scrollTrigger: {
-              trigger: wheel.closest("section") ?? wheel,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1.4,
-            },
-          });
+        gsap.to(".hero-ribbon", {
+          strokeDashoffset: -900,
+          x: "random(-24, 24)",
+          y: "random(-18, 18)",
+          duration: "random(18, 28)",
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          stagger: 0.22,
         });
 
         gsap.utils.toArray<HTMLElement>(".reveal-row").forEach((item) => {
@@ -374,6 +382,18 @@ export default function PortfolioHome() {
         const aboutCards = gsap.utils.toArray<HTMLElement>(".about-cards li", root);
 
         if (aboutStage && aboutCards.length > 0) {
+          gsap.from(aboutCards, {
+            y: 28,
+            filter: "blur(8px)",
+            duration: 0.8,
+            stagger: 0.08,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: aboutStage,
+              start: "top 78%",
+            },
+          });
+
           gsap.set(aboutCards, { xPercent: 260, opacity: 0, scale: 0.72, rotationY: -12 });
 
           const spacing = 0.3;
@@ -465,9 +485,42 @@ export default function PortfolioHome() {
             },
           });
 
+          const aboutHoverCleanups: Array<() => void> = [];
+
+          aboutCards.forEach((card) => {
+            const liftCard = () => {
+              gsap.to(card, {
+                y: -10,
+                duration: 0.36,
+                ease: "power3.out",
+                overwrite: "auto",
+              });
+            };
+
+            const settleCard = () => {
+              gsap.to(card, {
+                y: 0,
+                duration: 0.5,
+                ease: "elastic.out(1, 0.55)",
+                overwrite: "auto",
+              });
+            };
+
+            card.addEventListener("pointerenter", liftCard);
+            card.addEventListener("pointerleave", settleCard);
+            aboutHoverCleanups.push(() => {
+              card.removeEventListener("pointerenter", liftCard);
+              card.removeEventListener("pointerleave", settleCard);
+            });
+          });
+
+          aboutHoverCleanup = () => aboutHoverCleanups.forEach((cleanup) => cleanup());
+
           aboutCleanup = () => {
             aboutTrigger.kill();
             seamlessLoop.kill();
+            aboutHoverCleanup();
+            aboutHoverCleanup = () => {};
           };
         }
       }
@@ -513,6 +566,7 @@ export default function PortfolioHome() {
 
       return () => {
         aboutCleanup();
+        aboutHoverCleanup();
         magneticCleanup();
         window.removeEventListener("resize", createTween);
         flipCtx?.revert();
@@ -526,9 +580,9 @@ export default function PortfolioHome() {
 
   return (
     <main className="portfolio" ref={rootRef}>
-      <AmbientBackdrop />
-
       <section className="hero" id="home" aria-label="Intro">
+        <HeroRibbons />
+
         <div className="split-panel split-panel-left" />
         <div className="split-panel split-panel-right" />
 
@@ -559,12 +613,7 @@ export default function PortfolioHome() {
       </section>
 
       <section className="Horizontal" aria-label="Portfolio quote">
-        <div className="quote-stage">
-          <RollingWheel className="quote-wheel" />
-          <div className="Horizontal__text heading-xl">
-            <span>{quote}</span>
-          </div>
-        </div>
+        <MarqueeText text={quote} className="quote-marquee heading-xl" duration={34} />
       </section>
 
       <section className="gallery-section" id="projects" aria-label="Scrubbed bento project gallery">
@@ -594,8 +643,9 @@ export default function PortfolioHome() {
           <h2>Artist brain, developer hands, builder energy.</h2>
         </div>
 
+        <MarqueeText text={aboutMarquee} className="about-marquee" duration={44} />
+
         <div className="about-card-gallery reveal-row" aria-label="Infinite about cards">
-          <RollingWheel className="about-wheel" />
           <ul className="about-cards">
             {about.map((line, index) => (
               <li className="about-card" key={line}>
