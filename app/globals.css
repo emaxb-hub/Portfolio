@@ -88,11 +88,10 @@ a {
   stroke-width: clamp(22px, 3.4vw, 48px);
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 720 260;
-  opacity: 0.78;
+  opacity: 0;
   filter: drop-shadow(0 0 18px currentColor);
-  transform-origin: center;
-  will-change: transform, stroke-dashoffset;
+  vector-effect: non-scaling-stroke;
+  will-change: stroke-dashoffset, opacity;
 }
 
 .hero-ribbon-lime {

@@ -152,27 +152,100 @@ function HeroRibbons() {
       <svg className="hero-ribbon-svg" viewBox="0 0 1440 980" preserveAspectRatio="none">
         <path
           className="hero-ribbon hero-ribbon-lime"
-          d="M-180 120 C 90 -20 220 160 140 360 C 70 560 -40 650 -170 820"
         />
         <path
           className="hero-ribbon hero-ribbon-green"
-          d="M1600 70 C 1280 110 1160 300 1280 480 C 1390 650 1290 800 1080 1010"
         />
         <path
           className="hero-ribbon hero-ribbon-blue"
-          d="M-130 930 C 160 720 430 870 630 960 C 880 1075 1030 865 1210 825 C 1360 790 1480 860 1580 950"
         />
         <path
           className="hero-ribbon hero-ribbon-purple"
-          d="M1540 250 C 1240 360 1190 110 1010 -20 C 860 -130 710 -110 570 -5"
         />
         <path
           className="hero-ribbon hero-ribbon-pink"
-          d="M-120 520 C 170 420 235 245 95 95 C -10 -20 -35 -95 30 -170"
         />
       </svg>
     </div>
   );
+}
+
+type RibbonEdge = "top" | "right" | "bottom" | "left";
+
+const ribbonRoutes: Array<[RibbonEdge, RibbonEdge]> = [
+  ["left", "top"],
+  ["top", "left"],
+  ["top", "right"],
+  ["right", "top"],
+  ["right", "bottom"],
+  ["bottom", "right"],
+  ["bottom", "left"],
+  ["left", "bottom"],
+];
+
+const randomBetween = (min: number, max: number) => min + Math.random() * (max - min);
+
+function createHeroRibbonPath() {
+  const route = ribbonRoutes[Math.floor(Math.random() * ribbonRoutes.length)];
+  const [startEdge, endEdge] = route;
+  const jitter = () => randomBetween(-34, 34);
+  let start = { x: 0, y: 0 };
+  let end = { x: 0, y: 0 };
+  let controlOne = { x: 0, y: 0 };
+  let controlTwo = { x: 0, y: 0 };
+
+  switch (`${startEdge}-${endEdge}`) {
+    case "left-top":
+      start = { x: -34, y: randomBetween(90, 300) };
+      end = { x: randomBetween(90, 330), y: -34 };
+      controlOne = { x: randomBetween(90, 230), y: start.y + jitter() };
+      controlTwo = { x: end.x + jitter(), y: randomBetween(90, 230) };
+      break;
+    case "top-left":
+      start = { x: randomBetween(90, 330), y: -34 };
+      end = { x: -34, y: randomBetween(90, 300) };
+      controlOne = { x: start.x + jitter(), y: randomBetween(90, 230) };
+      controlTwo = { x: randomBetween(90, 230), y: end.y + jitter() };
+      break;
+    case "top-right":
+      start = { x: randomBetween(1110, 1350), y: -34 };
+      end = { x: 1474, y: randomBetween(90, 300) };
+      controlOne = { x: start.x + jitter(), y: randomBetween(90, 230) };
+      controlTwo = { x: randomBetween(1210, 1380), y: end.y + jitter() };
+      break;
+    case "right-top":
+      start = { x: 1474, y: randomBetween(90, 300) };
+      end = { x: randomBetween(1110, 1350), y: -34 };
+      controlOne = { x: randomBetween(1210, 1380), y: start.y + jitter() };
+      controlTwo = { x: end.x + jitter(), y: randomBetween(90, 230) };
+      break;
+    case "right-bottom":
+      start = { x: 1474, y: randomBetween(680, 890) };
+      end = { x: randomBetween(1110, 1350), y: 1014 };
+      controlOne = { x: randomBetween(1210, 1380), y: start.y + jitter() };
+      controlTwo = { x: end.x + jitter(), y: randomBetween(750, 900) };
+      break;
+    case "bottom-right":
+      start = { x: randomBetween(1110, 1350), y: 1014 };
+      end = { x: 1474, y: randomBetween(680, 890) };
+      controlOne = { x: start.x + jitter(), y: randomBetween(750, 900) };
+      controlTwo = { x: randomBetween(1210, 1380), y: end.y + jitter() };
+      break;
+    case "bottom-left":
+      start = { x: randomBetween(90, 330), y: 1014 };
+      end = { x: -34, y: randomBetween(680, 890) };
+      controlOne = { x: start.x + jitter(), y: randomBetween(750, 900) };
+      controlTwo = { x: randomBetween(90, 230), y: end.y + jitter() };
+      break;
+    default:
+      start = { x: -34, y: randomBetween(680, 890) };
+      end = { x: randomBetween(90, 330), y: 1014 };
+      controlOne = { x: randomBetween(90, 230), y: start.y + jitter() };
+      controlTwo = { x: end.x + jitter(), y: randomBetween(750, 900) };
+      break;
+  }
+
+  return `M ${start.x} ${start.y} C ${controlOne.x} ${controlOne.y}, ${controlTwo.x} ${controlTwo.y}, ${end.x} ${end.y}`;
 }
 
 function MarqueeText({
@@ -217,6 +290,8 @@ export default function PortfolioHome() {
       let aboutCleanup = () => {};
       let aboutHoverCleanup = () => {};
       let magneticCleanup = () => {};
+      let ribbonsAlive = true;
+      const ribbonTimelines = new Set<gsap.core.Timeline>();
 
       if (!reduceMotion) {
         const introTl = gsap.timeline({ defaults: { ease: "power4.out" } });
@@ -282,16 +357,46 @@ export default function PortfolioHome() {
           });
         });
 
-        gsap.to(".hero-ribbon", {
-          strokeDashoffset: -900,
-          x: "random(-24, 24)",
-          y: "random(-18, 18)",
-          duration: "random(18, 28)",
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-          stagger: 0.22,
-        });
+        const heroRibbonPaths = gsap.utils.toArray<SVGPathElement>(".hero-ribbon", root);
+
+        const paintRibbon = (path: SVGPathElement, index: number, delay = index * 0.8) => {
+          path.setAttribute("d", createHeroRibbonPath());
+          const length = path.getTotalLength();
+          const timeline = gsap.timeline({ delay });
+          ribbonTimelines.add(timeline);
+
+          gsap.set(path, {
+            strokeDasharray: length,
+            strokeDashoffset: length,
+            opacity: 0,
+          });
+
+          timeline
+            .to(path, { opacity: 0.78, duration: 0.45, ease: "power2.out" })
+            .to(path, {
+              strokeDashoffset: 0,
+              duration: gsap.utils.random(4, 8),
+              ease: "power1.inOut",
+            })
+            .to({}, { duration: gsap.utils.random(1.2, 2.2) })
+            .to(path, { opacity: 0, duration: 0.85, ease: "power2.inOut" });
+
+          timeline.eventCallback("onComplete", () => {
+            ribbonTimelines.delete(timeline);
+            if (ribbonsAlive) {
+              paintRibbon(path, index, gsap.utils.random(0.3, 1.1));
+            }
+          });
+        };
+
+        if (reduceMotion) {
+          heroRibbonPaths.forEach((path) => {
+            path.setAttribute("d", createHeroRibbonPath());
+            gsap.set(path, { opacity: 0.48 });
+          });
+        } else {
+          heroRibbonPaths.forEach((path, index) => paintRibbon(path, index));
+        }
 
         gsap.utils.toArray<HTMLElement>(".reveal-row").forEach((item) => {
           gsap.from(item, {
@@ -565,11 +670,14 @@ export default function PortfolioHome() {
       window.addEventListener("resize", createTween);
 
       return () => {
-        aboutCleanup();
-        aboutHoverCleanup();
-        magneticCleanup();
-        window.removeEventListener("resize", createTween);
-        flipCtx?.revert();
+      aboutCleanup();
+      aboutHoverCleanup();
+      magneticCleanup();
+      ribbonsAlive = false;
+      ribbonTimelines.forEach((timeline) => timeline.kill());
+      ribbonTimelines.clear();
+      window.removeEventListener("resize", createTween);
+      flipCtx?.revert();
       };
     }, root);
 

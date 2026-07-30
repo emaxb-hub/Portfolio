@@ -71,7 +71,15 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(portfolio, /className="about-marquee"/);
   assert.match(portfolio, /xPercent:\s*-50/);
   assert.match(portfolio, /repeat:\s*-1/);
-  assert.match(portfolio, /strokeDashoffset:\s*-900/);
+  assert.match(portfolio, /createHeroRibbonPath/);
+  assert.match(portfolio, /getTotalLength\(\)/);
+  assert.match(portfolio, /strokeDashoffset:\s*length/);
+  assert.match(portfolio, /strokeDashoffset:\s*0/);
+  assert.match(portfolio, /ribbonTimelines/);
+  assert.match(portfolio, /ribbonsAlive/);
+  assert.doesNotMatch(portfolio, /strokeDashoffset:\s*-900/);
+  assert.doesNotMatch(portfolio, /x:\s*"random\(-24, 24\)"/);
+  assert.doesNotMatch(portfolio, /y:\s*"random\(-18, 18\)"/);
   assert.doesNotMatch(portfolio, /RollingWheel|AmbientBackdrop/);
   assert.doesNotMatch(portfolio, /className="ambient-backdrop"|className="ambient-ribbons"/);
   assert.doesNotMatch(portfolio, /rolling-wheel|quote-wheel|about-wheel|quote-stage/);
@@ -129,6 +137,8 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(css, /\.hero-ribbons/);
   assert.match(css, /\.hero-ribbon-svg/);
   assert.match(css, /\.hero-ribbon/);
+  assert.match(css, /vector-effect:\s*non-scaling-stroke/);
+  assert.match(css, /will-change:\s*strokeDashoffset|will-change:\s*stroke-dashoffset/);
   assert.match(css, /\.marquee/);
   assert.match(css, /\.marquee-track/);
   assert.match(css, /\.quote-marquee/);
