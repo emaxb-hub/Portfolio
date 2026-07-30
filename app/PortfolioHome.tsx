@@ -170,80 +170,30 @@ function HeroRibbons() {
   );
 }
 
-type RibbonEdge = "top" | "right" | "bottom" | "left";
-
-const ribbonRoutes: Array<[RibbonEdge, RibbonEdge]> = [
-  ["left", "top"],
-  ["top", "left"],
-  ["top", "right"],
-  ["right", "top"],
-  ["right", "bottom"],
-  ["bottom", "right"],
-  ["bottom", "left"],
-  ["left", "bottom"],
-];
-
 const randomBetween = (min: number, max: number) => min + Math.random() * (max - min);
 
 function createHeroRibbonPath() {
-  const route = ribbonRoutes[Math.floor(Math.random() * ribbonRoutes.length)];
-  const [startEdge, endEdge] = route;
-  const jitter = () => randomBetween(-34, 34);
-  let start = { x: 0, y: 0 };
-  let end = { x: 0, y: 0 };
-  let controlOne = { x: 0, y: 0 };
-  let controlTwo = { x: 0, y: 0 };
-
-  switch (`${startEdge}-${endEdge}`) {
-    case "left-top":
-      start = { x: -34, y: randomBetween(90, 300) };
-      end = { x: randomBetween(90, 330), y: -34 };
-      controlOne = { x: randomBetween(90, 230), y: start.y + jitter() };
-      controlTwo = { x: end.x + jitter(), y: randomBetween(90, 230) };
-      break;
-    case "top-left":
-      start = { x: randomBetween(90, 330), y: -34 };
-      end = { x: -34, y: randomBetween(90, 300) };
-      controlOne = { x: start.x + jitter(), y: randomBetween(90, 230) };
-      controlTwo = { x: randomBetween(90, 230), y: end.y + jitter() };
-      break;
-    case "top-right":
-      start = { x: randomBetween(1110, 1350), y: -34 };
-      end = { x: 1474, y: randomBetween(90, 300) };
-      controlOne = { x: start.x + jitter(), y: randomBetween(90, 230) };
-      controlTwo = { x: randomBetween(1210, 1380), y: end.y + jitter() };
-      break;
-    case "right-top":
-      start = { x: 1474, y: randomBetween(90, 300) };
-      end = { x: randomBetween(1110, 1350), y: -34 };
-      controlOne = { x: randomBetween(1210, 1380), y: start.y + jitter() };
-      controlTwo = { x: end.x + jitter(), y: randomBetween(90, 230) };
-      break;
-    case "right-bottom":
-      start = { x: 1474, y: randomBetween(680, 890) };
-      end = { x: randomBetween(1110, 1350), y: 1014 };
-      controlOne = { x: randomBetween(1210, 1380), y: start.y + jitter() };
-      controlTwo = { x: end.x + jitter(), y: randomBetween(750, 900) };
-      break;
-    case "bottom-right":
-      start = { x: randomBetween(1110, 1350), y: 1014 };
-      end = { x: 1474, y: randomBetween(680, 890) };
-      controlOne = { x: start.x + jitter(), y: randomBetween(750, 900) };
-      controlTwo = { x: randomBetween(1210, 1380), y: end.y + jitter() };
-      break;
-    case "bottom-left":
-      start = { x: randomBetween(90, 330), y: 1014 };
-      end = { x: -34, y: randomBetween(680, 890) };
-      controlOne = { x: start.x + jitter(), y: randomBetween(750, 900) };
-      controlTwo = { x: randomBetween(90, 230), y: end.y + jitter() };
-      break;
-    default:
-      start = { x: -34, y: randomBetween(680, 890) };
-      end = { x: randomBetween(90, 330), y: 1014 };
-      controlOne = { x: randomBetween(90, 230), y: start.y + jitter() };
-      controlTwo = { x: end.x + jitter(), y: randomBetween(750, 900) };
-      break;
-  }
+  const topToBottom = Math.random() > 0.5;
+  const edgeX = Math.random() > 0.5
+    ? randomBetween(58, 145)
+    : randomBetween(1295, 1382);
+  const bend = () => randomBetween(-46, 46);
+  const start = {
+    x: edgeX + bend(),
+    y: topToBottom ? -34 : 1014,
+  };
+  const end = {
+    x: edgeX + bend(),
+    y: topToBottom ? 1014 : -34,
+  };
+  const controlOne = {
+    x: edgeX + randomBetween(-74, 74),
+    y: topToBottom ? randomBetween(190, 330) : randomBetween(680, 820),
+  };
+  const controlTwo = {
+    x: edgeX + randomBetween(-74, 74),
+    y: topToBottom ? randomBetween(650, 790) : randomBetween(160, 300),
+  };
 
   return `M ${start.x} ${start.y} C ${controlOne.x} ${controlOne.y}, ${controlTwo.x} ${controlTwo.y}, ${end.x} ${end.y}`;
 }
