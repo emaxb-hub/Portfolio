@@ -73,7 +73,9 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(portfolio, /repeat:\s*-1/);
   assert.match(portfolio, /createHeroRibbonPath/);
   assert.match(portfolio, /topToBottom/);
-  assert.match(portfolio, /edgeX/);
+  assert.match(portfolio, /leftSide/);
+  assert.match(portfolio, /upperTurn/);
+  assert.match(portfolio, /lowerTurn/);
   assert.match(portfolio, /getTotalLength\(\)/);
   assert.match(portfolio, /strokeDashoffset:\s*length/);
   assert.match(portfolio, /strokeDashoffset:\s*0/);

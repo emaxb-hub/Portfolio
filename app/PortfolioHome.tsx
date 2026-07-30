@@ -174,28 +174,60 @@ const randomBetween = (min: number, max: number) => min + Math.random() * (max -
 
 function createHeroRibbonPath() {
   const topToBottom = Math.random() > 0.5;
-  const edgeX = Math.random() > 0.5
-    ? randomBetween(34, 238)
-    : randomBetween(1202, 1406);
-  const bend = () => randomBetween(-62, 62);
-  const start = {
-    x: edgeX + bend(),
-    y: topToBottom ? -34 : 1014,
+  const leftSide = Math.random() > 0.5;
+  const sideX = leftSide ? randomBetween(100, 210) : randomBetween(1230, 1340);
+  const topStart = {
+    x: leftSide ? randomBetween(28, 260) : randomBetween(1180, 1412),
+    y: -34,
   };
-  const end = {
-    x: edgeX + bend(),
-    y: topToBottom ? 1014 : -34,
+  const bottomEnd = {
+    x: leftSide ? randomBetween(28, 260) : randomBetween(1180, 1412),
+    y: 1014,
   };
-  const controlOne = {
-    x: edgeX + randomBetween(-108, 108),
-    y: topToBottom ? randomBetween(190, 330) : randomBetween(680, 820),
+  const upperTurn = {
+    x: sideX + randomBetween(-46, 46),
+    y: randomBetween(220, 300),
   };
-  const controlTwo = {
-    x: edgeX + randomBetween(-108, 108),
-    y: topToBottom ? randomBetween(650, 790) : randomBetween(160, 300),
+  const lowerTurn = {
+    x: sideX + randomBetween(-46, 46),
+    y: randomBetween(680, 760),
+  };
+  const upperControlOne = {
+    x: topStart.x + randomBetween(-18, 18),
+    y: randomBetween(35, 95),
+  };
+  const upperControlTwo = {
+    x: upperTurn.x + randomBetween(-24, 24),
+    y: randomBetween(135, 205),
+  };
+  const sideControlOne = {
+    x: sideX + randomBetween(-72, 72),
+    y: upperTurn.y + randomBetween(110, 180),
+  };
+  const sideControlTwo = {
+    x: sideX + randomBetween(-72, 72),
+    y: lowerTurn.y - randomBetween(110, 180),
+  };
+  const lowerControlOne = {
+    x: lowerTurn.x + randomBetween(-24, 24),
+    y: randomBetween(775, 845),
+  };
+  const lowerControlTwo = {
+    x: bottomEnd.x + randomBetween(-18, 18),
+    y: randomBetween(885, 945),
   };
 
-  return `M ${start.x} ${start.y} C ${controlOne.x} ${controlOne.y}, ${controlTwo.x} ${controlTwo.y}, ${end.x} ${end.y}`;
+  const forwardPath = `M ${topStart.x} ${topStart.y}
+    C ${upperControlOne.x} ${upperControlOne.y}, ${upperControlTwo.x} ${upperControlTwo.y}, ${upperTurn.x} ${upperTurn.y}
+    C ${sideControlOne.x} ${sideControlOne.y}, ${sideControlTwo.x} ${sideControlTwo.y}, ${lowerTurn.x} ${lowerTurn.y}
+    C ${lowerControlOne.x} ${lowerControlOne.y}, ${lowerControlTwo.x} ${lowerControlTwo.y}, ${bottomEnd.x} ${bottomEnd.y}`;
+
+  if (topToBottom) return forwardPath;
+
+  return `M ${bottomEnd.x} ${bottomEnd.y}
+    C ${lowerControlTwo.x} ${lowerControlTwo.y}, ${lowerControlOne.x} ${lowerControlOne.y}, ${lowerTurn.x} ${lowerTurn.y}
+    C ${sideControlTwo.x} ${sideControlTwo.y}, ${sideControlOne.x} ${sideControlOne.y}, ${upperTurn.x} ${upperTurn.y}
+    C ${upperControlTwo.x} ${upperControlTwo.y}, ${upperControlOne.x} ${upperControlOne.y}, ${topStart.x} ${topStart.y}`;
 }
 
 function MarqueeText({
