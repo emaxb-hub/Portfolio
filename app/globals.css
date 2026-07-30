@@ -2,8 +2,9 @@
 
 :root {
   --background: #000000;
-  --primary: #a3e635;
+  --primary: #39ff14;
   --accent: #06b6d4;
+  --purple: #a855f7;
   --warm: #f59e0b;
   --rose: #fb7185;
   --text: #f8fafc;
@@ -44,6 +45,86 @@ a {
   background: #000;
 }
 
+.ribbon-field {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.neon-ribbon {
+  position: absolute;
+  top: -16vh;
+  width: clamp(4.5rem, 8vw, 8rem);
+  height: 132vh;
+  border-radius: 999px;
+  filter: blur(18px);
+  mix-blend-mode: screen;
+  opacity: 0.46;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.neon-ribbon::after {
+  content: "";
+  position: absolute;
+  inset: 18% 38%;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.52);
+  filter: blur(12px);
+  opacity: 0.38;
+}
+
+.ribbon-left {
+  left: max(-7rem, -7vw);
+}
+
+.ribbon-right {
+  right: max(-7rem, -7vw);
+}
+
+.ribbon-green {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(57, 255, 20, 0.14) 18%,
+    rgba(57, 255, 20, 0.85) 48%,
+    rgba(6, 182, 212, 0.36) 68%,
+    transparent 100%
+  );
+}
+
+.ribbon-purple {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(168, 85, 247, 0.14) 22%,
+    rgba(168, 85, 247, 0.88) 52%,
+    rgba(57, 255, 20, 0.28) 72%,
+    transparent 100%
+  );
+}
+
+.ribbon-left.ribbon-green {
+  transform: translateX(-18%) rotate(11deg);
+}
+
+.ribbon-left.ribbon-purple {
+  left: max(-4rem, -3vw);
+  transform: translateX(-8%) rotate(-8deg);
+}
+
+.ribbon-right.ribbon-purple {
+  transform: translateX(18%) rotate(-11deg);
+}
+
+.ribbon-right.ribbon-green {
+  right: max(-4rem, -3vw);
+  transform: translateX(8%) rotate(8deg);
+}
+
 .hero {
   position: relative;
   min-height: 100svh;
@@ -52,6 +133,29 @@ a {
   padding: 2rem clamp(1rem, 4vw, 5rem);
   isolation: isolate;
   background: #000;
+}
+
+.hero,
+.Horizontal,
+.gallery-section,
+.section {
+  z-index: 2;
+}
+
+.hero-kicker,
+.hero-name,
+.hero-meta,
+.hero-intro,
+.Horizontal__text,
+.section-heading,
+.gallery,
+.about-grid,
+.skill-cloud,
+.timeline,
+.leadership-list,
+.contact-panel {
+  position: relative;
+  z-index: 5;
 }
 
 .split-panel {
@@ -136,7 +240,9 @@ a {
 .name-left,
 .name-right {
   color: #f8fafc;
-  text-shadow: 0 0 34px rgba(6, 182, 212, 0.18);
+  text-shadow:
+    0 0 32px rgba(57, 255, 20, 0.18),
+    0 0 42px rgba(168, 85, 247, 0.16);
 }
 
 .hero-meta {
@@ -171,10 +277,11 @@ a {
 }
 
 .hero-intro-block span {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .Horizontal {
+  position: relative;
   overflow: hidden;
   height: 100vh;
   display: flex;
@@ -188,7 +295,10 @@ a {
   white-space: nowrap;
   gap: 8vw;
   padding-left: 0;
-  color: var(--accent);
+  color: var(--purple);
+  text-shadow:
+    0 0 28px rgba(168, 85, 247, 0.34),
+    0 0 42px rgba(57, 255, 20, 0.12);
   will-change: transform;
 }
 
@@ -213,7 +323,7 @@ a {
 .section-heading p,
 .contact-panel > p {
   margin: 0 0 0.9rem;
-  color: var(--accent);
+  color: var(--primary);
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.82rem;
   font-weight: 900;
@@ -275,7 +385,7 @@ a {
 
 .gallery__item p {
   margin: auto 0 0.65rem;
-  color: var(--accent);
+  color: var(--purple);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -369,7 +479,7 @@ a {
 }
 
 .info-card span {
-  color: var(--accent);
+  color: var(--primary);
   font-family: var(--font-geist-mono), monospace;
   font-weight: 900;
 }
@@ -412,7 +522,7 @@ a {
 }
 
 .timeline-item span {
-  color: var(--accent);
+  color: var(--primary);
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.8rem;
   font-weight: 900;
@@ -459,7 +569,7 @@ a {
   align-items: center;
   justify-content: center;
   padding: 0;
-  color: var(--accent);
+  color: var(--purple);
   font-weight: 900;
 }
 
@@ -519,6 +629,12 @@ a {
   .hero-intro-block {
     font-size: clamp(0.9rem, 4vw, 1.05rem);
     line-height: 1.55;
+  }
+
+  .neon-ribbon {
+    width: clamp(3rem, 12vw, 4.8rem);
+    opacity: 0.34;
+    filter: blur(16px);
   }
 
   .gallery-wrap {
