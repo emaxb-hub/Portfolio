@@ -175,9 +175,9 @@ const randomBetween = (min: number, max: number) => min + Math.random() * (max -
 function createHeroRibbonPath() {
   const topToBottom = Math.random() > 0.5;
   const edgeX = Math.random() > 0.5
-    ? randomBetween(58, 145)
-    : randomBetween(1295, 1382);
-  const bend = () => randomBetween(-46, 46);
+    ? randomBetween(34, 238)
+    : randomBetween(1202, 1406);
+  const bend = () => randomBetween(-62, 62);
   const start = {
     x: edgeX + bend(),
     y: topToBottom ? -34 : 1014,
@@ -187,11 +187,11 @@ function createHeroRibbonPath() {
     y: topToBottom ? 1014 : -34,
   };
   const controlOne = {
-    x: edgeX + randomBetween(-74, 74),
+    x: edgeX + randomBetween(-108, 108),
     y: topToBottom ? randomBetween(190, 330) : randomBetween(680, 820),
   };
   const controlTwo = {
-    x: edgeX + randomBetween(-74, 74),
+    x: edgeX + randomBetween(-108, 108),
     y: topToBottom ? randomBetween(650, 790) : randomBetween(160, 300),
   };
 
