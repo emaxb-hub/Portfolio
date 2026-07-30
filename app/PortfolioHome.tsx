@@ -326,6 +326,40 @@ export default function PortfolioHome() {
           });
         }
 
+        const rollingContainer = root.querySelector<HTMLElement>(".rolling-container");
+        const rollingLine = root.querySelector<HTMLElement>(".rolling-line");
+
+        if (rollingContainer && rollingLine) {
+          const splitRolling = SplitText.create(rollingLine, {
+            type: "chars",
+            charsClass: "rolling-char",
+          });
+          const rollingDepth = -Math.max(window.innerWidth, 720) / 8;
+          const transformOrigin = `50% 50% ${rollingDepth}px`;
+          const rollingTl = gsap.timeline({
+            repeat: -1,
+            repeatDelay: 2.2,
+            scrollTrigger: {
+              trigger: rollingContainer,
+              start: "top 78%",
+              end: "bottom top",
+              toggleActions: "play pause resume pause",
+            },
+          });
+
+          gsap.set(rollingContainer, { autoAlpha: 1 });
+          gsap.set(rollingLine, { perspective: 700, transformStyle: "preserve-3d" });
+          gsap.set(splitRolling.chars, { rotationX: 0, transformOrigin });
+
+          rollingTl.to(splitRolling.chars, {
+            rotationX: 360,
+            stagger: 0.08,
+            duration: 1.7,
+            ease: "none",
+            transformOrigin,
+          });
+        }
+
         gsap.utils.toArray<HTMLElement>(".reveal-row").forEach((item) => {
           gsap.from(item, {
             y: 42,
@@ -615,7 +649,13 @@ export default function PortfolioHome() {
         </div>
       </section>
 
-      <section className="post-project-blank" aria-label="Blank section for next content" />
+      <section className="post-project-blank" aria-label="Blank section for next content">
+        <div className="rolling-container">
+          <div className="rolling-tube">
+            <p className="rolling-line">Restlessly experimenting. Constantly creating.</p>
+          </div>
+        </div>
+      </section>
 
       <section className="section about-section" id="about">
         <div className="section-heading reveal-row">

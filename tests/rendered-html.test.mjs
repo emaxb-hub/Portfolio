@@ -41,6 +41,7 @@ test("server-renders Emaan Bilal's portfolio shell", async () => {
   assert.match(html, /computer vision/);
   assert.match(html, /Scrubbed bento project gallery/);
   assert.match(html, /Blank section for next content/);
+  assert.match(html, /Restlessly experimenting\. Constantly creating\./);
   assert.match(html, /Kaam Compiler/);
   assert.match(html, /Tech Avenue Private Limited/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
@@ -76,6 +77,11 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(portfolio, /post-project-blank/);
   assert.match(portfolio, /autoAlpha: 0/);
   assert.match(portfolio, /className="Horizontal"/);
+  assert.match(portfolio, /className="rolling-container"/);
+  assert.match(portfolio, /className="rolling-line"/);
+  assert.match(portfolio, /Restlessly experimenting\. Constantly creating\./);
+  assert.match(portfolio, /SplitText\.create\(rollingLine/);
+  assert.match(portfolio, /repeatDelay:\s*2\.2/);
   assert.match(css, /\.hero-intro/);
   assert.match(css, /\.hero-intro-block span/);
   assert.match(css, /--primary:\s*#39ff14/i);
@@ -89,6 +95,10 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.doesNotMatch(css, /\.ribbon-field|\.ribbon-hero-a|\.neon-ribbon/);
   assert.match(css, /--tile-rgb/);
   assert.match(css, /\.post-project-blank/);
+  assert.match(css, /\.rolling-container/);
+  assert.match(css, /\.rolling-line/);
+  assert.match(css, /\.rolling-char/);
+  assert.match(css, /white-space:\s*nowrap/);
   assert.doesNotMatch(css, /\.gallery--bento::before/);
   assert.match(css, /\.gallery__item::before/);
   assert.match(css, /\.gallery__item::after/);
