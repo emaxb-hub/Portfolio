@@ -66,55 +66,32 @@ a {
   z-index: 2;
 }
 
-.hero-ribbons {
+.hero-wallpaper {
   position: absolute;
   inset: 0;
   z-index: 1;
   overflow: hidden;
   pointer-events: none;
-}
-
-.hero-ribbon-svg {
-  position: absolute;
-  inset: -7vh -7vw;
-  width: 114vw;
-  height: 114vh;
-  overflow: visible;
-}
-
-.hero-ribbon {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: clamp(22px, 3.4vw, 48px);
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  background: #000;
   opacity: 0;
-  filter: drop-shadow(0 0 18px currentColor);
-  vector-effect: non-scaling-stroke;
-  will-change: stroke-dashoffset, opacity;
+  visibility: hidden;
 }
 
-.hero-ribbon-lime {
-  color: #39ff14;
+.hero-wallpaper-video {
+  position: absolute;
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  opacity: 0.42;
+  filter: saturate(0.78) contrast(0.88) brightness(0.62);
+  transform: translateZ(0);
 }
 
-.hero-ribbon-green {
-  color: #a3e635;
-}
-
-.hero-ribbon-blue {
-  color: #00d9ff;
-  opacity: 0.72;
-}
-
-.hero-ribbon-purple {
-  color: #a855f7;
-  opacity: 0.7;
-}
-
-.hero-ribbon-pink {
-  color: #fb7185;
-  opacity: 0.76;
+.hero-wallpaper-shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.66);
 }
 
 .hero-kicker,
@@ -876,10 +853,6 @@ a {
     display: none;
   }
 
-  .hero-ribbon {
-    stroke-width: clamp(18px, 8vw, 34px);
-  }
-
   .about-card-gallery {
     min-height: 420px;
   }
@@ -895,8 +868,7 @@ a {
     transition-duration: 0.001ms !important;
   }
 
-  .hero-ribbon {
-    animation: none !important;
-    transform: none !important;
+  .hero-wallpaper-video {
+    display: none;
   }
 }

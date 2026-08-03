@@ -143,49 +143,6 @@ const introBlocks = [
   },
 ];
 
-function HeroRibbons() {
-  return (
-    <div className="hero-ribbons" aria-hidden="true">
-      <svg className="hero-ribbon-svg" viewBox="0 0 1440 980" preserveAspectRatio="none">
-        <path
-          className="hero-ribbon hero-ribbon-lime"
-        />
-        <path
-          className="hero-ribbon hero-ribbon-green"
-        />
-        <path
-          className="hero-ribbon hero-ribbon-blue"
-        />
-        <path
-          className="hero-ribbon hero-ribbon-purple"
-        />
-        <path
-          className="hero-ribbon hero-ribbon-pink"
-        />
-      </svg>
-    </div>
-  );
-}
-
-const randomBetween = (min: number, max: number) => min + Math.random() * (max - min);
-
-function createHeroRibbonPath(index = 0) {
-  const leftSide = (index + Math.floor(Math.random() * 2)) % 2 === 0;
-  const xBase = leftSide ? randomBetween(80, 170) : randomBetween(1270, 1360);
-  const controlOne = {
-    x: leftSide ? randomBetween(120, 230) : randomBetween(1210, 1320),
-    y: randomBetween(220, 360),
-  };
-  const controlTwo = {
-    x: leftSide ? randomBetween(110, 220) : randomBetween(1220, 1330),
-    y: randomBetween(650, 800),
-  };
-  const endX = xBase + randomBetween(-28, 28);
-
-  return `M ${xBase} -42
-    C ${controlOne.x} ${controlOne.y}, ${controlTwo.x} ${controlTwo.y}, ${endX} 1014`;
-}
-
 function MarqueeText({
   text,
   className = "",
@@ -228,8 +185,6 @@ export default function PortfolioHome() {
       let aboutCleanup = () => {};
       let aboutHoverCleanup = () => {};
       let magneticCleanup = () => {};
-      let ribbonsAlive = true;
-      const ribbonTimelines = new Set<gsap.core.Timeline>();
 
       if (!reduceMotion) {
         const introTl = gsap.timeline({ defaults: { ease: "power4.out" } });
@@ -267,6 +222,7 @@ export default function PortfolioHome() {
             { xPercent: 102, duration: 1.25, ease: "expo.inOut" },
             "<",
           )
+          .to(".hero-wallpaper", { autoAlpha: 1, duration: 0.85 }, "-=0.25")
           .to(".hero-intro", { autoAlpha: 1, y: 0, duration: 0.8 }, "-=0.25")
           .from(
             ".hero-intro-block",
@@ -294,47 +250,6 @@ export default function PortfolioHome() {
             ease: "none",
           });
         });
-
-        const heroRibbonPaths = gsap.utils.toArray<SVGPathElement>(".hero-ribbon", root);
-
-        const paintRibbon = (path: SVGPathElement, index: number, delay = index * 0.8) => {
-          path.setAttribute("d", createHeroRibbonPath(index));
-          const length = path.getTotalLength();
-          const timeline = gsap.timeline({ delay });
-          ribbonTimelines.add(timeline);
-
-          gsap.set(path, {
-            strokeDasharray: length,
-            strokeDashoffset: length,
-            opacity: 0,
-          });
-
-          timeline
-            .to(path, { opacity: 0.78, duration: 0.45, ease: "power2.out" })
-            .to(path, {
-              strokeDashoffset: 0,
-              duration: gsap.utils.random(4, 8),
-              ease: "power1.inOut",
-            })
-            .to({}, { duration: gsap.utils.random(1.2, 2.2) })
-            .to(path, { opacity: 0, duration: 0.85, ease: "power2.inOut" });
-
-          timeline.eventCallback("onComplete", () => {
-            ribbonTimelines.delete(timeline);
-            if (ribbonsAlive) {
-              paintRibbon(path, index, gsap.utils.random(0.3, 1.1));
-            }
-          });
-        };
-
-        if (reduceMotion) {
-          heroRibbonPaths.forEach((path) => {
-            path.setAttribute("d", createHeroRibbonPath(index));
-            gsap.set(path, { opacity: 0.48 });
-          });
-        } else {
-          heroRibbonPaths.forEach((path, index) => paintRibbon(path, index));
-        }
 
         gsap.utils.toArray<HTMLElement>(".reveal-row").forEach((item) => {
           gsap.from(item, {
@@ -566,6 +481,12 @@ export default function PortfolioHome() {
         }
       }
 
+      if (reduceMotion) {
+        gsap.set(".hero-wallpaper", { autoAlpha: 1 });
+        gsap.set(".hero-intro", { autoAlpha: 1, y: 0 });
+        gsap.set(".hero-intro-block", { opacity: 1, y: 0, filter: "none" });
+      }
+
       let flipCtx: gsap.Context | undefined;
 
       const createTween = () => {
@@ -609,9 +530,6 @@ export default function PortfolioHome() {
       aboutCleanup();
       aboutHoverCleanup();
       magneticCleanup();
-      ribbonsAlive = false;
-      ribbonTimelines.forEach((timeline) => timeline.kill());
-      ribbonTimelines.clear();
       window.removeEventListener("resize", createTween);
       flipCtx?.revert();
       };
@@ -625,7 +543,19 @@ export default function PortfolioHome() {
   return (
     <main className="portfolio" ref={rootRef}>
       <section className="hero" id="home" aria-label="Intro">
-        <HeroRibbons />
+        <div className="hero-wallpaper" aria-hidden="true">
+          <video
+            className="hero-wallpaper-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+          >
+            <source src="/intro-wallpaper.mp4" type="video/mp4" />
+          </video>
+          <div className="hero-wallpaper-shade" />
+        </div>
 
         <div className="split-panel split-panel-left" />
         <div className="split-panel split-panel-right" />
