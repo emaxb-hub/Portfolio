@@ -126,6 +126,10 @@ test("uses the Cyber Lime portfolio implementation", async () => {
   assert.match(css, /\.hero-wallpaper/);
   assert.match(css, /\.hero-wallpaper-video/);
   assert.match(css, /\.hero-wallpaper-shade/);
+  assert.match(css, /opacity:\s*0\.74/);
+  assert.match(css, /rgba\(57, 255, 20, 0\.12\)/);
+  assert.match(css, /rgba\(168, 85, 247, 0\.16\)/);
+  assert.match(css, /rgba\(0, 217, 255, 0\.1\)/);
   assert.match(css, /pointer-events:\s*none/);
   assert.doesNotMatch(css, /\.hero-ribbons|\.hero-ribbon/);
   assert.match(css, /\.marquee/);

@@ -83,15 +83,19 @@ a {
   width: 108%;
   height: 108%;
   object-fit: cover;
-  opacity: 0.42;
-  filter: saturate(0.78) contrast(0.88) brightness(0.62);
+  opacity: 0.74;
+  filter: saturate(1.22) contrast(1.02) brightness(0.86);
   transform: translateZ(0);
 }
 
 .hero-wallpaper-shade {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.66);
+  background:
+    linear-gradient(112deg, rgba(57, 255, 20, 0.12), transparent 35%),
+    linear-gradient(248deg, rgba(168, 85, 247, 0.16), transparent 42%),
+    linear-gradient(180deg, rgba(0, 217, 255, 0.1), transparent 52%),
+    rgba(0, 0, 0, 0.42);
 }
 
 .hero-kicker,
