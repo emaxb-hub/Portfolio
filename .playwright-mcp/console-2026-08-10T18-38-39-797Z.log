@@ -1,0 +1,335 @@
+[     314ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:0
+[     314ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:0
+[     314ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:0
+[     314ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:0
+[     314ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:0
+[     314ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:0
+[     314ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:0
+[     314ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:0
+[     314ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:0
+[     314ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:0
+[     315ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:0
+[     315ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:0
+[     315ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:0
+[     315ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:0
+[     315ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:0
+[     315ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:0
+[     315ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:0
+[     407ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:0
+[   27943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:0
+[   27986ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[   38107ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:0
+[   38107ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:0
+[   38107ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:0
+[   38107ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:0
+[   38107ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:0
+[   38108ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:0
+[   38166ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[  355927ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:169
+[  355928ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:169
+[  355928ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:169
+[  355928ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:169
+[  355928ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:169
+[  355928ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:169
+[  355929ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:169
+[  355929ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:169
+[  355929ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:169
+[  355929ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:169
+[  355929ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:169
+[  355929ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:169
+[  355930ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:169
+[  355931ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:169
+[  355931ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:169
+[  355931ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:169
+[  355931ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:169
+[  356029ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[  464259ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:169
+[  464259ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:169
+[  464259ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:169
+[  464260ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:169
+[  464260ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:169
+[  464260ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:169
+[  464261ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:169
+[  464261ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:169
+[  464261ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:169
+[  464261ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:169
+[  464261ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:169
+[  464261ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:169
+[  464261ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:169
+[  464261ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:169
+[  464261ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:169
+[  464262ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:169
+[  464262ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:169
+[  464348ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[  548943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:169
+[  548943ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:169
+[  548944ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:169
+[  549095ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[  581073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:0
+[  581073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:0
+[  581074ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:0
+[  581074ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:0
+[  581074ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:0
+[  581074ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:0
+[  581074ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:0
+[  581074ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:0
+[  581075ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:0
+[  581075ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:0
+[  581075ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:0
+[  581075ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:0
+[  581075ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:0
+[  581075ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:0
+[  581075ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:0
+[  581075ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:0
+[  581076ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:0
+[  581173ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[  608362ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:169
+[  608362ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:169
+[  608362ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:169
+[  608362ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:169
+[  608362ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:169
+[  608362ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:169
+[  608363ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:169
+[  608363ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:169
+[  608363ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:169
+[  608363ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:169
+[  608363ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:169
+[  608363ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:169
+[  608363ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:169
+[  608363ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:169
+[  608364ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:169
+[  608364ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:169
+[  608364ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:169
+[  608477ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[  625430ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:169
+[  625431ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:169
+[  625431ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:169
+[  625431ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:169
+[  625432ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:169
+[  625432ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:169
+[  625432ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:169
+[  625432ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:169
+[  625432ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:169
+[  625432ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:169
+[  625433ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:169
+[  625433ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:169
+[  625433ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:169
+[  625433ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:169
+[  625433ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:169
+[  625433ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:169
+[  625433ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:169
+[  625605ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[  723600ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:0
+[  723600ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:0
+[  723600ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:0
+[  723600ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:0
+[  723600ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:0
+[  723602ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:0
+[  723602ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:0
+[  723602ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:0
+[  723602ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:0
+[  723602ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:0
+[  723603ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:0
+[  723603ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:0
+[  723603ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:0
+[  723603ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:0
+[  723603ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:0
+[  723603ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:0
+[  723603ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:0
+[  723716ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[  777834ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:169
+[  777834ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:169
+[  777834ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:169
+[  777834ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:169
+[  777834ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:169
+[  777834ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:169
+[  777835ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:169
+[  777835ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:169
+[  777835ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:169
+[  777835ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:169
+[  777835ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:169
+[  777835ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:169
+[  777835ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:169
+[  777835ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:169
+[  777835ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:169
+[  777835ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:169
+[  777835ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:169
+[  777950ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[  986964ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:0
+[  986964ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:0
+[  986964ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:0
+[  986964ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:0
+[  986964ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:0
+[  986964ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:0
+[  986965ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:0
+[  986965ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:0
+[  986965ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:0
+[  986965ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:0
+[  986965ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:0
+[  986965ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:0
+[  986965ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:0
+[  986965ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:0
+[  986965ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:0
+[  986966ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:0
+[  986966ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:0
+[  987108ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[ 1562912ms] [ERROR] Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. [object Object] @ http://localhost:5180/@vite/client:509
+[ 1562914ms] [ERROR] Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. [object Object] @ http://localhost:5180/@vite/client:509
+[ 1562914ms] [ERROR] Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. [object Object] @ http://localhost:5180/@vite/client:509
+[ 1562941ms] [ERROR] Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. [object Object] @ http://localhost:5180/@vite/client:509
+[ 1562941ms] [ERROR] Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. [object Object] @ http://localhost:5180/@vite/client:509
+[ 1562941ms] [ERROR] Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. [object Object] @ http://localhost:5180/@vite/client:509
+[ 1562957ms] [ERROR] Error: Objects are not valid as a React child (found: object with keys {heading, body, items}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectTypeImpl (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:3540:10)
+    at throwOnInvalidObjectType (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:3544:105)
+    at reconcileChildFibersImpl (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:3857:6)
+    at http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:3869:28
+    at reconcileChildren (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:5386:46)
+    at beginWork (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:6200:1569)
+    at runWithFiberInDEV (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:851:66)
+    at performUnitOfWork (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:8429:92)
+    at workLoopSync (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:8325:37)
+    at renderRootSync (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:8309:6) @ http://localhost:5180/@vite/client:509
+[ 1562963ms] [ERROR] The above error occurred in a React component:
+
+    at p (<anonymous>)
+    at li (<anonymous>)
+    at ul (<anonymous>)
+    at div (<anonymous>)
+    at section (<anonymous>)
+    at main (<anonymous>)
+    at PortfolioHome (http://localhost:5180/app/PortfolioHome.tsx?t=1786388682157:872:18)
+    at Home [Server] (<anonymous>)
+    at AwaitAppRenderDependencies [Server] (<anonymous>)
+    at Slot (http://localhost:5180/node_modules/vinext/dist/shims/slot.js?v=fdf25da7:42:17)
+    at LayoutSegmentProvider (http://localhost:5180/node_modules/vinext/dist/shims/layout-segment-context.js?v=fdf25da7:32:34)
+    at RedirectErrorBoundary (http://localhost:5180/node_modules/vinext/dist/shims/error-boundary.js?v=fdf25da7:56:3)
+    at RedirectBoundary (http://localhost:5180/node_modules/vinext/dist/shims/error-boundary.js?v=fdf25da7:86:29)
+    at Children (http://localhost:5180/node_modules/vinext/dist/shims/slot.js?v=fdf25da7:64:17)
+    at body (<anonymous>)
+    at html (<anonymous>)
+    at RootLayout [Server] (<anonymous>)
+    at default (about://React/Server/C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/app/layout.tsx?1:64:26)
+    at default (about://React/Server/C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/app/layout.tsx?1:64:26)
+    at Slot (http://localhost:5180/node_modules/vinext/dist/shims/slot.js?v=fdf25da7:42:17)
+    at LayoutSegmentProvider (http://localhost:5180/node_modules/vinext/dist/shims/layout-segment-context.js?v=fdf25da7:32:34)
+    at Slot (http://localhost:5180/node_modules/vinext/dist/shims/slot.js?v=fdf25da7:42:17)
+    at NavigationCommitSignal (http://localhost:5180/node_modules/vinext/dist/server/app-browser-navigation-controller.js?v=fdf25da7:184:36)
+    at RedirectErrorBoundary (http://localhost:5180/node_modules/vinext/dist/shims/error-boundary.js?v=fdf25da7:56:3)
+    at RedirectBoundary (http://localhost:5180/node_modules/vinext/dist/shims/error-boundary.js?v=fdf25da7:86:29)
+    at DevRecoveryBoundary (http://localhost:5180/node_modules/vinext/dist/shims/error-boundary.js?v=fdf25da7:268:3)
+    at BrowserRoot (http://localhost:5180/node_modules/vinext/dist/server/app-browser-entry.js?v=fdf25da7:209:24) @ http://localhost:5180/@vite/client:509
+[ 1790883ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:169
+[ 1790883ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:169
+[ 1790883ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:169
+[ 1790883ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:169
+[ 1790883ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:169
+[ 1790883ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:169
+[ 1790883ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:169
+[ 1790884ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:169
+[ 1790884ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:169
+[ 1790884ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:169
+[ 1790884ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:169
+[ 1790884ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:169
+[ 1790884ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:169
+[ 1790884ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:169
+[ 1790884ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:169
+[ 1790885ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:169
+[ 1790885ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:169
+[ 1790989ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[ 1826064ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:169
+[ 1826065ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:169
+[ 1826065ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:169
+[ 1826065ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:169
+[ 1826065ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:169
+[ 1826065ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:169
+[ 1826065ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:169
+[ 1826065ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:169
+[ 1826066ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:169
+[ 1826066ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:169
+[ 1826066ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:169
+[ 1826066ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:169
+[ 1826066ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:169
+[ 1826066ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:169
+[ 1826066ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:169
+[ 1826066ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:169
+[ 1826066ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:169
+[ 1826366ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[ 1904072ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:169
+[ 1904072ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:169
+[ 1904072ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:169
+[ 1904072ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:169
+[ 1904072ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:169
+[ 1904072ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:169
+[ 1904072ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:169
+[ 1904073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:169
+[ 1904073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:169
+[ 1904073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:169
+[ 1904073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:169
+[ 1904073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:169
+[ 1904073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:169
+[ 1904073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:169
+[ 1904073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:169
+[ 1904073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:169
+[ 1904073ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:169
+[ 1904192ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=fdf25da7:14337
+[ 9879410ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5180/@vite/client:968
+[ 9883005ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2 @ http://localhost:5180/:169
+[ 9883007ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2 @ http://localhost:5180/:169
+[ 9883007ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2 @ http://localhost:5180/:169
+[ 9883007ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2 @ http://localhost:5180/:169
+[ 9883008ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2 @ http://localhost:5180/:169
+[ 9883009ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2 @ http://localhost:5180/:169
+[ 9883009ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2 @ http://localhost:5180/:169
+[ 9883009ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2 @ http://localhost:5180/:169
+[ 9883009ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2 @ http://localhost:5180/:169
+[ 9883009ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2 @ http://localhost:5180/:169
+[ 9883009ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2 @ http://localhost:5180/:169
+[ 9883009ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-58bf8c05.woff2 @ http://localhost:5180/:169
+[ 9883010ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-479a236a.woff2 @ http://localhost:5180/:169
+[ 9883010ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7552f231.woff2 @ http://localhost:5180/:169
+[ 9883010ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-1d4169b6.woff2 @ http://localhost:5180/:169
+[ 9883010ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-40c434ad.woff2 @ http://localhost:5180/:169
+[ 9883010ms] [ERROR] Not allowed to load local resource: file:///C:/Users/emaxb/OneDrive/Desktop/thirdattemptpf/.vinext/fonts/great-vibes-2f7863ba0263/great-vibes-7d348aad.woff2 @ http://localhost:5180/:169
+[ 9884639ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=b9fefb38:14337

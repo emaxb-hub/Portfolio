@@ -1,0 +1,24 @@
+EMAAN BILAL
+Frontend Developer | Game Developer
+Rawalpindi / Islamabad, Pakistan
+
+CONTACT
+Email: emaxbilaleo@gmail.com
+GitHub: https://github.com/emaxb-hub
+LinkedIn: https://www.linkedin.com/in/emaan-b-883b0a268/
+
+PROFILE
+Computer Science student building interactive interfaces, games, backend systems, AI-assisted workflows, databases, and computer vision projects.
+
+EXPERIENCE
+Tech Avenue Private Limited - Intern
+Built front-end development skills in a company environment and worked with responsive interfaces and connected services.
+
+NADRA Technologies Limited - Development Intern
+Worked with Java and MySQL while strengthening backend and database development skills.
+
+SKILLS
+HTML, CSS, JavaScript, C++, Python, Assembly, Java, SQL, SFML, JavaFX, Swing, JDBC, Node.js, Express, Flask, OpenCV, Postman, TouchDesigner.
+
+PROJECTS
+WarehouseWare, CityMind AI, Super Mario Clone, Ghardari, Xonix, Kaam Compiler, Space Invaders Clone, Buzz Bomber.
