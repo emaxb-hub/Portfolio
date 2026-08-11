@@ -1618,6 +1618,33 @@ a {
   transform: scaleX(1);
 }
 
+.leadership-section .leadership-entry::after {
+  content: "";
+  align-self: end;
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 1px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.leadership-section .leadership-entry:nth-child(1)::after {
+  background: var(--purple);
+}
+
+.leadership-section .leadership-entry:nth-child(2)::after {
+  background: var(--blue);
+}
+
+.leadership-section .leadership-entry:hover::after,
+.leadership-section .leadership-entry:focus-visible::after,
+.leadership-section .leadership-entry[aria-selected="true"]::after {
+  opacity: 0.86;
+  transform: scaleX(1);
+}
+
 .experience-entry-logo {
   flex: 0 0 clamp(4.2rem, 7vw, 6.4rem);
   width: clamp(4.2rem, 7vw, 6.4rem);
