@@ -45,6 +45,14 @@ type SkillItem = {
   rating?: number;
 };
 
+type SkillGroup = {
+  id: string;
+  title: string;
+  description: string;
+  accent: string;
+  items: SkillItem[];
+};
+
 const skillLanguages: SkillItem[] = [
   { name: "HTML", rating: 4 },
   { name: "CSS", rating: 4 },
@@ -55,7 +63,7 @@ const skillLanguages: SkillItem[] = [
   { name: "Java", rating: 2 },
 ];
 
-const skillGroups = [
+const skillGroups: SkillGroup[] = [
   {
     id: "languages",
     title: "Languages",
@@ -77,7 +85,7 @@ const skillGroups = [
     accent: "#a855f7",
     items: ["Node.js", "Express.js", "React", "Flask", "MongoDB", "Postgres", "SQL", "SFML", "JavaFX", "Swing", "JDBC"].map((name) => ({ name })),
   },
-] as const;
+];
 
 type Project = {
   category: string;
