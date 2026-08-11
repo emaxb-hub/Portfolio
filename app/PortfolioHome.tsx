@@ -1852,7 +1852,7 @@ export default function PortfolioHome() {
                 onFocus={() => activateSkillGroup(group.id)}
                 onClick={() => activateSkillGroup(group.id)}
               >
-                {group.title}
+                <span className="skills-explorer-tab-label">{group.title}</span>
               </button>
             ))}
           </div>

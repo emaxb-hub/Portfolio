@@ -1196,8 +1196,14 @@ a {
   letter-spacing: 0;
   text-align: left;
   cursor: pointer;
+  transition: color 0.24s ease;
+}
+
+.skills-explorer-tab-label {
+  display: block;
+  pointer-events: none;
   transform: translate3d(0, 0, 0);
-  transition: color 0.24s ease, transform 0.24s ease;
+  transition: transform 0.24s ease;
   will-change: transform;
 }
 
@@ -1240,8 +1246,13 @@ a {
 .skills-explorer-tab:hover,
 .skills-explorer-tab:focus-visible,
 .skills-explorer-tab[aria-selected="true"] {
-  transform: translate3d(clamp(0.45rem, 1.2vw, 1rem), 0, 0);
   outline: none;
+}
+
+.skills-explorer-tab:hover .skills-explorer-tab-label,
+.skills-explorer-tab:focus-visible .skills-explorer-tab-label,
+.skills-explorer-tab[aria-selected="true"] .skills-explorer-tab-label {
+  transform: translate3d(clamp(0.45rem, 1.2vw, 1rem), 0, 0);
 }
 
 .skills-explorer-tab:hover::after,
