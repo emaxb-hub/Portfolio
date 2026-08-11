@@ -379,15 +379,15 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.65rem, 2.3vw, 1.8rem);
+  gap: clamp(0.7rem, 2.5vw, 2rem);
   width: 100%;
   margin: 0;
-  overflow: visible;
-  font-family: var(--font-signature), cursive;
-  font-size: clamp(5.2rem, 16vw, 14rem);
-  font-weight: 400;
+  overflow: hidden;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-size: clamp(3.4rem, 14vw, 12rem);
+  font-weight: 950;
   letter-spacing: 0;
-  line-height: 0.9;
+  line-height: 0.86;
   text-align: center;
 }
 
