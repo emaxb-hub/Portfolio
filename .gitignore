@@ -27,6 +27,11 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
+
+# local tooling output
+.codex-dev/
+.playwright-mcp/
 
 # env files (can opt-in for committing if needed)
 .env*
@@ -40,3 +45,7 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# local nested export repos
+/EmaanBilal-portfolio/
+/EmaanBilal-portfolio-live/

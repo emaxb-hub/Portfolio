@@ -7,20 +7,28 @@ async function render() {
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
-  return worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
+  const request = new Request("http://localhost/", {
+    headers: { accept: "text/html" },
+  });
+  const env = {
+    ASSETS: {
+      fetch: async () => new Response("Not found", { status: 404 }),
     },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
-  );
+  };
+  const context = {
+    waitUntil() {},
+    passThroughOnException() {},
+  };
+
+  if (typeof worker?.fetch === "function") {
+    return worker.fetch(request, env, context);
+  }
+
+  if (typeof worker === "function") {
+    return worker(request, context);
+  }
+
+  throw new TypeError("Built server entry does not expose a render handler.");
 }
 
 test("server-renders Emaan Bilal's portfolio shell", async () => {
