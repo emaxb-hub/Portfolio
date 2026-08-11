@@ -95,6 +95,7 @@ a {
   height: 100vh;
   overflow: hidden;
   pointer-events: none;
+  contain: strict;
 }
 
 .hero-kicker,
@@ -1195,7 +1196,9 @@ a {
   letter-spacing: 0;
   text-align: left;
   cursor: pointer;
-  transition: color 0.24s ease, padding-left 0.24s ease;
+  transform: translate3d(0, 0, 0);
+  transition: color 0.24s ease, transform 0.24s ease;
+  will-change: transform;
 }
 
 .skills-explorer-tab:first-child {
@@ -1237,7 +1240,7 @@ a {
 .skills-explorer-tab:hover,
 .skills-explorer-tab:focus-visible,
 .skills-explorer-tab[aria-selected="true"] {
-  padding-left: clamp(0.45rem, 1.2vw, 1rem);
+  transform: translate3d(clamp(0.45rem, 1.2vw, 1rem), 0, 0);
   outline: none;
 }
 
@@ -1261,6 +1264,7 @@ a {
   pointer-events: none;
   transition: opacity 0.24s ease, transform 0.24s ease, visibility 0s linear 0.24s;
   will-change: transform, opacity;
+  contain: layout paint;
 }
 
 .skills-detail-panel[data-active-group]:not([data-active-group=""]) {

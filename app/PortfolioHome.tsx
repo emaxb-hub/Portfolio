@@ -336,16 +336,19 @@ function CanvasLineArt({ sections }: { sections: LineArtSection[] }) {
     if (!context) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const duration = 4.8 * 1000;
-    const stagger = 0.12 * 1000;
+    const staticLineArt = reduceMotion || window.matchMedia("(pointer: coarse), (max-width: 700px)").matches;
+    const duration = 3.2 * 1000;
+    const stagger = 0.08 * 1000;
     const dashLength = 1000;
     const startedAt = new Map<string, number>();
     const targets = new Map<string, HTMLElement>();
     const pathShapes = new Map<string, Path2D[]>();
+    const rects = new Map<string, { left: number; top: number; bottom: number; width: number; height: number }>();
     let frame: number | undefined;
     let width = 0;
     let height = 0;
     let pixelRatio = 1;
+    let rectsDirty = true;
 
     sections.forEach((section) => {
       const target = document.querySelector<HTMLElement>(section.selector);
@@ -374,39 +377,55 @@ function CanvasLineArt({ sections }: { sections: LineArtSection[] }) {
       const target = targets.get(selector);
       if (!target || !isVisible(target) || startedAt.has(selector)) return;
       startedAt.set(selector, performance.now());
+      rectsDirty = true;
       scheduleDraw();
     };
 
+    const updateRects = () => {
+      targets.forEach((target, selector) => {
+        const rect = target.getBoundingClientRect();
+        rects.set(selector, {
+          left: rect.left,
+          top: rect.top,
+          bottom: rect.bottom,
+          width: rect.width,
+          height: rect.height,
+        });
+      });
+      rectsDirty = false;
+    };
+
     const resize = () => {
-      pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      pixelRatio = Math.min(window.devicePixelRatio || 1, staticLineArt ? 1 : 1.5);
       width = window.innerWidth;
       height = window.innerHeight;
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
-      draw(performance.now());
+      rectsDirty = true;
+      scheduleDraw();
     };
 
     const draw = (now: number) => {
       frame = undefined;
+      if (rectsDirty) updateRects();
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
       context.clearRect(0, 0, width, height);
       let animating = false;
 
       sections.forEach((section) => {
         const sectionStart = startedAt.get(section.selector);
-        const target = targets.get(section.selector);
+        const rect = rects.get(section.selector);
         const shapes = pathShapes.get(section.selector);
-        if (sectionStart === undefined || !target || !shapes) return;
+        if (sectionStart === undefined || !rect || !shapes) return;
 
-        const rect = target.getBoundingClientRect();
-        if (rect.bottom <= 0 || rect.top >= height) return;
+        if (rect.bottom <= 0 || rect.top >= height || rect.width <= 0 || rect.height <= 0) return;
 
         section.paths.forEach((path, index) => {
-          const elapsed = now - sectionStart - (reduceMotion ? 0 : index * stagger);
-          const progress = reduceMotion ? 1 : Math.max(0, Math.min(1, elapsed / duration));
-          if (progress < 1) animating = true;
+          const elapsed = now - sectionStart - (staticLineArt ? 0 : index * stagger);
+          const progress = staticLineArt ? 1 : Math.max(0, Math.min(1, elapsed / duration));
+          if (!staticLineArt && progress < 1) animating = true;
 
           context.save();
           context.beginPath();
@@ -414,15 +433,19 @@ function CanvasLineArt({ sections }: { sections: LineArtSection[] }) {
           context.clip();
           context.translate(rect.left, rect.top);
           context.scale(rect.width / 100, rect.height / 100);
-          context.globalAlpha = 0.78;
+          context.globalAlpha = staticLineArt ? 0.58 : 0.78;
           context.strokeStyle = lineArtColorValues[path.color];
-          context.lineWidth = 1.05;
+          context.lineWidth = staticLineArt ? 0.9 : 1.05;
           context.lineCap = "round";
           context.lineJoin = "round";
           context.shadowColor = lineArtColorValues[path.color];
-          context.shadowBlur = 1.8;
-          context.setLineDash([dashLength, dashLength]);
-          context.lineDashOffset = dashLength * (1 - progress);
+          context.shadowBlur = staticLineArt ? 0 : 1.4;
+          if (staticLineArt) {
+            context.setLineDash([]);
+          } else {
+            context.setLineDash([dashLength, dashLength]);
+            context.lineDashOffset = dashLength * (1 - progress);
+          }
           context.stroke(shapes[index]);
           context.restore();
         });
@@ -453,7 +476,10 @@ function CanvasLineArt({ sections }: { sections: LineArtSection[] }) {
       mutations.push(mutation);
     });
 
-    const onScroll = () => scheduleDraw();
+    const onScroll = () => {
+      rectsDirty = true;
+      scheduleDraw();
+    };
     const onResize = () => resize();
     resize();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -778,25 +804,12 @@ function TextEffectWithCustomDelay({
 
 export default function PortfolioHome() {
   const rootRef = useRef<HTMLElement | null>(null);
-  const [activeSkillGroup, setActiveSkillGroup] = useState<string | null>(null);
-  const skillHoverResetRef = useRef<number | undefined>(undefined);
+  const [activeSkillGroup, setActiveSkillGroup] = useState(skillGroups[0]?.id ?? "languages");
   const [activeExperience, setActiveExperience] = useState<string | null>(null);
   const [activeLeadership, setActiveLeadership] = useState<string | null>(null);
 
   function activateSkillGroup(groupId: string) {
-    if (skillHoverResetRef.current !== undefined) {
-      window.clearTimeout(skillHoverResetRef.current);
-      skillHoverResetRef.current = undefined;
-    }
-    setActiveSkillGroup(groupId);
-  }
-
-  function scheduleSkillGroupClear() {
-    if (skillHoverResetRef.current !== undefined) window.clearTimeout(skillHoverResetRef.current);
-    skillHoverResetRef.current = window.setTimeout(() => {
-      skillHoverResetRef.current = undefined;
-      setActiveSkillGroup(null);
-    }, 160);
+    setActiveSkillGroup((current) => (current === groupId ? current : groupId));
   }
 
   useEffect(() => {
@@ -806,6 +819,8 @@ export default function PortfolioHome() {
     if (!root) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const shouldLimitMotion = reduceMotion || isCoarsePointer;
 
     const ctx = gsap.context(() => {
       let aboutCleanup = () => {};
@@ -1209,19 +1224,21 @@ export default function PortfolioHome() {
               "introReveal",
           );
 
-        gsap.utils.toArray<HTMLElement>(".marquee", root).forEach((marquee) => {
-          const track = marquee.querySelector<HTMLElement>(".marquee-track");
-          if (!track) return;
+        if (!shouldLimitMotion) {
+          gsap.utils.toArray<HTMLElement>(".marquee", root).forEach((marquee) => {
+            const track = marquee.querySelector<HTMLElement>(".marquee-track");
+            if (!track) return;
 
-          gsap.fromTo(track, {
-            xPercent: 0,
-          }, {
-            xPercent: -50,
-            duration: Number(marquee.dataset.duration) || 36,
-            repeat: -1,
-            ease: "none",
+            gsap.fromTo(track, {
+              xPercent: 0,
+            }, {
+              xPercent: -50,
+              duration: Number(marquee.dataset.duration) || 36,
+              repeat: -1,
+              ease: "none",
+            });
           });
-        });
+        }
 
         gsap.utils
           .toArray<HTMLElement>(".reveal-row")
@@ -1254,88 +1271,94 @@ export default function PortfolioHome() {
             },
           });
 
-          gsap.to(logo, {
-            y: -5,
-            rotationY: index % 2 === 0 ? 3 : -3,
-            duration: 3.4 + index * 0.18,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            delay: 0.9 + index * 0.16,
-          });
+          if (!shouldLimitMotion) {
+            gsap.to(logo, {
+              y: -5,
+              rotationY: index % 2 === 0 ? 3 : -3,
+              duration: 3.4 + index * 0.18,
+              repeat: -1,
+              yoyo: true,
+              ease: "sine.inOut",
+              delay: 0.9 + index * 0.16,
+            });
+          }
         });
 
-        const magneticButtons = gsap.utils.toArray<HTMLElement>(".magnetic-btn", root);
-        const magneticCleanups: Array<() => void> = [];
+        if (!shouldLimitMotion) {
+          const magneticButtons = gsap.utils.toArray<HTMLElement>(".magnetic-btn", root);
+          const magneticCleanups: Array<() => void> = [];
 
-        magneticButtons.forEach((button) => {
-          const label = button.querySelector<HTMLElement>(".magnetic-label");
+          magneticButtons.forEach((button) => {
+            const label = button.querySelector<HTMLElement>(".magnetic-label");
 
-          const moveButton = (event: PointerEvent) => {
-            const rect = button.getBoundingClientRect();
-            const mappedX = gsap.utils.mapRange(
-              rect.left,
-              rect.right,
-              -rect.width / 2,
-              rect.width / 2,
-              event.clientX,
-            );
-            const mappedY = gsap.utils.mapRange(
-              rect.top,
-              rect.bottom,
-              -rect.height / 2,
-              rect.height / 2,
-              event.clientY,
-            );
+            const moveButton = (event: PointerEvent) => {
+              if (event.pointerType !== "mouse") return;
 
-            gsap.to(button, {
-              x: mappedX * 0.34,
-              y: mappedY * 0.34,
-              duration: 0.34,
-              ease: "power2.out",
-              overwrite: "auto",
-            });
+              const rect = button.getBoundingClientRect();
+              const mappedX = gsap.utils.mapRange(
+                rect.left,
+                rect.right,
+                -rect.width / 2,
+                rect.width / 2,
+                event.clientX,
+              );
+              const mappedY = gsap.utils.mapRange(
+                rect.top,
+                rect.bottom,
+                -rect.height / 2,
+                rect.height / 2,
+                event.clientY,
+              );
 
-            if (label) {
-              gsap.to(label, {
-                x: mappedX * 0.18,
-                y: mappedY * 0.18,
+              gsap.to(button, {
+                x: mappedX * 0.34,
+                y: mappedY * 0.34,
                 duration: 0.34,
                 ease: "power2.out",
                 overwrite: "auto",
               });
-            }
-          };
 
-          const resetButton = () => {
-            gsap.to(button, {
-              x: 0,
-              y: 0,
-              duration: 0.62,
-              ease: "elastic.out(1, 0.45)",
-              overwrite: "auto",
-            });
+              if (label) {
+                gsap.to(label, {
+                  x: mappedX * 0.18,
+                  y: mappedY * 0.18,
+                  duration: 0.34,
+                  ease: "power2.out",
+                  overwrite: "auto",
+                });
+              }
+            };
 
-            if (label) {
-              gsap.to(label, {
+            const resetButton = () => {
+              gsap.to(button, {
                 x: 0,
                 y: 0,
                 duration: 0.62,
                 ease: "elastic.out(1, 0.45)",
                 overwrite: "auto",
               });
-            }
-          };
 
-          button.addEventListener("pointermove", moveButton);
-          button.addEventListener("pointerleave", resetButton);
-          magneticCleanups.push(() => {
-            button.removeEventListener("pointermove", moveButton);
-            button.removeEventListener("pointerleave", resetButton);
+              if (label) {
+                gsap.to(label, {
+                  x: 0,
+                  y: 0,
+                  duration: 0.62,
+                  ease: "elastic.out(1, 0.45)",
+                  overwrite: "auto",
+                });
+              }
+            };
+
+            button.addEventListener("pointermove", moveButton);
+            button.addEventListener("pointerleave", resetButton);
+            magneticCleanups.push(() => {
+              button.removeEventListener("pointermove", moveButton);
+              button.removeEventListener("pointerleave", resetButton);
+            });
           });
-        });
 
-        magneticCleanup = () => magneticCleanups.forEach((cleanup) => cleanup());
+          magneticCleanup = () => magneticCleanups.forEach((cleanup) => cleanup());
+        }
 
         const projectFlipCleanups: Array<() => void> = [];
 
@@ -1535,6 +1558,7 @@ export default function PortfolioHome() {
       }
 
         let flipCtx: gsap.Context | undefined;
+        let galleryResizeCleanup = () => {};
 
         const createTween = () => {
           const galleryElement = root.querySelector<HTMLElement>("#gallery-8");
@@ -1590,11 +1614,15 @@ export default function PortfolioHome() {
         }, root);
       };
 
-      refreshGalleryTween = createTween;
+      if (!shouldLimitMotion) {
+        refreshGalleryTween = createTween;
+        createTween();
 
-      createTween();
+        window.addEventListener("resize", createTween);
+        galleryResizeCleanup = () => window.removeEventListener("resize", createTween);
+      }
 
-      if (!reduceMotion) {
+      if (!shouldLimitMotion) {
         gsap.to(".hero-intro-copy", {
           yPercent: -6,
           rotateX: 1.2,
@@ -1611,8 +1639,6 @@ export default function PortfolioHome() {
         });
       }
 
-        window.addEventListener("resize", createTween);
-
       return () => {
         petCleanup();
         aboutCleanup();
@@ -1620,7 +1646,7 @@ export default function PortfolioHome() {
         magneticCleanup();
           projectFlipCleanup();
           refreshGalleryTween = undefined;
-          window.removeEventListener("resize", createTween);
+          galleryResizeCleanup();
           flipCtx?.revert();
         };
     }, root);
@@ -1810,12 +1836,6 @@ export default function PortfolioHome() {
         </div>
         <div
           className="skills-explorer reveal-row"
-          onPointerLeave={scheduleSkillGroupClear}
-          onBlur={(event) => {
-            if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-              scheduleSkillGroupClear();
-            }
-          }}
         >
           <div className="skills-explorer-tabs" role="tablist" aria-label="Skill categories">
             {skillGroups.map((group) => (
@@ -1830,13 +1850,7 @@ export default function PortfolioHome() {
                 aria-controls="skills-detail-panel"
                 onPointerEnter={() => activateSkillGroup(group.id)}
                 onFocus={() => activateSkillGroup(group.id)}
-                onClick={() => {
-                  if (activeSkillGroup === group.id) {
-                    setActiveSkillGroup(null);
-                  } else {
-                    activateSkillGroup(group.id);
-                  }
-                }}
+                onClick={() => activateSkillGroup(group.id)}
               >
                 {group.title}
               </button>
@@ -1847,9 +1861,9 @@ export default function PortfolioHome() {
             className="skills-detail-panel pet-walk-surface"
             data-pet-surface-id="skills-detail"
             id="skills-detail-panel"
-            data-active-group={activeSkillGroup ?? ""}
+            data-active-group={activeSkillGroup}
             aria-live="polite"
-            aria-hidden={!activeSkillGroup}
+            aria-hidden="false"
           >
             {(() => {
               const group = skillGroups.find((item) => item.id === activeSkillGroup);
