@@ -337,7 +337,10 @@ function CanvasLineArt({ sections }: { sections: LineArtSection[] }) {
     if (!context) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const staticLineArt = reduceMotion || window.matchMedia("(pointer: coarse), (max-width: 700px)").matches;
+    const mobileLineArt = window.matchMedia("(pointer: coarse), (max-width: 700px)").matches;
+    if (mobileLineArt) return;
+
+    const staticLineArt = reduceMotion;
     const duration = 3.2 * 1000;
     const stagger = 0.08 * 1000;
     const dashLength = 1000;
@@ -1701,12 +1704,6 @@ export default function PortfolioHome() {
       overwrite: "auto",
     });
   }, [activeLeadership]);
-
-  useEffect(() => {
-    return () => {
-      if (skillHoverResetRef.current !== undefined) window.clearTimeout(skillHoverResetRef.current);
-    };
-  }, []);
 
   return (
     <main className="portfolio" ref={rootRef}>
