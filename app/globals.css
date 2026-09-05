@@ -1258,37 +1258,28 @@ a {
   transition: opacity 0.24s ease, transform 0.34s ease;
 }
 
-.skills-explorer-tab:nth-child(1):hover,
-.skills-explorer-tab:nth-child(1):focus-visible,
 .skills-explorer-tab[aria-selected="true"][data-group="languages"] {
   color: var(--primary);
 }
 
-.skills-explorer-tab:nth-child(2):hover,
-.skills-explorer-tab:nth-child(2):focus-visible,
 .skills-explorer-tab[aria-selected="true"][data-group="tools"] {
   color: var(--blue);
 }
 
-.skills-explorer-tab:nth-child(3):hover,
-.skills-explorer-tab:nth-child(3):focus-visible,
 .skills-explorer-tab[aria-selected="true"][data-group="libraries-frameworks"] {
   color: var(--purple);
 }
 
-.skills-explorer-tab:hover,
 .skills-explorer-tab:focus-visible,
 .skills-explorer-tab[aria-selected="true"] {
   outline: none;
 }
 
-.skills-explorer-tab:hover .skills-explorer-tab-label,
 .skills-explorer-tab:focus-visible .skills-explorer-tab-label,
 .skills-explorer-tab[aria-selected="true"] .skills-explorer-tab-label {
   transform: translate3d(clamp(0.45rem, 1.2vw, 1rem), 0, 0);
 }
 
-.skills-explorer-tab:hover::after,
 .skills-explorer-tab:focus-visible::after,
 .skills-explorer-tab[aria-selected="true"]::after {
   opacity: 0.86;

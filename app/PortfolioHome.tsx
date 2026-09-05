@@ -817,19 +817,14 @@ export default function PortfolioHome() {
     if (event.pointerType !== "mouse") return;
 
     const tabs = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>(".skills-explorer-tab"));
-    const nearestTab = tabs.reduce<{ tab: HTMLButtonElement; distance: number } | null>((nearest, tab) => {
+    const stableTab = tabs.find((tab) => {
       const rect = tab.getBoundingClientRect();
-      const centerY = rect.top + rect.height / 2;
-      const distance = Math.abs(event.clientY - centerY);
+      const edgeGuard = Math.min(16, rect.height * 0.18);
 
-      if (!nearest || distance < nearest.distance) {
-        return { tab, distance };
-      }
+      return event.clientY > rect.top + edgeGuard && event.clientY < rect.bottom - edgeGuard;
+    });
 
-      return nearest;
-    }, null);
-
-    const groupId = nearestTab?.tab.dataset.group;
+    const groupId = stableTab?.dataset.group;
     if (groupId) activateSkillGroup(groupId);
   }
 
@@ -1874,7 +1869,6 @@ export default function PortfolioHome() {
                 role="tab"
                 aria-selected={activeSkillGroup === group.id}
                 aria-controls="skills-detail-panel"
-                onPointerEnter={() => activateSkillGroup(group.id)}
                 onFocus={() => activateSkillGroup(group.id)}
                 onClick={() => activateSkillGroup(group.id)}
               >
