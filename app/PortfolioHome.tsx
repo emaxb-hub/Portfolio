@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -810,6 +811,26 @@ export default function PortfolioHome() {
 
   function activateSkillGroup(groupId: string) {
     setActiveSkillGroup((current) => (current === groupId ? current : groupId));
+  }
+
+  function handleSkillTabsPointerMove(event: ReactPointerEvent<HTMLDivElement>) {
+    if (event.pointerType !== "mouse") return;
+
+    const tabs = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>(".skills-explorer-tab"));
+    const nearestTab = tabs.reduce<{ tab: HTMLButtonElement; distance: number } | null>((nearest, tab) => {
+      const rect = tab.getBoundingClientRect();
+      const centerY = rect.top + rect.height / 2;
+      const distance = Math.abs(event.clientY - centerY);
+
+      if (!nearest || distance < nearest.distance) {
+        return { tab, distance };
+      }
+
+      return nearest;
+    }, null);
+
+    const groupId = nearestTab?.tab.dataset.group;
+    if (groupId) activateSkillGroup(groupId);
   }
 
   useEffect(() => {
@@ -1837,7 +1858,12 @@ export default function PortfolioHome() {
         <div
           className="skills-explorer reveal-row"
         >
-          <div className="skills-explorer-tabs" role="tablist" aria-label="Skill categories">
+          <div
+            className="skills-explorer-tabs"
+            role="tablist"
+            aria-label="Skill categories"
+            onPointerMove={handleSkillTabsPointerMove}
+          >
             {skillGroups.map((group) => (
               <button
                 className="skills-explorer-tab pet-walk-surface"
